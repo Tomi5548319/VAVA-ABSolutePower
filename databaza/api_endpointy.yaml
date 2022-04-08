@@ -1,0 +1,83 @@
+openapi: 3.0.0
+info:
+  title: VAVA 2022
+  description: Definícia API endpointov na predmet VAVA 2022
+  version: 0.1.0
+tags:
+- name: "Registrácia"
+- name: "Login"
+- name: "Cviky"
+- name: "Workouty"
+
+paths:
+  /register/<login>/<heslo_hash>:
+    get:
+      tags:
+        - "Registrácia"
+      summary: Pre konkrétny login identifikovaný v URL ako <login> s heslom <heslo_hash> vráti údaje o úspešnosti registrácie.
+      description: Vráti `true` pri úspešnej registrácii (login sa nenachádza v databáze) a `false` pri neúspešnej registrácii (login už je obsadený).
+      responses:
+        '200':
+          description: Očakávaná odpoveď vo formáte [JSON](https://www.json.org/json-en.html)
+          content:
+            application/json:
+              schema: 
+                type: object
+                example: 
+                  logged in: true
+
+
+  /login/<login>/<heslo_hash>:
+    get:
+      tags:
+        - "Login"
+      summary: Pre konkrétny login identifikovaný v URL ako <login> s heslom <heslo_hash> vráti údaje o úspešnosti prihlásenia.
+      description: Vráti `true` pri úspešnom logine a `false` pri neúspešnom logine.
+      responses:
+        '200':
+          description: Očakávaná odpoveď vo formáte [JSON](https://www.json.org/json-en.html)
+          content:
+            application/json:
+              schema: 
+                type: object
+                example: 
+                  logged in: true
+  
+  /add_exercise/<login>/<heslo_hash>/<name>/<description>/<photo_url>:
+    get:
+      tags:
+        - "Cviky"
+      summary: Pridá cvik s menom <name> popisom <description> a linkom na fotku <photo_url>
+      description: Pridá cvik s menom <name> popisom <description> a linkom na fotku <photo_url> ak je používateľ <login> prihlásený s <heslo_hash>.
+      responses:
+        '200':
+          description: Očakávaná odpoveď vo formáte [JSON](https://www.json.org/json-en.html)
+          content:
+            application/json:
+              schema: 
+                properties: 
+                  exercise_added:
+                    example: true
+                  
+  /my_workouts/<login>/<heslo_hash>:
+    get:
+      tags:
+        - "Workouty"
+      summary: Pre konkrétny login identifikovaný v URL ako <login> s heslom <heslo_hash> vráti údaje o jeho workoutoch.
+      description: Vráti `true` pri úspešnom logine a `false` pri neúspešnom logine.
+      responses:
+        '200':
+          description: Očakávaná odpoveď vo formáte [JSON](https://www.json.org/json-en.html)
+          content:
+            application/json:
+              schema: 
+                properties: 
+                  workouty:
+                    type: array
+                    items: 
+                      type: object
+                      example: 
+                        name: "Meno Workoutu"
+                        description: "Moj workout popis"
+                        todo: "ostatne parametre"
+                      
