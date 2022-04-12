@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField id="aft_text_area2" layoutX="312.0" layoutY="213.0" prefHeight="60.0" prefWidth="400.0" promptText="Napiš niečo" />
+      <TextField id="aft_text_area3" layoutX="312.0" layoutY="317.0" prefHeight="60.0" prefWidth="400.0" promptText="Napiš niečo" />
+      <TextField id="aft_text_area1" layoutX="312.0" layoutY="115.0" prefHeight="60.0" prefWidth="400.0" promptText="Napiš niečo" />
+      <Label id="aft_header_text" layoutX="312.0" layoutY="32.0" text="Žiadosť o zmenu účtu na trenéra">
+         <font>
+            <Font name="Calibri Bold" size="30.0" />
+         </font>
+      </Label>
+      <Line endX="547.0" layoutX="413.0" layoutY="71.0" startX="-100.0" />
+      <Label id="aft_text1" layoutX="312.0" layoutY="82.0" text="Prečo chceš byť trénerom?">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label id="aft_text2" layoutX="313.0" layoutY="182.0" text="Ake máš skúsenosti s tréningom športovcov?">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label id="aft_text3" layoutX="313.0" layoutY="286.0" text="Dodatočné informácie (voliteľné)">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Line endX="100.0" endY="473.0" layoutX="157.0" layoutY="67.0" startX="100.0" startY="-67.00001525878906" />
+      <ImageView id="aft_icon_send" fx:id="aft_send_application" fitHeight="45.0" fitWidth="45.0" layoutX="312.0" layoutY="473.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/basic_paperplane.png" />
+         </image>
+      </ImageView>
+      <ImageView id="aft_icon_discard" fx:id="aft_discard_aplication" fitHeight="45.0" fitWidth="45.0" layoutX="612.0" layoutY="473.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/basic_ban.png" />
+         </image>
+      </ImageView>
+      <Label id="aft_send_aplication" layoutX="362.0" layoutY="483.0" text="Pošli žiadosť">
+         <font>
+            <Font name="Calibri" size="22.0" />
+         </font>
+      </Label>
+      <Label id="aft_discard_aplication" layoutX="672.0" layoutY="483.0" text="Zruš žiadosť">
+         <font>
+            <Font name="Calibri" size="22.0" />
+         </font>
+      </Label>
+      <ImageView id="aft_icon1" fx:id="aft_select_file" fitHeight="45.0" fitWidth="45.0" layoutX="372.0" layoutY="395.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/basic_sheet_txt%20.png" />
+         </image>
+      </ImageView>
+      <Label id="aft_attachment" layoutX="417.0" layoutY="388.0" prefHeight="60.0" prefWidth="241.0" text="Prílohy (napríklad certifikát, účasť na športových súťažiach)" wrapText="true">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
