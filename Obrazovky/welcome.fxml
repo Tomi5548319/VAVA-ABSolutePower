@@ -10,22 +10,22 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView id="logo" fitHeight="150.0" fitWidth="200.0" layoutX="224.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="welcome_logo" fitHeight="150.0" fitWidth="200.0" layoutX="200.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@logo.png" />
+            <Image url="@../icons/LOGO.png" />
          </image>
       </ImageView>
-      <Button id="register_btn" layoutX="374.0" layoutY="244.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="register">
+      <Button id="welcome_register" layoutX="374.0" layoutY="244.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="register">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button id="login_btn" layoutX="124.0" layoutY="244.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="login">
+      <Button id="welcome_login" layoutX="124.0" layoutY="244.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="login">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Text id="text_area1" layoutX="161.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to our application">
+      <Text id="welcome_text1" layoutX="161.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to our application">
          <font>
             <Font name="Calibri Bold" size="24.0" />
          </font>
