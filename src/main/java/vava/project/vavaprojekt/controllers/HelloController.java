@@ -1,10 +1,11 @@
-package vava.project.vavaprojekt;
+package vava.project.vavaprojekt.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import vava.project.vavaprojekt.App;
 
 public class HelloController {
     private final App app;

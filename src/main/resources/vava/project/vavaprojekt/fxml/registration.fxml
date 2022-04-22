@@ -11,33 +11,33 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextField id="registration_textarea2" layoutX="226.0" layoutY="205.0" prefHeight="30.0" prefWidth="149.0" AnchorPane.bottomAnchor="165.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="225.0" AnchorPane.topAnchor="205.0" />
-      <Text id="registration_text2" layoutX="226.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+      <TextField fx:id="registration_textarea2" layoutX="226.0" layoutY="205.0" prefHeight="30.0" prefWidth="149.0" AnchorPane.bottomAnchor="165.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="225.0" AnchorPane.topAnchor="205.0" />
+      <Text fx:id="registration_text2" layoutX="226.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
          <font>
             <Font name="Calibri Bold" size="18.0" />
          </font>
       </Text>
-      <TextField id="registration_textarea1" layoutX="226.0" layoutY="141.0" prefHeight="30.0" prefWidth="149.0" />
-      <Text id="registration_text1" layoutX="226.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-Mail">
+      <TextField fx:id="registration_textarea1" layoutX="226.0" layoutY="141.0" prefHeight="30.0" prefWidth="149.0" />
+      <Text fx:id="registration_text1" layoutX="226.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-Mail">
          <font>
             <Font name="Calibri Bold" size="18.0" />
          </font>
       </Text>
-      <Text id="registration_text3" layoutX="226.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+      <Text fx:id="registration_text3" layoutX="226.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
          <font>
             <Font name="Calibri Bold" size="18.0" />
          </font>
       </Text>
-      <Button id="register_btn" layoutX="258.0" layoutY="327.0" mnemonicParsing="false" text="Register">
+      <Button fx:id="register_btn" layoutX="258.0" layoutY="327.0" mnemonicParsing="false" text="Register">
          <font>
             <Font name="Calibri Bold" size="18.0" />
          </font>
       </Button>
-      <ImageView id="registration_logo" fitHeight="115.0" fitWidth="149.0" layoutX="227.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="registration_logo" fitHeight="115.0" fitWidth="149.0" layoutX="227.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../icons/LOGO.png" />
          </image>
       </ImageView>
-      <PasswordField id="registration_textarea3" layoutX="227.0" layoutY="267.0" prefHeight="30.0" prefWidth="149.0" />
+      <PasswordField fx:id="registration_textarea3" layoutX="227.0" layoutY="267.0" prefHeight="30.0" prefWidth="149.0" />
    </children>
 </AnchorPane>

@@ -10,4 +10,6 @@ module vava.project.vavaprojekt {
 
     opens vava.project.vavaprojekt to javafx.fxml;
     exports vava.project.vavaprojekt;
+    exports vava.project.vavaprojekt.controllers;
+    opens vava.project.vavaprojekt.controllers to javafx.fxml;
 }

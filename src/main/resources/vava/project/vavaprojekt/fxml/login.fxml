@@ -12,7 +12,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" scaleShape="false" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button id="login_button" layoutX="247.0" layoutY="296.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Login">
+      <Button fx:id="login_button" layoutX="247.0" layoutY="296.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Login">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -20,22 +20,22 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <ImageView id="login_logo" fitHeight="150.0" fitWidth="200.0" layoutX="209.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="login_logo" fitHeight="150.0" fitWidth="200.0" layoutX="209.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../icons/LOGO.png" />
          </image>
       </ImageView>
-      <Text id="login_text1" layoutX="228.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User name">
+      <Text fx:id="login_text1" layoutX="228.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User name">
          <font>
             <Font name="Calibri Bold" size="18.0" />
          </font>
       </Text>
-      <TextField id="login_textarea1" layoutX="225.0" layoutY="184.0" />
-      <Text id="login_text2" layoutX="225.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+      <TextField fx:id="login_textarea1" layoutX="225.0" layoutY="184.0" />
+      <Text fx:id="login_text2" layoutX="225.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
          <font>
             <Font name="Calibri Bold" size="18.0" />
          </font>
       </Text>
-      <PasswordField id="login_textarea2" layoutX="226.0" layoutY="247.0" />
+      <PasswordField fx:id="login_textarea2" layoutX="226.0" layoutY="247.0" />
    </children>
 </AnchorPane>

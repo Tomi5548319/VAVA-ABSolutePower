@@ -1,20 +1,15 @@
 package vava.project.vavaprojekt;
 
 import javafx.animation.PauseTransition;
-import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import vava.project.vavaprojekt.controllers.*;
 
 import java.io.*;
-import java.util.*;
 
 /**
  * Trieda obsahujúca spoločné údaje medzi oknami
@@ -33,7 +28,7 @@ public final class App {
         //this.loadData();
 
         stage.setTitle("Mighty Gainz");
-        this.changeWindow("hello-view");
+        this.changeWindow("welcome");
     }
 
     public static void start() {
@@ -91,8 +86,14 @@ public final class App {
 
             //root = FXMLLoader.load(getClass().getResource("/fxml/admin.fxml")); // Old version
             switch (fxmlFile) {
-                case "hello-view":
-                    fxmlLoader.setController(new HelloController(this));
+                case "welcome":
+                    fxmlLoader.setController(new WelcomeController(this));
+                    break;
+                case "login":
+                    fxmlLoader.setController(new LoginController(this));
+                    break;
+                case "registration":
+                    fxmlLoader.setController(new RegisterController(this));
                     break;
             }
             Scene scene = new Scene(fxmlLoader.load());
