@@ -31,7 +31,7 @@ public class Database {
             while (rs.next()) {
                 String account_type = rs.getString("account_type");
                 //rs.get
-                System.out.println("Account type: " + account_type);
+                System.out.println("Successfully logged in as " + login + ", Account type: " + account_type);
             }
         } catch (SQLException e) {
             System.out.println("User " + login + " does not exist with password hash " + passwordHash);
