@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="710.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField fx:id="text_area1" layoutX="105.0" layoutY="116.0" prefHeight="55.0" prefWidth="484.0" />
+      <Line endX="261.0" layoutX="141.0" layoutY="60.0" startX="-100.0" />
+      <Text layoutX="41.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Application for training" wrappingWidth="342.13671875">
+         <font>
+            <Font name="Calibri Bold" size="32.0" />
+         </font>
+      </Text>
+      <Text layoutX="105.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How often do you exercise and what exercises do you perform?">
+         <font>
+            <Font name="Calibri Bold" size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="text_area2" layoutX="106.0" layoutY="206.0" prefHeight="55.0" prefWidth="484.0" />
+      <Text layoutX="106.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="What are your expectations from training?">
+         <font>
+            <Font name="Calibri Bold" size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="text_area3" layoutX="106.0" layoutY="298.0" prefHeight="55.0" prefWidth="484.0" />
+      <Text layoutX="106.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="What are your preferred sports activities?">
+         <font>
+            <Font name="Calibri Bold" size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="text_area4" layoutX="106.0" layoutY="390.0" prefHeight="55.0" prefWidth="484.0" />
+      <Text layoutX="106.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" text="What are your preferred sports activities?">
+         <font>
+            <Font name="Calibri Bold" size="18.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="btn_send" fitHeight="45.0" fitWidth="45.0" layoutX="106.0" layoutY="477.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../DomashenkoBohdan/MTAA/VAVA-ABSolutePower/src/main/resources/vava/project/vavaprojekt/icons/basic_paperplane.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="btn_discard" fitHeight="45.0" fitWidth="45.0" layoutX="348.0" layoutY="471.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../DomashenkoBohdan/MTAA/VAVA-ABSolutePower/src/main/resources/vava/project/vavaprojekt/icons/basic_ban.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="157.0" layoutY="511.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Send request">
+         <font>
+            <Font name="Calibri Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="403.0" layoutY="511.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Discard changes">
+         <font>
+            <Font name="Calibri Bold" size="18.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
