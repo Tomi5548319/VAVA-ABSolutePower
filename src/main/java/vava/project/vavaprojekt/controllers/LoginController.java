@@ -10,20 +10,18 @@ import vava.project.vavaprojekt.App;
 import vava.project.vavaprojekt.Password;
 import vava.project.vavaprojekt.data.User;
 
-public class LoginController {
-
-    private final App app;
+public class LoginController extends Controller {
 
     @FXML private Button button_login;
     @FXML private TextField textField_username;
     @FXML private PasswordField passwordField_password;
 
     public LoginController(App app) {
-        this.app = app;
+        super(app);
     }
 
     @FXML
-    private void initialize() {
+    protected void initialize() {
         button_login.setOnAction(this::login);
     }
 

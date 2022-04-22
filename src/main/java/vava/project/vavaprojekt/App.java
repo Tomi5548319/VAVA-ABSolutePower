@@ -18,6 +18,7 @@ public final class App {
 
     //private User logged;
     private final Stage stage;
+    private final Stage menu_stage;
     private Database database;
 
     private App(Stage stage) {
@@ -49,33 +50,10 @@ public final class App {
     ////////////// Methods Called from anywhere ////////////////
     ////////////////////////////////////////////////////////////
 
-    // TODO don't call these from the controller, call them on the user directly
-    public void displayMessageToUser(String message) {
-        // TODO don't stack popups on each other
-        // TODO change style
-        // TODO popupy maju suradnice na obrazovke, nie v okne (dokazu ist mimo okna ak pohnes oknom (keby nieco kontaktuj Luba))
-        System.out.println("Message: \"" + message + "\"");
-
-        final Popup popup = new Popup();
-        Label label = new Label(message);
-        popup.getContent().add(label);
-
-        popup.setOnShown(e -> {
-                    popup.setX(stage.getX() + stage.getWidth()/2 - popup.getWidth()/2);
-                    popup.setY(stage.getY() + stage.getHeight() - popup.getHeight()*2);
-                }
-        );
-
-        PauseTransition delay = new PauseTransition(Duration.seconds(3));
-        delay.setOnFinished(e -> popup.hide()); // Lambda
-
-        popup.show(stage);
-        delay.play();
-    }
-
     private void log(String message) {
         // TODO logs
         System.out.println("Log: " + message);
+
     }
 
     public void changeWindow(String fxmlFile, Object... data) {

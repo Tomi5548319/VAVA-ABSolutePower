@@ -46,3 +46,26 @@ CREATE TABLE IF NOT EXISTS user_activity_logs(
 	FOREIGN KEY (user_id)
       REFERENCES users (id)
 );
+
+CREATE TABLE IF NOT EXISTS profile_avatars(
+	id serial PRIMARY KEY,
+	photo_url TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS user_activity_logs(
+	id serial PRIMARY KEY,
+	nickname varchar(50) NOT NULL,
+	avatar_id INT NOT NULL,
+	description TEXT,
+	weight DECIMAL,
+	height DECIMAL,
+	banned BOOLEAN NOT NULL,
+	banned_untill TIMESTAMP,
+	user_id INT NOT NULL,
+	
+	FOREIGN KEY (avatar_id)
+      REFERENCES profile_avatars (id),
+	
+	FOREIGN KEY (user_id)
+      REFERENCES users (id)
+);
