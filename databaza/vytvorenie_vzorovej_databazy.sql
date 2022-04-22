@@ -126,3 +126,13 @@ CREATE TABLE IF NOT EXISTS training_requests(
 	FOREIGN KEY (trainer_id)
       REFERENCES sportsmen (id)
 );
+
+CREATE TABLE IF NOT EXISTS training_questions_answers(
+	id serial PRIMARY KEY,
+	answer TEXT NOT NULL,
+	request_id INT NOT NULL,
+	question_id INT NOT NULL,
+	
+	FOREIGN KEY (request_id)
+      REFERENCES training_requests (id)
+);
