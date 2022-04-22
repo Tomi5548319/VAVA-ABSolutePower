@@ -15,27 +15,54 @@ VALUES ('sportsman');
 INSERT INTO account_types (type)
 VALUES ('trainer');
 
+CREATE TABLE IF NOT EXISTS languages(
+	id serial PRIMARY KEY,
+	language varchar(20) NOT NULL
+);
+
+INSERT INTO languages (language)
+VALUES ('english');
+
+INSERT INTO languages (language)
+VALUES ('slovak');
+
 CREATE TABLE IF NOT EXISTS users(
 	id serial PRIMARY KEY,
 	account_type INT NOT NULL,
+	language_id INT NOT NULL,
 	login varchar(50) UNIQUE NOT NULL,
 	password varchar(50) NOT NULL,
 	
 	FOREIGN KEY (account_type)
-      REFERENCES account_types (id)
+      REFERENCES account_types (id),
+	  
+	FOREIGN KEY (language_id)
+      REFERENCES languages (id)
 );
 
-INSERT INTO users (account_type, login, password)
-VALUES (1, 'admin', 'ehqmr');
+INSERT INTO users (account_type, language_id, login, password)
+VALUES (1, 1, 'admin', 'ehqmr');
 
-INSERT INTO users (account_type, login, password)
-VALUES (2, 'verifier', 'zivmjmiv');
+INSERT INTO users (account_type, language_id, login, password)
+VALUES (2, 1, 'verifier', 'zivmjmiv');
 
-INSERT INTO users (account_type, login, password)
-VALUES (3, 'sportsman', 'wtsvxwqer');
+INSERT INTO users (account_type, language_id, login, password)
+VALUES (3, 1, 'sportsman', 'wtsvxwqer');
 
-INSERT INTO users (account_type, login, password)
-VALUES (4, 'trainer', 'xvemriv');
+INSERT INTO users (account_type, language_id, login, password)
+VALUES (4, 1, 'trainer', 'xvemriv');
+
+INSERT INTO users (account_type, language_id, login, password)
+VALUES (1, 2, 'admin-sk', 'ehqmr');
+
+INSERT INTO users (account_type, language_id, login, password)
+VALUES (2, 2, 'verifier-sk', 'zivmjmiv');
+
+INSERT INTO users (account_type, language_id, login, password)
+VALUES (3, 2, 'sportsman-sk', 'wtsvxwqer');
+
+INSERT INTO users (account_type, language_id, login, password)
+VALUES (4, 2, 'trainer-sk', 'xvemriv');
 
 CREATE TABLE IF NOT EXISTS user_activity_logs(
 	id serial PRIMARY KEY,
@@ -98,9 +125,4 @@ CREATE TABLE IF NOT EXISTS training_requests(
 	
 	FOREIGN KEY (trainer_id)
       REFERENCES sportsmen (id)
-);
-
-CREATE TABLE IF NOT EXISTS languages(
-	id serial PRIMARY KEY,
-	language varchar(20) NOT NULL
 );
