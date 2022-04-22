@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS profile_avatars(
 	photo_url TEXT NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS user_activity_logs(
+CREATE TABLE IF NOT EXISTS sportsmen(
 	id serial PRIMARY KEY,
 	nickname varchar(50) NOT NULL,
 	avatar_id INT NOT NULL,
@@ -68,4 +68,39 @@ CREATE TABLE IF NOT EXISTS user_activity_logs(
 	
 	FOREIGN KEY (user_id)
       REFERENCES users (id)
+);
+
+CREATE TABLE IF NOT EXISTS sportsman_trainers(
+	id serial PRIMARY KEY,
+	active BOOLEAN NOT NULL,
+	trainer_id INT NOT NULL,
+	sportsman_id INT NOT NULL,
+	rating INT,
+	
+	FOREIGN KEY (trainer_id)
+      REFERENCES sportsmen (id),
+	
+	FOREIGN KEY (sportsman_id)
+      REFERENCES sportsmen (id)
+);
+
+CREATE TABLE IF NOT EXISTS training_requests(
+	id serial PRIMARY KEY,
+	created_at TIMESTAMP NOT NULL,
+	sportsman_id INT NOT NULL,
+	trainer_id INT NOT NULL,
+	expires_at TIMESTAMP NOT NULL,
+	accepted BOOLEAN,
+	reply_text TEXT,
+	
+	FOREIGN KEY (sportsman_id)
+      REFERENCES sportsmen (id),
+	
+	FOREIGN KEY (trainer_id)
+      REFERENCES sportsmen (id)
+);
+
+CREATE TABLE IF NOT EXISTS languages(
+	id serial PRIMARY KEY,
+	language varchar(20) NOT NULL
 );
