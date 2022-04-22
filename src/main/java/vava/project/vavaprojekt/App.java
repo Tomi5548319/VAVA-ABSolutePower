@@ -18,7 +18,7 @@ public final class App {
 
     //private User logged;
     private final Stage stage;
-    private final Stage menu_stage;
+    //private final Stage menu_stage;
     private Database database;
 
     private App(Stage stage) {
