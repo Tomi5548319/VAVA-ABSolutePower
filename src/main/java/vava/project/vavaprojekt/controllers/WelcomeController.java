@@ -9,8 +9,8 @@ public class WelcomeController {
 
     private final App app;
 
-    @FXML private Button welcome_register;
-    @FXML private Button welcome_login;
+    @FXML private Button button_register;
+    @FXML private Button button_login;
 
     public WelcomeController(App app) {
         this.app = app;
@@ -18,8 +18,8 @@ public class WelcomeController {
 
     @FXML
     private void initialize() {
-        welcome_register.setOnAction(this::register);
-        welcome_login.setOnAction(this::login);
+        button_register.setOnAction(this::register);
+        button_login.setOnAction(this::login);
     }
 
     private void register(ActionEvent event) {

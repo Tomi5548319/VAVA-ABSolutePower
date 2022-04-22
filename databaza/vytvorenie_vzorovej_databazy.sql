@@ -36,3 +36,13 @@ VALUES (3, 'sportsman', 'wtsvxwqer');
 
 INSERT INTO users (account_type, login, password)
 VALUES (4, 'trainer', 'xvemriv');
+
+CREATE TABLE IF NOT EXISTS user_activity_logs(
+	id serial PRIMARY KEY,
+	activity TEXT NOT NULL,
+	time TIMESTAMP NOT NULL,
+	user_id INT NOT NULL,
+	
+	FOREIGN KEY (user_id)
+      REFERENCES users (id)
+);

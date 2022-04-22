@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField id="aft_text_area2" layoutX="312.0" layoutY="213.0" prefHeight="60.0" prefWidth="400.0" promptText="Napiš niečo" />
       <TextField id="aft_text_area3" layoutX="312.0" layoutY="317.0" prefHeight="60.0" prefWidth="400.0" promptText="Napiš niečo" />

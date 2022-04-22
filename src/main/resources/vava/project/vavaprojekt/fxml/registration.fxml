@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField fx:id="registration_textarea2" layoutX="226.0" layoutY="205.0" prefHeight="30.0" prefWidth="149.0" AnchorPane.bottomAnchor="165.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="225.0" AnchorPane.topAnchor="205.0" />
       <Text fx:id="registration_text2" layoutX="226.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">

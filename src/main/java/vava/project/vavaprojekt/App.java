@@ -18,11 +18,15 @@ public final class App {
 
     //private User logged;
     private final Stage stage;
+    private Database database;
 
     private App(Stage stage) {
         //stage.setOnCloseRequest(e -> this.logout());
 
         this.stage = stage;
+        this.database = new Database();
+
+        stage.setOnCloseRequest(e -> this.database.close());
 
         //if(App.users == null)
         //this.loadData();
@@ -34,7 +38,11 @@ public final class App {
     public static void start() {
         Stage stage = new Stage();
 
-        App app = new App(stage);
+        new App(stage);
+    }
+
+    public void login(String login, String passwordHash) {
+        database.login(login, passwordHash);
     }
 
     ////////////////////////////////////////////////////////////
