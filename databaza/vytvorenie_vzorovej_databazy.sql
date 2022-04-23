@@ -55,11 +55,6 @@ CREATE TABLE IF NOT EXISTS user_activity_logs(
       REFERENCES users (id)
 );
 
-CREATE TABLE IF NOT EXISTS profile_avatars(
-	id serial PRIMARY KEY,
-	photo_url TEXT NOT NULL
-);
-
 CREATE TABLE IF NOT EXISTS sportsmen(
 	id serial PRIMARY KEY,
 	nickname varchar(50) NOT NULL,
@@ -70,9 +65,6 @@ CREATE TABLE IF NOT EXISTS sportsmen(
 	banned BOOLEAN NOT NULL,
 	banned_untill TIMESTAMP,
 	user_id INT NOT NULL,
-	
-	FOREIGN KEY (avatar_id)
-      REFERENCES profile_avatars (id),
 	
 	FOREIGN KEY (user_id)
       REFERENCES users (id)
@@ -232,15 +224,6 @@ CREATE TABLE IF NOT EXISTS upgrade_requests(
 	
 	FOREIGN KEY (sportsman_id)
       REFERENCES sportsmen (id)
-);
-
-CREATE TABLE IF NOT EXISTS requests_files(
-	id serial PRIMARY KEY,
-	file_url TEXT NOT NULL,
-	request_id INT NOT NULL,
-	
-	FOREIGN KEY (request_id)
-      REFERENCES upgrade_requests (id)
 );
 
 CREATE TABLE IF NOT EXISTS upgrade_questions_answers(
