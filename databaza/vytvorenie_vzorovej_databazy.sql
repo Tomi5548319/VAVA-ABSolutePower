@@ -141,3 +141,21 @@ CREATE TABLE IF NOT EXISTS exercises(
 	photo_url TEXT
 );
 
+CREATE TABLE IF NOT EXISTS exercises_in_workouts(
+	id serial PRIMARY KEY,
+	sets INT NOT NULL,
+	exercise_id INT NOT NULL,
+	workout_id INT NOT NULL,
+	completed_sets INT NOT NULL,
+	repetitions INT,
+	extra_weight DECIMAL,
+	rest INTERVAL NOT NULL,
+	time_for_rep INTERVAL,
+	reps_selected BOOLEAN NOT NULL,
+	
+	FOREIGN KEY (exercise_id)
+      REFERENCES exercises (id),
+	
+	FOREIGN KEY (workout_id)
+      REFERENCES workouts (id)
+);
