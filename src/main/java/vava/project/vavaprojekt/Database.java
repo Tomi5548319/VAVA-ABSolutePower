@@ -1,12 +1,42 @@
 package vava.project.vavaprojekt;
 
 import java.sql.*;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class Database {
     private Connection conn = null;
 
+
+    static String getWord(Locale curLoc, String key) {
+
+        try {
+            ResourceBundle words = ResourceBundle.getBundle("lang", curLoc);
+
+            return words.getString(key);
+        }
+        catch(Exception e) {
+            System.out.printf("Locale: %s, %s key error%n", curLoc.toString(), key);
+        }
+        return "";
+    }
+
+
     public Database()
     {
+
+        Locale[] locales = {
+                new Locale("sk", "SK"),
+                Locale.ENGLISH
+        };
+
+        System.out.println("w1:");
+
+        for (Locale locale : locales) {
+            System.out.println("w1_" + locale.toString() + ": " + getWord(locale, "w2"));
+        }
+
+
         try {
             this.conn = DriverManager.getConnection("jdbc:postgresql://vava-mightygainz.cfjpdf44uln2.us-east-1.rds.amazonaws.com:5432/VAVA_MightyGainz_db", "xoross", "vava.G4inz");
         }
@@ -15,6 +45,11 @@ public class Database {
         }
     }
 
+    private String executeSQL() {
+        return "";
+    }
+    //alt+insert na projekte
+    // AKE?
     private String modify(String string) {
         return string;
     }
