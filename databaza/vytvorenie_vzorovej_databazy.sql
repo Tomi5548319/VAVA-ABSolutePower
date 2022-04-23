@@ -159,3 +159,28 @@ CREATE TABLE IF NOT EXISTS exercises_in_workouts(
 	FOREIGN KEY (workout_id)
       REFERENCES workouts (id)
 );
+
+CREATE TABLE IF NOT EXISTS competitions(
+	id serial PRIMARY KEY,
+	start_time TIMESTAMP NOT NULL,
+	workout_id INT NOT NULL,
+	end_time TIMESTAMP NOT NULL,
+	max_participants INT,
+	
+	FOREIGN KEY (workout_id)
+      REFERENCES workouts (id)
+);
+
+CREATE TABLE IF NOT EXISTS participants(
+	id serial PRIMARY KEY,
+	sportsman_id INT NOT NULL,
+	progress INT NOT NULL,
+	competition_id INT NOT NULL,
+	paused BOOLEAN NOT NULL,
+	
+	FOREIGN KEY (sportsman_id)
+      REFERENCES sportsmen (id),
+	
+	FOREIGN KEY (competition_id)
+      REFERENCES competitions (id)
+);
