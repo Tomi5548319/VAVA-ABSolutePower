@@ -72,6 +72,7 @@ public class MenuController extends Controller {
 
 
 
+
     private void logout(MouseEvent e) {
         app.logout();
         app.changeWindow("welcome");

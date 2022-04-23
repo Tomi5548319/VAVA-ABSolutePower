@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Line endX="261.0" layoutX="141.0" layoutY="60.0" startX="-100.0" />
+      <Text fx:id="header_text" layoutX="41.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ziadosti o trening" wrappingWidth="342.13671875">
+         <font>
+            <Font name="Calibri Bold" size="32.0" />
+         </font>
+      </Text>
+      <ListView layoutX="51.0" layoutY="89.0" prefHeight="397.0" prefWidth="599.0" />
+      <HBox layoutX="51.0" layoutY="95.0" prefHeight="126.0" prefWidth="599.0" AnchorPane.bottomAnchor="319.0" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="95.0">
+         <children>
+            <VBox prefHeight="123.0" prefWidth="106.0">
+               <children>
+                  <Text fx:id="username" strokeType="OUTSIDE" strokeWidth="0.0" text="Username " wrappingWidth="108.13671875">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="5.0" />
+                     </VBox.margin>
+                  </Text>
+                  <ImageView fx:id="profile_photo" fitHeight="93.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../DomashenkoBohdan/MTAA/VAVA-ABSolutePower/src/main/resources/vava/project/vavaprojekt/icons/basic_eye_closed.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets left="5.0" />
+                     </VBox.margin>
+                  </ImageView>
+               </children>
+            </VBox>
+            <TextFlow minWidth="-Infinity" prefHeight="108.0" prefWidth="291.0" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="lvl :" wrappingWidth="34.13671875">
+               <font>
+                  <Font size="22.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="30.0" top="25.0" />
+               </HBox.margin>
+            </Text>
+            <Text fx:id="level" strokeType="OUTSIDE" strokeWidth="0.0" text="5" wrappingWidth="34.13671875">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <HBox.margin>
+                  <Insets top="25.0" />
+               </HBox.margin>
+            </Text>
+            <Line endX="-100.41421508789062" endY="122.29289245605469" startX="-100.0" strokeWidth="2.0">
+               <HBox.margin>
+                  <Insets left="25.0" />
+               </HBox.margin>
+            </Line>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <ImageView fx:id="approve_btn" fitHeight="57.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../DomashenkoBohdan/MTAA/VAVA-ABSolutePower/src/main/resources/vava/project/vavaprojekt/icons/basic_paperplane.png" />
+                     </image>
+                  </ImageView>
+                  <Line endX="-45.70710754394531" endY="-0.36396121978759766" startX="-100.0" strokeWidth="2.0" />
+                  <ImageView fx:id="discard_btn" fitHeight="57.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../DomashenkoBohdan/MTAA/VAVA-ABSolutePower/src/main/resources/vava/project/vavaprojekt/icons/basic_ban.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+         </children>
+         <rotationAxis>
+            <Point3D />
+         </rotationAxis>
+      </HBox>
+      <ImageView fitHeight="77.0" fitWidth="50.0" layoutX="473.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../DomashenkoBohdan/MTAA/VAVA-ABSolutePower/src/main/resources/vava/project/vavaprojekt/icons/basic_message.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="requests_count" layoutX="527.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="pocet ziadosti :" wrappingWidth="108.13671875">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fx:id="count" layoutX="641.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="X " wrappingWidth="108.13671875">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <AnchorPane layoutX="650.0" layoutY="89.0">
+         <children>
+            <ScrollBar layoutX="4.0" orientation="VERTICAL" prefHeight="397.0" prefWidth="14.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
