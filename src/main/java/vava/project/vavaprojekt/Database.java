@@ -39,17 +39,25 @@ public class Database {
 
         try {
             this.conn = DriverManager.getConnection("jdbc:postgresql://vava-mightygainz.cfjpdf44uln2.us-east-1.rds.amazonaws.com:5432/VAVA_MightyGainz_db", "xoross", "vava.G4inz");
+            System.out.println("Uspesne som sa pripojil k databaze");
         }
         catch (SQLException exSQL) {
             System.out.println("Nepripojil som sa - " + exSQL.getMessage());
         }
     }
 
-    private String executeSQL() {
-        return "";
+    private ResultSet safeExecuteSQL(String query, String... variables) throws SQLException {
+        PreparedStatement stmt = conn.prepareStatement(query);
+
+        int i = 1;
+        for (String variable : variables) {
+            stmt.setString(i, variable);
+            i++;
+        }
+
+        return stmt.executeQuery();
     }
-    //alt+insert na projekte
-    // AKE?
+
     private String modify(String string) {
         return string;
     }
@@ -59,17 +67,23 @@ public class Database {
         login = modify(login);
         passwordHash = modify(passwordHash);
 
-        try (Statement stmt = conn.createStatement()) {
-            ResultSet rs = stmt.executeQuery(
-                    "SELECT account_types.type AS account_type FROM users JOIN account_types ON account_types.id = users.account_type WHERE login = '" + login + "' AND password = '" + passwordHash + "'"
-            );
-            while (rs.next()) {
+        try (ResultSet rs = this.safeExecuteSQL(
+                "SELECT account_types.type AS account_type FROM users " +
+                        "JOIN account_types ON account_types.id = users.account_type " +
+                        "WHERE login = ? AND password = ?",
+                login, passwordHash
+        )) {
+            if (rs.next()) {
                 String account_type = rs.getString("account_type");
                 //rs.get
-                System.out.println("Successfully logged in as " + login + ", Account type: " + account_type);
+                System.out.println("Successfully logged in as \"" + login + "\", Account type: " + account_type);
             }
-        } catch (SQLException e) {
-            System.out.println("User " + login + " does not exist with password hash " + passwordHash);
+            else {
+                System.out.println("User \"" + login + "\" does not exist with password hash \"" + passwordHash + "\"");
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
         }
 
         return false;
