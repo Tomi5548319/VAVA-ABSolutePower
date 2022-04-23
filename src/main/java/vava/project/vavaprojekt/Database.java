@@ -1,12 +1,13 @@
 package vava.project.vavaprojekt;
 
+import vava.project.vavaprojekt.data.User;
+
 import java.sql.*;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class Database {
     private Connection conn = null;
-
 
     static String getWord(Locale curLoc, String key) {
 
@@ -20,7 +21,6 @@ public class Database {
         }
         return "";
     }
-
 
     public Database()
     {
@@ -58,25 +58,21 @@ public class Database {
         return stmt.executeQuery();
     }
 
-    private String modify(String string) {
-        return string;
-    }
-
-    public boolean login(String login, String passwordHash) {
-
-        login = modify(login);
-        passwordHash = modify(passwordHash);
+    public User getUser(String login, String passwordHash) {
 
         try (ResultSet rs = this.safeExecuteSQL(
                 "SELECT account_types.type AS account_type FROM users " +
                         "JOIN account_types ON account_types.id = users.account_type " +
                         "WHERE login = ? AND password = ?",
                 login, passwordHash
-        )) {
+        ))
+        {
             if (rs.next()) {
                 String account_type = rs.getString("account_type");
-                //rs.get
+
                 System.out.println("Successfully logged in as \"" + login + "\", Account type: " + account_type);
+
+                return User.login(login, passwordHash, account_type);
             }
             else {
                 System.out.println("User \"" + login + "\" does not exist with password hash \"" + passwordHash + "\"");
@@ -86,7 +82,7 @@ public class Database {
             e.printStackTrace();
         }
 
-        return false;
+        return null;
     }
 
     public void close()

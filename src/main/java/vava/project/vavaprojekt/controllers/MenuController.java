@@ -93,9 +93,6 @@ public class MenuController extends Controller {
                 default:
                     throw new Exception("Zle meno stranky!");
             }
-            System.out.println(pagename);
-            System.out.println(fxmlLoader.getResources());
-            //System.out.println(fxmlLoader//.get);
             this.view = fxmlLoader.load();
         }
         catch (Exception e) {

@@ -2,19 +2,33 @@ package vava.project.vavaprojekt.data;
 
 import vava.project.vavaprojekt.App;
 
-public class User {
+import java.util.Locale;
 
-    private String login;
-    private String password;
-    private String type;
+public abstract class User {
 
-    private User()
+    protected String login;
+    protected String password_hash;
+    protected String account_type;
+    protected Locale language;
+
+    protected User(String login, String passwordHash, String account_type)
     {
-
+        this.login = login;
+        this.password_hash = passwordHash;
+        this.account_type = account_type;
     }
 
-    public static User login(App app, String login, String passwordHash) {
-        app.login(login, passwordHash);
+    public static User login(String login, String passwordHash, String account_type) {
+
+        switch (account_type) {
+            case "admin":
+                return new Admin(login, passwordHash);
+            case "verifier":
+                return new Verifier(login, passwordHash);
+            case "sportsman":
+            case "trainer":
+                return new Sportsman(login, passwordHash, account_type);
+        }
         return null;
     }
 }
