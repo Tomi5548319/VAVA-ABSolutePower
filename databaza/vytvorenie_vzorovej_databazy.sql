@@ -184,3 +184,19 @@ CREATE TABLE IF NOT EXISTS participants(
 	FOREIGN KEY (competition_id)
       REFERENCES competitions (id)
 );
+
+CREATE TABLE IF NOT EXISTS personal_bests(
+	id serial PRIMARY KEY,
+	extra_weight INT,
+	sportsman_id INT NOT NULL,
+	exercise_id INT NOT NULL,
+	repetitions INT,
+	time INTERVAL,
+	reps_selected BOOLEAN NOT NULL,
+	
+	FOREIGN KEY (sportsman_id)
+      REFERENCES sportsmen (id),
+	
+	FOREIGN KEY (exercise_id)
+      REFERENCES exercises (id)
+);
