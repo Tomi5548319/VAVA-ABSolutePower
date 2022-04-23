@@ -1,6 +1,7 @@
 package vava.project.vavaprojekt.controllers;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
@@ -31,13 +32,26 @@ public class MenuController extends Controller {
 
     public MenuController(App a) {
         super(a);
-        //this.loadPage("aplication_for_training");
+        //this.loadPage("homepage");
+    }
+
+    @FXML
+    private void textEntered(MouseEvent event) {
+        Text t = (Text) event.getSource();
+        t.setUnderline(true);
+    }
+
+    @FXML
+    private void textExited(MouseEvent event) {
+        Text t = (Text) event.getSource();
+        t.setUnderline(false);
     }
 
     @FXML
     protected void initialize() {
 
         //screen_pane = (AnchorPane) view;
+        menu_text1.setStyle("-fx-text-fill: #5263ff;");
 
         menu_text1.setOnMouseClicked(this::page_home);
         //menu_text2.setOnMouseClicked(this::textUI);
@@ -52,29 +66,18 @@ public class MenuController extends Controller {
 
     private void page_home(MouseEvent e)
     {
-        this.loadPage("aplication_for_training");
+        //this.loadPage("homepage");
         menu_text1.setStyle("-fx-text-fill: #5263ff;");
     }
 
 
 
     private void logout(MouseEvent e) {
+        app.logout();
         app.changeWindow("welcome");
     }
 
-    @FXML
-    private void textEntered(MouseEvent event)
-    {
-        Text t = (Text) event.getSource();
-        t.setUnderline(true);
-    }
 
-    @FXML
-    private void textExited(MouseEvent event)
-    {
-        Text t = (Text) event.getSource();
-        t.setUnderline(false);
-    }
 
 
     public void loadPage(String pagename)

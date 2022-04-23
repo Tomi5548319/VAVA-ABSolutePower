@@ -58,21 +58,37 @@ public class Database {
         return stmt.executeQuery();
     }
 
-    public User getUser(String login, String passwordHash) {
+    public User login(String login, String passwordHash) {
 
         try (ResultSet rs = this.safeExecuteSQL(
-                "SELECT account_types.type AS account_type FROM users " +
-                        "JOIN account_types ON account_types.id = users.account_type " +
+                "SELECT account_types.type AS account_type, languages.lang AS language, languages.cntry AS country\n" +
+                        "FROM users\n" +
+                        "JOIN account_types ON account_types.id = users.account_type\n" +
+                        "JOIN languages ON users.language_id = languages.id\n" +
                         "WHERE login = ? AND password = ?",
                 login, passwordHash
         ))
         {
             if (rs.next()) {
                 String account_type = rs.getString("account_type");
+                Locale language = new Locale(rs.getString("language"), rs.getString("country"));
 
                 System.out.println("Successfully logged in as \"" + login + "\", Account type: " + account_type);
 
-                return User.login(login, passwordHash, account_type);
+                User user = User.login(login, passwordHash, account_type, language);
+
+                switch (account_type) {
+                    case "sportsman":
+                    case "trainer":
+                        // Sportsman or trainer
+                        break;
+                    case "admin":
+                        break;
+                    case "verifier":
+                        break;
+                }
+
+                return user;
             }
             else {
                 System.out.println("User \"" + login + "\" does not exist with password hash \"" + passwordHash + "\"");

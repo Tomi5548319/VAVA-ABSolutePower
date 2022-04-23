@@ -6,29 +6,32 @@ import java.util.Locale;
 
 public abstract class User {
 
-    protected String login;
-    protected String password_hash;
-    protected String account_type;
-    protected Locale language;
+    private String login;
+    private String password_hash;
+    private String account_type;
+    private Locale language;
 
-    protected User(String login, String passwordHash, String account_type)
+    protected User(String login, String passwordHash, String account_type, Locale language)
     {
         this.login = login;
         this.password_hash = passwordHash;
         this.account_type = account_type;
+        this.language = language;
     }
 
-    public static User login(String login, String passwordHash, String account_type) {
+    public static User login(String login, String passwordHash, String account_type, Locale language) {
 
         switch (account_type) {
             case "admin":
-                return new Admin(login, passwordHash);
+                return new Admin(login, passwordHash, language);
             case "verifier":
-                return new Verifier(login, passwordHash);
-            case "sportsman":
-            case "trainer":
-                return new Sportsman(login, passwordHash, account_type);
+                return new Verifier(login, passwordHash, language);
+            default:
+                return new Sportsman(login, passwordHash, account_type, language);
         }
-        return null;
+    }
+
+    public Locale getLanguage() {
+        return this.language;
     }
 }
