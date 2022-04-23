@@ -25,6 +25,8 @@ public class LoginController extends Controller {
         button_login.setOnAction(this::login);
     }
 
+
+
     private void login(ActionEvent event) {
         String login = textField_username.getText();
         String passwordHash = Password.getHash(passwordField_password.getText());
@@ -33,6 +35,7 @@ public class LoginController extends Controller {
         System.out.println("Password hash: " + passwordHash);
 
         User.login(app, login, passwordHash);
+        app.changeWindow("main_view");
     }
 
 }

@@ -5,19 +5,18 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import vava.project.vavaprojekt.App;
 
-public class WelcomeController {
+public class WelcomeController extends Controller {
 
-    private final App app;
 
     @FXML private Button button_register;
     @FXML private Button button_login;
 
     public WelcomeController(App app) {
-        this.app = app;
+        super(app);
     }
 
     @FXML
-    private void initialize() {
+    protected void initialize() {
         button_register.setOnAction(this::register);
         button_login.setOnAction(this::login);
     }

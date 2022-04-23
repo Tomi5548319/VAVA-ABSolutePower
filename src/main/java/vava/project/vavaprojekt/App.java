@@ -18,10 +18,10 @@ public final class App {
 
     //private User logged;
     private final Stage stage;
-    //private final Stage menu_stage;
     private Database database;
+    private String language;
 
-    private App(Stage stage) {
+    private App (Stage stage) {
         //stage.setOnCloseRequest(e -> this.logout());
 
         this.stage = stage;
@@ -38,18 +38,13 @@ public final class App {
 
     public static void start() {
         Stage stage = new Stage();
-
         new App(stage);
     }
 
     public void login(String login, String passwordHash) {
         database.login(login, passwordHash);
+        //this.changeWindow("main_view");
     }
-
-    ////////////////////////////////////////////////////////////
-    ////////////// Methods Called from anywhere ////////////////
-    ////////////////////////////////////////////////////////////
-
     private void log(String message) {
         // TODO logs
         System.out.println("Log: " + message);
@@ -58,19 +53,13 @@ public final class App {
 
     public void changeWindow(String fxmlFile, Object... data) {
         try {
-            //this.log("Opening file \"" + fxmlFile + "\"");
-            //Parent root = FXMLLoader.load(new File("src/ui/fxml/" + fxmlFile + ".fxml").toURI().toURL());
             FXMLLoader fxmlLoader;
-            /*switch (fxmlFile) {
-                case "hello-view":
-                    fxmlLoader = new FXMLLoader(Main.class.getResource("fxml/hello-view.fxml"));
-                    break;
-                default:*/
-                    fxmlLoader = new FXMLLoader(Main.class.getResource("fxml/" + fxmlFile + ".fxml"));
-                    /*break;
-            }*/
+            fxmlLoader = new FXMLLoader(Main.class.getResource("fxml/" + fxmlFile + ".fxml"));
 
-            //root = FXMLLoader.load(getClass().getResource("/fxml/admin.fxml")); // Old version
+
+            System.out.println(fxmlFile);
+            System.out.println("res " + fxmlLoader.getResources());
+            System.out.println("loc " + fxmlLoader.getLocation());
             switch (fxmlFile) {
                 case "welcome":
                     fxmlLoader.setController(new WelcomeController(this));
@@ -81,13 +70,24 @@ public final class App {
                 case "registration":
                     fxmlLoader.setController(new RegisterController(this));
                     break;
+                case "main_view":
+                    System.out.println("call ");
+                    fxmlLoader.setController(new MenuController(this));
+                    break;
+                default:
+                    throw new Exception("Screen not found!");
             }
-            Scene scene = new Scene(fxmlLoader.load());
-            stage.setScene(scene);
 
+            System.out.println("here ");
+
+            Scene scene = new Scene(fxmlLoader.load());
+            System.out.println("here ");
+            stage.setScene(scene);
+            System.out.println("here ");
             stage.show();
-        } catch (IOException e) {
-            //this.error("Ooops! File not found:\n" + e);
+            System.out.println("here ");
+        }
+        catch (Exception e) {
             e.printStackTrace();
         }
     }

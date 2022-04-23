@@ -4,20 +4,21 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import vava.project.vavaprojekt.App;
 
-public class RegisterController {
-
-    private final App app;
+public class RegisterController extends Controller {
 
     public RegisterController(App app) {
-        this.app = app;
+        super(app);
+
     }
 
     @FXML
-    private void initialize() {
+    protected void initialize() {
     }
 
     private void exampleButtonAction(ActionEvent event) {
         // TODO do something here
     }
+
+
 
 }
