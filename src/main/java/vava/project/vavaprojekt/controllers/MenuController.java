@@ -1,7 +1,5 @@
 package vava.project.vavaprojekt.controllers;
 
-import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
@@ -11,7 +9,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import vava.project.vavaprojekt.App;
+import vava.project.vavaprojekt.Language;
 import vava.project.vavaprojekt.Main;
+
+import java.util.Locale;
 
 public class MenuController extends Controller {
     protected Pane view;
@@ -50,6 +51,28 @@ public class MenuController extends Controller {
     @FXML
     protected void initialize() {
 
+        Locale language = app.getLanguage();
+
+        String acc_type = app.getUser().getAccount_type();
+        menu_username.setText(app.getUser().getLogin());
+        menu_text1.setText(Language.getWord(language, "homepage"));
+        menu_text2.setText(Language.getWord(language, "my_workouts"));
+
+        switch (acc_type) {
+            case "admin":
+                menu_text2.setVisible(false);
+                break;
+            case "verifier":
+                menu_text2.setVisible(false);
+                break;
+            case "sportsman":
+
+                break;
+            case "trainer":
+
+                break;
+        }
+
         //screen_pane = (AnchorPane) view;
         menu_text1.setStyle("-fx-text-fill: #5263ff;");
 
@@ -70,16 +93,10 @@ public class MenuController extends Controller {
         menu_text1.setStyle("-fx-text-fill: #5263ff;");
     }
 
-
-
-
     private void logout(MouseEvent e) {
         app.logout();
         app.changeWindow("welcome");
     }
-
-
-
 
     public void loadPage(String pagename)
     {

@@ -13,10 +13,6 @@ public final class Database {
 
     public Database()
     {
-
-        /*Locale locale = new Locale("sk", "SK");
-        System.out.println("w1_" + locale.toString() + ": " + Language.getWord(locale, "w2"));*/
-
         try {
             this.conn = DriverManager.getConnection("jdbc:postgresql://vava-mightygainz.cfjpdf44uln2.us-east-1.rds.amazonaws.com:5432/VAVA_MightyGainz_db", "xoross", "vava.G4inz");
             System.out.println("Uspesne som sa pripojil k databaze");

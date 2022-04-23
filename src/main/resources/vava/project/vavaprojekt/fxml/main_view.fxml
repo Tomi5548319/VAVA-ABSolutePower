@@ -24,7 +24,7 @@
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                <children>
                   <Circle fx:id="menu_photo" fill="#b9b9b9" radius="54.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="1.5" />
-                  <Text fx:id="menu_username" strokeType="OUTSIDE" strokeWidth="0.0" text="USERNAME" wrappingWidth="111.807861328125">
+                  <Text fx:id="menu_username" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="111.807861328125">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
@@ -112,7 +112,7 @@
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></ImageView>
-                  <Text fx:id="menu_text1" onMouseEntered="#textEntered" onMouseExited="#textExited" strokeType="OUTSIDE" strokeWidth="0.0" text="Homepage" GridPane.columnIndex="1">
+                  <Text fx:id="menu_text1" onMouseEntered="#textEntered" onMouseExited="#textExited" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets left="15.0" />
                      </GridPane.margin>
@@ -123,7 +123,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Text>
-                  <Text fx:id="menu_text2" onMouseEntered="#textEntered" onMouseExited="#textExited" strokeType="OUTSIDE" strokeWidth="0.0" text="Workouts" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Text fx:id="menu_text2" onMouseEntered="#textEntered" onMouseExited="#textExited" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="15.0" />
                      </GridPane.margin>

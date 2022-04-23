@@ -22,13 +22,13 @@ public class WelcomeController extends Controller {
 
     @FXML
     protected void initialize() {
-        button_register.setOnAction(this::register);
-        button_login.setOnAction(this::login);
         Locale language = app.getLanguage();
-
         button_register.setText(Language.getWord(language, "sign_up"));
         button_login.setText(Language.getWord(language, "sign_in"));
         text_welcome.setText(Language.getWord(language, "welcome"));
+
+        button_register.setOnAction(this::register);
+        button_login.setOnAction(this::login);
     }
 
     private void register(ActionEvent event) {

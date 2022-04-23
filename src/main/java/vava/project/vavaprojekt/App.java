@@ -38,6 +38,9 @@ public final class App {
     public Locale getLanguage() {
         return this.language;
     }
+    public User getUser() {
+        return this.logged_user;
+    }
 
     public static void start() {
         Stage stage = new Stage();

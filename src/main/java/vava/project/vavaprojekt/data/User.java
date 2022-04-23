@@ -34,4 +34,12 @@ public abstract class User {
     public Locale getLanguage() {
         return this.language;
     }
+
+    public String getAccount_type() {
+        return this.account_type;
+    }
+
+    public String getLogin() {
+        return this.login;
+    }
 }
