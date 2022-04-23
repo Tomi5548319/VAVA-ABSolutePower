@@ -223,3 +223,32 @@ CREATE TABLE IF NOT EXISTS reports(
 	FOREIGN KEY (workout_id)
       REFERENCES workouts (id)
 );
+
+CREATE TABLE IF NOT EXISTS upgrade_requests(
+	id serial PRIMARY KEY,
+	created_at TIMESTAMP NOT NULL,
+	sportsman_id INT NOT NULL,
+	accepted boolean,
+	
+	FOREIGN KEY (sportsman_id)
+      REFERENCES sportsmen (id)
+);
+
+CREATE TABLE IF NOT EXISTS requests_files(
+	id serial PRIMARY KEY,
+	file_url TEXT NOT NULL,
+	request_id INT NOT NULL,
+	
+	FOREIGN KEY (request_id)
+      REFERENCES upgrade_requests (id)
+);
+
+CREATE TABLE IF NOT EXISTS upgrade_questions_answers(
+	id serial PRIMARY KEY,
+	answer TEXT NOT NULL,
+	request_id INT NOT NULL,
+	question_id INT NOT NULL,
+	
+	FOREIGN KEY (request_id)
+      REFERENCES upgrade_requests (id)
+);
