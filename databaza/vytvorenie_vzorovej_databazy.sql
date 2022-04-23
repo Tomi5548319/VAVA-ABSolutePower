@@ -4,27 +4,22 @@ CREATE TABLE IF NOT EXISTS account_types(
 );
 
 INSERT INTO account_types (type)
-VALUES ('admin');
-
-INSERT INTO account_types (type)
-VALUES ('verifier');
-
-INSERT INTO account_types (type)
-VALUES ('sportsman');
-
-INSERT INTO account_types (type)
-VALUES ('trainer');
+VALUES ('admin'),
+('verifier'),
+('sportsman'),
+('trainer');
 
 CREATE TABLE IF NOT EXISTS languages(
 	id serial PRIMARY KEY,
-	language varchar(20) NOT NULL
+	language varchar(20) NOT NULL,
+	lang varchar(2) NOT NULL,
+	country varchar(30) NOT NULL,
+	cntry varchar(2) NOT NULL
 );
 
-INSERT INTO languages (language)
-VALUES ('english');
-
-INSERT INTO languages (language)
-VALUES ('slovak');
+INSERT INTO languages (language, lang, country, cntry)
+VALUES ('English', 'en', 'United Kingdom', 'GB'),
+('Slovak', 'sk', 'Slovakia', 'SK');
 
 CREATE TABLE IF NOT EXISTS users(
 	id serial PRIMARY KEY,
@@ -41,28 +36,14 @@ CREATE TABLE IF NOT EXISTS users(
 );
 
 INSERT INTO users (account_type, language_id, login, password)
-VALUES (1, 1, 'admin', 'ehqmr');
-
-INSERT INTO users (account_type, language_id, login, password)
-VALUES (2, 1, 'verifier', 'zivmjmiv');
-
-INSERT INTO users (account_type, language_id, login, password)
-VALUES (3, 1, 'sportsman', 'wtsvxwqer');
-
-INSERT INTO users (account_type, language_id, login, password)
-VALUES (4, 1, 'trainer', 'xvemriv');
-
-INSERT INTO users (account_type, language_id, login, password)
-VALUES (1, 2, 'admin-sk', 'ehqmr');
-
-INSERT INTO users (account_type, language_id, login, password)
-VALUES (2, 2, 'verifier-sk', 'zivmjmiv');
-
-INSERT INTO users (account_type, language_id, login, password)
-VALUES (3, 2, 'sportsman-sk', 'wtsvxwqer');
-
-INSERT INTO users (account_type, language_id, login, password)
-VALUES (4, 2, 'trainer-sk', 'xvemriv');
+VALUES (1, 1, 'admin', 'ehqmr'),
+(2, 1, 'verifier', 'zivmjmiv'),
+(3, 1, 'sportsman', 'wtsvxwqer'),
+(4, 1, 'trainer', 'xvemriv'),
+(1, 2, 'admin-sk', 'ehqmr'),
+(2, 2, 'verifier-sk', 'zivmjmiv'),
+(3, 2, 'sportsman-sk', 'wtsvxwqer'),
+(4, 2, 'trainer-sk', 'xvemriv');
 
 CREATE TABLE IF NOT EXISTS user_activity_logs(
 	id serial PRIMARY KEY,
@@ -136,3 +117,27 @@ CREATE TABLE IF NOT EXISTS training_questions_answers(
 	FOREIGN KEY (request_id)
       REFERENCES training_requests (id)
 );
+
+CREATE TABLE IF NOT EXISTS report_reasons(
+	id serial PRIMARY KEY,
+	name TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS workouts(
+	id serial PRIMARY KEY,
+	name varchar(50) NOT NULL,
+	owner_id INT NOT NULL,
+	description TEXT,
+	scheduled_for TIMESTAMP,
+	
+	FOREIGN KEY (owner_id)
+      REFERENCES sportsmen (id)
+);
+
+CREATE TABLE IF NOT EXISTS exercises(
+	id serial PRIMARY KEY,
+	name varchar(50) NOT NULL,
+	description TEXT,
+	photo_url TEXT
+);
+
