@@ -200,3 +200,26 @@ CREATE TABLE IF NOT EXISTS personal_bests(
 	FOREIGN KEY (exercise_id)
       REFERENCES exercises (id)
 );
+
+CREATE TABLE IF NOT EXISTS reports(
+	id serial PRIMARY KEY,
+	date TIMESTAMP NOT NULL,
+	reporter_id INT NOT NULL,
+	reported_id INT NOT NULL,
+	reason INT NOT NULL,
+	workout_id INT,
+	description TEXT,
+	solved BOOLEAN NOT NULL,
+	
+	FOREIGN KEY (reporter_id)
+      REFERENCES sportsmen (id),
+	
+	FOREIGN KEY (reported_id)
+      REFERENCES sportsmen (id),
+	
+	FOREIGN KEY (reason)
+      REFERENCES report_reasons (id),
+	
+	FOREIGN KEY (workout_id)
+      REFERENCES workouts (id)
+);
