@@ -73,6 +73,13 @@ public final class App {
                 case "main_view":
                     fxmlLoader.setController(new MenuController(this));
                     break;
+                case "aplication_for_trainer":
+                    fxmlLoader.setController(new AplicationForTrainerController(this));
+                    break;
+                case "request_for_training":
+                    fxmlLoader.setController(new RequestForTrainingController(this));
+                    break;
+
                 default:
                     throw new Exception("Screen not found!");
             }
