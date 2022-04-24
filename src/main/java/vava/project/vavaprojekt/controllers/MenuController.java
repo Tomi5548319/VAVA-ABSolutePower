@@ -14,7 +14,7 @@ import vava.project.vavaprojekt.Main;
 
 import java.util.Locale;
 
-public class MenuController extends Controller {
+public final class MenuController extends Controller {
     protected Pane view;
 
     @FXML private GridPane menu_options;
@@ -50,28 +50,7 @@ public class MenuController extends Controller {
 
     @FXML
     protected void initialize() {
-
-        Locale language = app.getLanguage();
-
-        String acc_type = app.getUser().getAccount_type();
-        menu_username.setText(app.getUser().getLogin());
-        menu_text1.setText(Language.getWord(language, "homepage"));
-        menu_text2.setText(Language.getWord(language, "my_workouts"));
-
-        switch (acc_type) {
-            case "admin":
-                menu_text2.setVisible(false);
-                break;
-            case "verifier":
-                menu_text2.setVisible(false);
-                break;
-            case "sportsman":
-
-                break;
-            case "trainer":
-
-                break;
-        }
+        this.updateLanguage();
 
         //screen_pane = (AnchorPane) view;
         menu_text1.setStyle("-fx-text-fill: #5263ff;");
@@ -85,6 +64,27 @@ public class MenuController extends Controller {
         //menu_text7.setOnMouseClicked(this::textUI);
         menu_text8.setOnMouseClicked(this::logout);
 
+    }
+
+    @Override
+    protected void setLanguage(Locale language) {
+        String acc_type = app.getUser().getAccount_type();
+        menu_username.setText(app.getUser().getLogin());
+        menu_text1.setText(Language.getWord(language, "homepage"));
+        menu_text2.setText(Language.getWord(language, "my_workouts"));
+
+        switch (acc_type) {
+            case "admin":
+                menu_text2.setVisible(false);
+                break;
+            case "verifier":
+                menu_text2.setVisible(false);
+                break;
+            case "sportsman":
+                break;
+            case "trainer":
+                break;
+        }
     }
 
     private void page_home(MouseEvent e)

@@ -9,7 +9,7 @@ import vava.project.vavaprojekt.Language;
 
 import java.util.Locale;
 
-public class WelcomeController extends Controller {
+public final class WelcomeController extends Controller {
 
 
     @FXML private Button button_register;
@@ -22,13 +22,17 @@ public class WelcomeController extends Controller {
 
     @FXML
     protected void initialize() {
-        Locale language = app.getLanguage();
-        button_register.setText(Language.getWord(language, "sign_up"));
-        button_login.setText(Language.getWord(language, "sign_in"));
-        text_welcome.setText(Language.getWord(language, "welcome"));
+        this.updateLanguage();
 
         button_register.setOnAction(this::register);
         button_login.setOnAction(this::login);
+    }
+
+    @Override
+    protected void setLanguage(Locale language) {
+        button_register.setText(Language.getWord(language, "sign_up"));
+        button_login.setText(Language.getWord(language, "sign_in"));
+        text_welcome.setText(Language.getWord(language, "welcome"));
     }
 
     private void register(ActionEvent event) {

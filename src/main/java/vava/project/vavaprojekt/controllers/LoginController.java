@@ -14,7 +14,7 @@ import vava.project.vavaprojekt.data.User;
 
 import java.util.Locale;
 
-public class LoginController extends Controller {
+public final class LoginController extends Controller {
 
     @FXML private Text text_username;
     @FXML private TextField textField_username;
@@ -28,12 +28,16 @@ public class LoginController extends Controller {
 
     @FXML
     protected void initialize() {
-        Locale language = app.getLanguage();
+        this.updateLanguage();
+
+        button_login.setOnAction(this::login);
+    }
+
+    @Override
+    protected void setLanguage(Locale language) {
         text_username.setText(Language.getWord(language, "username"));
         text_password.setText(Language.getWord(language, "password"));
         button_login.setText(Language.getWord(language, "login"));
-
-        button_login.setOnAction(this::login);
     }
 
     private void login(ActionEvent event) {
