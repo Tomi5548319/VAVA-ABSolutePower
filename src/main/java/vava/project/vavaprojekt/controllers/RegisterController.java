@@ -17,7 +17,6 @@ public final class RegisterController extends Controller {
     protected void initialize() {
         this.updateLanguage();
 
-        
     }
 
     @Override
