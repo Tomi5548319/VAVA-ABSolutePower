@@ -12,11 +12,10 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <DatePicker fx:id="date_picker" layoutX="281.0" layoutY="23.0" prefHeight="28.0" prefWidth="122.0" />
-      <ChoiceBox fx:id="lang_box" accessibleText="Language" layoutX="548.0" layoutY="11.0" prefHeight="17.0" prefWidth="128.0" />
+      <ChoiceBox fx:id="lang_box" accessibleText="Language" layoutX="545.0" layoutY="14.0" prefHeight="20.0" prefWidth="125.0" />
       <Text fx:id="text_workout" layoutX="34.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Planned workouts" wrappingWidth="206.39999999999986">
          <font>
             <Font name="Times New Roman Bold Italic" size="25.0" />
