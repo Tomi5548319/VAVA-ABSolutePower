@@ -15,19 +15,18 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ChoiceBox fx:id="lang_box" accessibleText="Language" layoutX="545.0" layoutY="17.0" prefHeight="20.0" prefWidth="125.0" />
-      <Text fx:id="text_search" layoutX="204.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Other users" wrappingWidth="255.1999877929686">
+      <Text fx:id="text_search" layoutX="176.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%user_search" wrappingWidth="255.1999877929686">
          <font>
-            <Font name="Times New Roman Bold Italic" size="25.0" />
+            <Font name="Calibri Bold" size="35.0" />
          </font>
       </Text>
       <ListView fx:id="list_users" layoutX="176.0" layoutY="70.0" prefHeight="456.0" prefWidth="498.0" />
       <VBox alignment="TOP_CENTER" layoutX="14.0" layoutY="77.0" prefHeight="390.0" prefWidth="143.0" spacing="30.0">
          <children>
-            <Text fx:id="text_users" strokeType="OUTSIDE" strokeWidth="0.0" text="All users" textAlignment="CENTER" wrappingWidth="143.43770027160645">
+            <Text fx:id="text_users" strokeType="OUTSIDE" strokeWidth="0.0" text="%all_users" textAlignment="CENTER" wrappingWidth="143.43770027160645">
                <font>
                   <Font size="16.0" />
                </font>
@@ -35,7 +34,7 @@
                   <Insets bottom="-25.0" />
                </VBox.margin>
             </Text>
-            <Slider fx:id="slider_users" blockIncrement="50.0" majorTickUnit="50.0" minorTickCount="0" prefHeight="40.0" prefWidth="138.0" snapToTicks="true" value="50.0">
+            <Slider fx:id="slider_users" minorTickCount="40" prefHeight="40.0" prefWidth="102.0" showTickLabels="true" showTickMarks="true" value="50.0">
                <VBox.margin>
                   <Insets left="30.0" right="30.0" />
                </VBox.margin>
@@ -45,7 +44,7 @@
                   <Insets top="-10.0" />
                </VBox.margin>
             </Separator>
-            <Text fx:id="text_weight" strokeType="OUTSIDE" strokeWidth="0.0" text="Weight" textAlignment="CENTER" wrappingWidth="113.03767585754395">
+            <Text fx:id="text_weight" strokeType="OUTSIDE" strokeWidth="0.0" text="%weight" textAlignment="CENTER" wrappingWidth="113.03767585754395">
                <font>
                   <Font size="16.0" />
                </font>
@@ -63,7 +62,7 @@
                </VBox.margin>
             </HBox>
             <Spinner fx:id="spinner_weight" editable="true" prefHeight="33.0" prefWidth="106.0" />
-            <Text fx:id="text_height" strokeType="OUTSIDE" strokeWidth="0.0" text="Height" textAlignment="CENTER" wrappingWidth="113.03767585754395">
+            <Text fx:id="text_height" strokeType="OUTSIDE" strokeWidth="0.0" text="%height" textAlignment="CENTER" wrappingWidth="113.03767585754395">
                <font>
                   <Font size="16.0" />
                </font>
@@ -109,7 +108,7 @@
                   </Separator>
                   <VBox alignment="TOP_CENTER" prefHeight="66.0" prefWidth="67.0" spacing="5.0">
                      <children>
-                        <Text fx:id="item_textweight" strokeType="OUTSIDE" strokeWidth="0.0" text="Weight" textAlignment="CENTER" wrappingWidth="82.63765144348145">
+                        <Text fx:id="item_textweight" strokeType="OUTSIDE" strokeWidth="0.0" text="%weight" textAlignment="CENTER" wrappingWidth="82.63765144348145">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -126,7 +125,7 @@
                   </VBox>
                   <VBox alignment="TOP_CENTER" prefHeight="74.0" prefWidth="35.0" spacing="5.0">
                      <children>
-                        <Text fx:id="item_textheight" strokeType="OUTSIDE" strokeWidth="0.0" text="Height" textAlignment="CENTER" wrappingWidth="70.6377124786377">
+                        <Text fx:id="item_textheight" strokeType="OUTSIDE" strokeWidth="0.0" text="%height" textAlignment="CENTER" wrappingWidth="70.6377124786377">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -149,7 +148,7 @@
                   <Insets bottom="5.0" left="15.0" right="5.0" top="5.0" />
                </padding>
             </HBox>
-            <Text fx:id="item_textdesc" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="111.451904296875">
+            <Text fx:id="item_textdesc" strokeType="OUTSIDE" strokeWidth="0.0" text="%description" wrappingWidth="111.451904296875">
                <VBox.margin>
                   <Insets bottom="-5.0" left="18.0" />
                </VBox.margin>
@@ -157,7 +156,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Text>
-            <TextArea fx:id="item_desc" editable="false" prefHeight="38.0" prefWidth="432.0" text="User has no description" wrapText="true">
+            <TextArea fx:id="item_desc" editable="false" prefHeight="38.0" prefWidth="432.0" text="%no_description" wrapText="true">
                <VBox.margin>
                   <Insets left="8.0" right="8.0" />
                </VBox.margin>

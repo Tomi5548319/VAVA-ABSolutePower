@@ -8,29 +8,28 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextField id="aft_text_area2" layoutX="312.0" layoutY="213.0" prefHeight="60.0" prefWidth="400.0" promptText="Napiš niečo" />
-      <TextField id="aft_text_area3" layoutX="312.0" layoutY="317.0" prefHeight="60.0" prefWidth="400.0" promptText="Napiš niečo" />
-      <TextField id="aft_text_area1" layoutX="312.0" layoutY="115.0" prefHeight="60.0" prefWidth="400.0" promptText="Napiš niečo" />
-      <Label id="aft_header_text" layoutX="312.0" layoutY="32.0" text="Žiadosť o zmenu účtu na trenéra">
+      <TextField id="aft_text_area2" layoutX="312.0" layoutY="213.0" prefHeight="60.0" prefWidth="400.0" promptText="%write_smth" />
+      <TextField id="aft_text_area3" layoutX="312.0" layoutY="317.0" prefHeight="60.0" prefWidth="400.0" promptText="%write_smth" />
+      <Label id="aft_header_text" layoutX="312.0" layoutY="32.0" text="%upgrade_to_coach">
          <font>
             <Font name="Calibri Bold" size="30.0" />
          </font>
       </Label>
+      <TextField id="aft_text_area1" layoutX="312.0" layoutY="115.0" prefHeight="60.0" prefWidth="400.0" promptText="%write_smth" />
       <Line endX="547.0" layoutX="413.0" layoutY="71.0" startX="-100.0" />
-      <Label id="aft_text1" layoutX="312.0" layoutY="82.0" text="Prečo chceš byť trénerom?">
+      <Label id="aft_text1" layoutX="312.0" layoutY="82.0" text="%q1">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label id="aft_text2" layoutX="313.0" layoutY="182.0" text="Ake máš skúsenosti s tréningom športovcov?">
+      <Label id="aft_text2" layoutX="313.0" layoutY="182.0" text="%q2">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label id="aft_text3" layoutX="313.0" layoutY="286.0" text="Dodatočné informácie (voliteľné)">
+      <Label id="aft_text3" layoutX="313.0" layoutY="286.0" text="%q3">
          <font>
             <Font size="18.0" />
          </font>
@@ -46,12 +45,12 @@
             <Image url="@../icons/basic_ban.png" />
          </image>
       </ImageView>
-      <Label id="aft_send_aplication" layoutX="362.0" layoutY="483.0" text="Pošli žiadosť">
+      <Label id="aft_send_aplication" layoutX="362.0" layoutY="483.0" text="%send_request">
          <font>
             <Font name="Calibri" size="22.0" />
          </font>
       </Label>
-      <Label id="aft_discard_aplication" layoutX="672.0" layoutY="483.0" text="Zruš žiadosť">
+      <Label id="aft_discard_aplication" layoutX="672.0" layoutY="483.0" text="%cancel_request">
          <font>
             <Font name="Calibri" size="22.0" />
          </font>
@@ -61,7 +60,7 @@
             <Image url="@../icons/basic_sheet_txt%20.png" />
          </image>
       </ImageView>
-      <Label id="aft_attachment" layoutX="417.0" layoutY="388.0" prefHeight="60.0" prefWidth="241.0" text="Prílohy (napríklad certifikát, účasť na športových súťažiach)" wrapText="true">
+      <Label id="aft_attachment" layoutX="417.0" layoutY="388.0" prefHeight="60.0" prefWidth="241.0" text="%q4" wrapText="true">
          <font>
             <Font name="Calibri" size="16.0" />
          </font>

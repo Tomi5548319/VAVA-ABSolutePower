@@ -12,11 +12,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <DatePicker fx:id="date_picker" layoutX="281.0" layoutY="23.0" prefHeight="28.0" prefWidth="122.0" />
       <ChoiceBox fx:id="lang_box" accessibleText="Language" layoutX="545.0" layoutY="14.0" prefHeight="20.0" prefWidth="125.0" />
-      <Text fx:id="text_workout" layoutX="34.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Planned workouts" wrappingWidth="206.39999999999986">
+      <Text fx:id="text_workout" layoutX="34.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%planned_workout" wrappingWidth="206.39999999999986">
          <font>
             <Font name="Times New Roman Bold Italic" size="25.0" />
          </font>
@@ -24,7 +24,7 @@
       <ListView fx:id="list_workout" layoutX="15.0" layoutY="65.0" prefHeight="410.0" prefWidth="656.0" />
       <HBox alignment="CENTER" layoutX="15.0" layoutY="484.0" prefHeight="45.0" prefWidth="656.0" spacing="40.0">
          <children>
-            <Button fx:id="button_add" mnemonicParsing="false" prefHeight="35.0" prefWidth="140.0" text="Add new workout">
+            <Button fx:id="button_add" mnemonicParsing="false" prefHeight="35.0" prefWidth="140.0" text="%add_new_workout">
                <font>
                   <Font size="14.0" />
                </font>
@@ -32,7 +32,7 @@
                   <Insets />
                </HBox.margin>
             </Button>
-            <Button fx:id="button_all" mnemonicParsing="false" prefHeight="35.0" prefWidth="80.0" text="Select All">
+            <Button fx:id="button_all" mnemonicParsing="false" prefHeight="35.0" prefWidth="80.0" text="%select_all">
                <font>
                   <Font size="14.0" />
                </font>
@@ -48,7 +48,7 @@
                   <Insets left="15.0" right="-30.0" />
                </HBox.margin>
             </Text>
-            <Button fx:id="button_del" mnemonicParsing="false" prefHeight="35.0" prefWidth="140.0" text="Delete selected">
+            <Button fx:id="button_del" mnemonicParsing="false" prefHeight="35.0" prefWidth="140.0" text="%delete_selected">
                <font>
                   <Font size="14.0" />
                </font>

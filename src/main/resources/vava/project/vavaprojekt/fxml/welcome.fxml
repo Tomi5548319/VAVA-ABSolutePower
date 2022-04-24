@@ -15,17 +15,17 @@
             <Image url="@../icons/LOGO.png" />
          </image>
       </ImageView>
-      <Button fx:id="button_register" layoutX="374.0" layoutY="244.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0">
+      <Button fx:id="button_register" layoutX="374.0" layoutY="244.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="%register">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="button_login" layoutX="110.0" layoutY="244.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0">
+      <Button fx:id="button_login" layoutX="110.0" layoutY="244.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="%login">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Text fx:id="text_welcome" layoutX="161.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0">
+      <Text fx:id="text_welcome" layoutX="161.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%welcome">
          <font>
             <Font name="Calibri Bold" size="24.0" />
          </font>

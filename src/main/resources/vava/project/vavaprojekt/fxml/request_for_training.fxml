@@ -14,11 +14,10 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Line endX="261.0" layoutX="141.0" layoutY="60.0" startX="-100.0" />
-      <Text fx:id="header_text" layoutX="41.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ziadosti o trening" wrappingWidth="342.13671875">
+      <Text fx:id="header_text" layoutX="41.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%training_request" wrappingWidth="342.13671875">
          <font>
             <Font name="Calibri Bold" size="32.0" />
          </font>
@@ -26,27 +25,19 @@
       <ListView layoutX="51.0" layoutY="89.0" prefHeight="397.0" prefWidth="599.0" />
       <HBox layoutX="51.0" layoutY="95.0" prefHeight="126.0" prefWidth="599.0" AnchorPane.bottomAnchor="319.0" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="95.0">
          <children>
-            <VBox prefHeight="123.0" prefWidth="106.0">
+            <VBox prefHeight="89.0" prefWidth="149.0">
                <children>
                   <Text fx:id="username" strokeType="OUTSIDE" strokeWidth="0.0" text="Username " wrappingWidth="108.13671875">
                      <font>
                         <Font size="22.0" />
                      </font>
                      <VBox.margin>
-                        <Insets left="5.0" />
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="40.0" />
                      </VBox.margin>
                   </Text>
-                  <ImageView fx:id="profile_photo" fitHeight="93.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../DomashenkoBohdan/MTAA/VAVA-ABSolutePower/src/main/resources/vava/project/vavaprojekt/icons/basic_eye_closed.png" />
-                     </image>
-                     <VBox.margin>
-                        <Insets left="5.0" />
-                     </VBox.margin>
-                  </ImageView>
                </children>
             </VBox>
-            <TextFlow minWidth="-Infinity" prefHeight="108.0" prefWidth="291.0" />
+            <TextFlow minWidth="-Infinity" prefHeight="80.0" prefWidth="291.0" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="lvl :" wrappingWidth="34.13671875">
                <font>
                   <Font size="22.0" />
@@ -93,12 +84,12 @@
             <Image url="@../DomashenkoBohdan/MTAA/VAVA-ABSolutePower/src/main/resources/vava/project/vavaprojekt/icons/basic_message.png" />
          </image>
       </ImageView>
-      <Text fx:id="requests_count" layoutX="527.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="pocet ziadosti :" wrappingWidth="108.13671875">
+      <Text fx:id="requests_count" layoutX="505.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%number_requests" wrappingWidth="123.0">
          <font>
             <Font size="16.0" />
          </font>
       </Text>
-      <Text fx:id="count" layoutX="641.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="X " wrappingWidth="108.13671875">
+      <Text fx:id="count" layoutX="636.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="X " wrappingWidth="28.0">
          <font>
             <Font size="18.0" />
          </font>
