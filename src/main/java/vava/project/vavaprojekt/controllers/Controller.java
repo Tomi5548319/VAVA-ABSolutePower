@@ -15,10 +15,13 @@ public abstract class Controller {
     @FXML
     protected abstract void initialize();
 
-    public final void updateLanguage() {
-        this.setLanguage(app.getLanguage());
+    public final void updateLanguage(String fxmlFile, String lang) {
+        if (this.app.getUser() == null) return;
+
+        this.app.getUser().setLanguage(lang);
+        this.app.changeWindow(fxmlFile);
     }
 
-    protected abstract void setLanguage(Locale language);
+    //protected abstract void setLanguage(Locale language);
     
 }

@@ -28,26 +28,17 @@ public final class LoginController extends Controller {
 
     @FXML
     protected void initialize() {
-        this.updateLanguage();
-
         button_login.setOnAction(this::login);
-    }
-
-    @Override
-    protected void setLanguage(Locale language) {
-        text_username.setText(Language.getWord(language, "username"));
-        text_password.setText(Language.getWord(language, "password"));
-        button_login.setText(Language.getWord(language, "login"));
     }
 
     private void login(ActionEvent event) {
         String login = textField_username.getText();
         String passwordHash = Password.getHash(passwordField_password.getText());
 
-        if(app.login(login, passwordHash)) app.changeWindow("main_view");
+        if(app.login(login, passwordHash)) app.changeWindow("main_view-homepage");
         else
         {
-            //TODO : POP UP massage
+            //TODO : POP UP message
         }
     }
 }

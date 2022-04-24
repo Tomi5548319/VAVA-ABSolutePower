@@ -37,7 +37,7 @@ public final class Database {
     public User login(String login, String passwordHash) {
 
         try (ResultSet rs = this.safeExecuteSQL(
-                "SELECT account_types.type AS account_type, languages.lang AS language, languages.cntry AS country\n" +
+                "SELECT account_types.type AS account_type, languages.lang AS language\n" +
                         "FROM users\n" +
                         "JOIN account_types ON account_types.id = users.account_type\n" +
                         "JOIN languages ON users.language_id = languages.id\n" +
@@ -47,7 +47,7 @@ public final class Database {
         {
             if (rs.next()) {
                 String account_type = rs.getString("account_type");
-                Locale language = new Locale(rs.getString("language"), rs.getString("country"));
+                String language = rs.getString("language");
 
                 System.out.println("Successfully logged in as \"" + login + "\", Account type: " + account_type);
 

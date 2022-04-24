@@ -9,9 +9,9 @@ public abstract class User {
     private String login;
     private String password_hash;
     private String account_type;
-    private Locale language;
+    private String language;
 
-    protected User(String login, String passwordHash, String account_type, Locale language)
+    protected User(String login, String passwordHash, String account_type, String language)
     {
         this.login = login;
         this.password_hash = passwordHash;
@@ -19,7 +19,7 @@ public abstract class User {
         this.language = language;
     }
 
-    public static User login(String login, String passwordHash, String account_type, Locale language) {
+    public static User login(String login, String passwordHash, String account_type, String language) {
 
         switch (account_type) {
             case "admin":
@@ -31,8 +31,12 @@ public abstract class User {
         }
     }
 
-    public Locale getLanguage() {
-        return this.language;
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public String getLanguage() {
+        return "lang_" + this.language;
     }
 
     public String getAccount_type() {

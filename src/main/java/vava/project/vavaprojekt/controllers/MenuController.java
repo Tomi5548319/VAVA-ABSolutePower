@@ -13,9 +13,11 @@ import vava.project.vavaprojekt.Language;
 import vava.project.vavaprojekt.Main;
 
 import java.util.Locale;
+import java.util.ResourceBundle;
 
 public final class MenuController extends Controller {
     protected Pane view;
+    private Text prev;
 
     @FXML private GridPane menu_options;
     @FXML private Circle menu_photo;
@@ -31,9 +33,9 @@ public final class MenuController extends Controller {
     @FXML private Text menu_username;
     @FXML private AnchorPane screen_pane;
 
-    public MenuController(App a) {
+    public MenuController(App a, String pagename, String lang) {
         super(a);
-        //this.loadPage("homepage");
+        this.loadPage(pagename, lang);
     }
 
     @FXML
@@ -50,10 +52,11 @@ public final class MenuController extends Controller {
 
     @FXML
     protected void initialize() {
-        this.updateLanguage();
+        //this.updateLanguage();
 
         //screen_pane = (AnchorPane) view;
-        menu_text1.setStyle("-fx-text-fill: #5263ff;");
+        prev = menu_text1;
+        menu_text1.setStyle("-fx-text-fill: DEEPSKYBLUE;");
 
         menu_text1.setOnMouseClicked(this::page_home);
         //menu_text2.setOnMouseClicked(this::textUI);
@@ -66,31 +69,13 @@ public final class MenuController extends Controller {
 
     }
 
-    @Override
-    protected void setLanguage(Locale language) {
-        String acc_type = app.getUser().getAccount_type();
-        menu_username.setText(app.getUser().getLogin());
-        menu_text1.setText(Language.getWord(language, "homepage"));
-        menu_text2.setText(Language.getWord(language, "my_workouts"));
-
-        switch (acc_type) {
-            case "admin":
-                menu_text2.setVisible(false);
-                break;
-            case "verifier":
-                menu_text2.setVisible(false);
-                break;
-            case "sportsman":
-                break;
-            case "trainer":
-                break;
-        }
-    }
-
     private void page_home(MouseEvent e)
     {
-        //this.loadPage("homepage");
-        menu_text1.setStyle("-fx-text-fill: #5263ff;");
+        prev.setStyle("-fx-text-fill: BLACK;");
+        prev = menu_text1;
+        menu_text1.setStyle("-fx-text-fill: DEEPSKYBLUE;");
+
+        this.loadPage("homepage", app.getUser().getLanguage());
     }
 
     private void logout(MouseEvent e) {
@@ -98,18 +83,23 @@ public final class MenuController extends Controller {
         app.changeWindow("welcome");
     }
 
-    public void loadPage(String pagename)
+    public void loadPage(String pagename, String lang)
     {
         try
         {
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("fxml/" + pagename + ".fxml"));
+            fxmlLoader.setResources(ResourceBundle.getBundle(lang));
 
             switch (pagename)
             {
                 case "homepage":
                     //fxmlLoader.setController(new WelcomeController(this.app));
                     break;
-                case "aplication_for_training":
+                case "aplication_for_trainer":
+                    //fxmlLoader.setController(new AplicationForTrainerController(this));
+                    break;
+                case "request_for_training":
+                    //fxmlLoader.setController(new RequestForTrainingController(this));
                     break;
                 default:
                     throw new Exception("Zle meno stranky!");

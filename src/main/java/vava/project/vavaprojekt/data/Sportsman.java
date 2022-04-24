@@ -12,7 +12,7 @@ public final class Sportsman extends User {
     private String nick;
 
 
-    protected Sportsman(String login, String passwordHash, String account_type, Locale language) {
+    protected Sportsman(String login, String passwordHash, String account_type, String language) {
         super(login, passwordHash, account_type, language);
     }
 

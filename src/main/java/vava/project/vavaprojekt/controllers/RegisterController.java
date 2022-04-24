@@ -27,15 +27,7 @@ public final class RegisterController extends Controller {
 
     @FXML
     protected void initialize() {
-        this.updateLanguage();
-    }
-
-    @Override
-    protected void setLanguage(Locale language) {
-        text_email.setText(Language.getWord(language, "email"));
-        text_login.setText(Language.getWord(language, "login"));
-        text_password.setText(Language.getWord(language, "password"));
-        button_register.setText(Language.getWord(language, "sign_up"));
+        //this.updateLanguage();
     }
 
 }

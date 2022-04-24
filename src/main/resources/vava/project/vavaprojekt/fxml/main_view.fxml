@@ -1,25 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.geometry.Rectangle2D?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<SplitPane dividerPositions="0.2904841402337228" maxHeight="540.0" maxWidth="960.0" minHeight="540.0" minWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<SplitPane dividerPositions="0.2904841402337228" maxHeight="540.0" maxWidth="960.0" minHeight="540.0" minWidth="960.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <items>
-      <VBox maxHeight="540.0" maxWidth="275.0" minHeight="540.0" minWidth="275.0" spacing="8.0">
+      <VBox alignment="CENTER" maxHeight="540.0" maxWidth="275.0" minHeight="540.0" minWidth="275.0" spacing="8.0">
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                <children>
@@ -57,13 +48,12 @@
                </VBox.margin>
             </HBox>
             <Separator prefWidth="200.0" />
-            <GridPane fx:id="menu_options" prefHeight="323.0" prefWidth="262.0">
+            <GridPane fx:id="menu_options" prefHeight="234.0" prefWidth="265.0">
               <columnConstraints>
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="50.0" minWidth="15.0" prefWidth="50.0" />
                 <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="197.4000244140625" minWidth="10.0" prefWidth="194.39999389648438" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints fillHeight="false" maxHeight="50.0" minHeight="40.0" prefHeight="40.0" valignment="CENTER" vgrow="SOMETIMES" />
                 <RowConstraints fillHeight="false" maxHeight="50.0" minHeight="40.0" prefHeight="40.0" valignment="CENTER" vgrow="SOMETIMES" />
                 <RowConstraints fillHeight="false" maxHeight="50.0" minHeight="40.0" prefHeight="40.0" valignment="CENTER" vgrow="SOMETIMES" />
                   <RowConstraints fillHeight="false" maxHeight="50.0" minHeight="40.0" prefHeight="40.0" valignment="CENTER" vgrow="SOMETIMES" />
@@ -83,36 +73,53 @@
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
+                     <image>
+                        <Image url="@../icons/basic_home.png" />
+                     </image>
                   </ImageView>
                   <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                      <cursor>
                         <Cursor fx:constant="HAND" />
-                     </cursor></ImageView>
+                     </cursor>
+                     <image>
+                        <Image url="@../icons/icons8-dumbbell-100.png" />
+                     </image></ImageView>
                   <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
                      <cursor>
                         <Cursor fx:constant="HAND" />
-                     </cursor></ImageView>
-                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
+                     </cursor>
+                     <image>
+                        <Image url="@../icons/icons8-athlete-64.png" />
+                     </image></ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
                      <cursor>
                         <Cursor fx:constant="HAND" />
-                     </cursor></ImageView>
-                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4">
+                     </cursor>
+                     <image>
+                        <Image url="@../icons/icons8-paper-100.png" />
+                     </image></ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4">
                      <cursor>
                         <Cursor fx:constant="HAND" />
-                     </cursor></ImageView>
+                     </cursor>
+                     <image>
+                        <Image url="@../icons/icons8-graph-64.png" />
+                     </image></ImageView>
                   <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="5">
                      <cursor>
                         <Cursor fx:constant="HAND" />
-                     </cursor></ImageView>
-                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="6">
+                     </cursor>
+                     <image>
+                        <Image url="@../icons/basic_gear.png" />
+                     </image></ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="6">
                      <cursor>
                         <Cursor fx:constant="HAND" />
-                     </cursor></ImageView>
-                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="7">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor></ImageView>
-                  <Text fx:id="menu_text1" onMouseEntered="#textEntered" onMouseExited="#textExited" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1">
+                     </cursor>
+                     <image>
+                        <Image url="@../icons/icons8-logout-100.png" />
+                     </image></ImageView>
+                  <Text fx:id="menu_text1" onMouseEntered="#textEntered" onMouseExited="#textExited" strokeType="OUTSIDE" strokeWidth="0.0" text="Homepage" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets left="15.0" />
                      </GridPane.margin>
@@ -134,7 +141,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Text>
-                  <Text fx:id="menu_text3" onMouseEntered="#textEntered" onMouseExited="#textExited" strokeType="OUTSIDE" strokeWidth="0.0" text="%competitions" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Text fx:id="menu_text4" onMouseEntered="#textEntered" onMouseExited="#textExited" strokeType="OUTSIDE" strokeWidth="0.0" text="%sportsman" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="15.0" />
                      </GridPane.margin>
@@ -145,7 +152,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Text>
-                  <Text fx:id="menu_text4" onMouseEntered="#textEntered" onMouseExited="#textExited" strokeType="OUTSIDE" strokeWidth="0.0" text="%sportsman" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <Text fx:id="menu_text5" onMouseEntered="#textEntered" onMouseExited="#textExited" strokeType="OUTSIDE" strokeWidth="0.0" text="%training_request" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets left="15.0" />
                      </GridPane.margin>
@@ -156,7 +163,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Text>
-                  <Text fx:id="menu_text5" onMouseEntered="#textEntered" onMouseExited="#textExited" strokeType="OUTSIDE" strokeWidth="0.0" text="%training_request" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <Text fx:id="menu_text6" onMouseEntered="#textEntered" onMouseExited="#textExited" strokeType="OUTSIDE" strokeWidth="0.0" text="%statistics" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <GridPane.margin>
                         <Insets left="15.0" />
                      </GridPane.margin>
@@ -167,7 +174,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Text>
-                  <Text fx:id="menu_text6" onMouseEntered="#textEntered" onMouseExited="#textExited" strokeType="OUTSIDE" strokeWidth="0.0" text="%statistics" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                  <Text fx:id="menu_text7" onMouseEntered="#textEntered" onMouseExited="#textExited" strokeType="OUTSIDE" strokeWidth="0.0" text="%settings" wrappingWidth="93.22656631469727" GridPane.columnIndex="1" GridPane.rowIndex="5">
                      <GridPane.margin>
                         <Insets left="15.0" />
                      </GridPane.margin>
@@ -178,7 +185,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Text>
-                  <Text fx:id="menu_text7" onMouseEntered="#textEntered" onMouseExited="#textExited" strokeType="OUTSIDE" strokeWidth="0.0" text="%settings" wrappingWidth="66.22656631469727" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                  <Text fx:id="menu_text8" onMouseEntered="#textEntered" onMouseExited="#textExited" strokeType="OUTSIDE" strokeWidth="0.0" text="%log_out" GridPane.columnIndex="1" GridPane.rowIndex="6">
                      <GridPane.margin>
                         <Insets left="15.0" />
                      </GridPane.margin>
@@ -189,19 +196,36 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Text>
-                  <Text fx:id="menu_text8" onMouseEntered="#textEntered" onMouseExited="#textExited" strokeType="OUTSIDE" strokeWidth="0.0" text="%log_out" GridPane.columnIndex="1" GridPane.rowIndex="7">
-                     <GridPane.margin>
-                        <Insets left="15.0" />
-                     </GridPane.margin>
+                  <Text fx:id="menu_text41" onMouseEntered="#textEntered" onMouseExited="#textExited" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1">
                      <font>
                         <Font name="Times New Roman Bold" size="16.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
+                     <GridPane.margin>
+                        <Insets left="15.0" />
+                     </GridPane.margin>
+                  </Text>
+                  <Text fx:id="menu_text42" onMouseEntered="#textEntered" onMouseExited="#textExited" strokeType="OUTSIDE" strokeWidth="0.0" text="Workouts" wrappingWidth="82.453125" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Times New Roman Bold" size="16.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets left="15.0" />
+                     </GridPane.margin>
                   </Text>
                </children>
             </GridPane>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+               <children>
+                  <ImageView fx:id="menu_flag" fitHeight="32.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" />
+                  <Slider fx:id="menu_lang" blockIncrement="1.0" majorTickUnit="1.0" max="1.0" minorTickCount="0" prefHeight="24.0" prefWidth="59.0" snapToTicks="true" />
+               </children>
+            </HBox>
          </children>
       </VBox>
       <AnchorPane fx:id="screen_pane" prefHeight="200.0" prefWidth="200.0" />

@@ -7,21 +7,18 @@ import vava.project.vavaprojekt.controllers.*;
 import vava.project.vavaprojekt.data.User;
 
 import java.util.Locale;
+import java.util.ResourceBundle;
 
-/**
- * Trieda obsahujúca spoločné údaje medzi oknami
- */
 public final class App {
 
     private final Stage stage;
     private Database database;
-    private Locale language;
-    private User logged_user;
+    private User logged_user = null;
+    private static String defaultLanguage = "lang_en";
 
     private App (Stage stage) {
         stage.setOnCloseRequest(e -> this.database.close());
 
-        this.language = new Locale("en", "GB");
         this.stage = stage;
         this.database = new Database();
 
@@ -31,13 +28,6 @@ public final class App {
         this.changeWindow("welcome");
     }
 
-    public void setLanguage(Locale language) {
-        this.language = language;
-    }
-
-    public Locale getLanguage() {
-        return this.language;
-    }
     public User getUser() {
         return this.logged_user;
     }
@@ -54,13 +44,24 @@ public final class App {
 
     public void changeWindow(String fxmlFile, Object... data) {
 
-        System.out.println("Language: " + this.language.toString());
+        if (this.logged_user != null) System.out.println("Language: " + this.logged_user.getLanguage());
+
+        String[] parts = fxmlFile.split("-");
+
 
         try {
             FXMLLoader fxmlLoader;
-            fxmlLoader = new FXMLLoader(Main.class.getResource("fxml/" + fxmlFile + ".fxml"));
+            fxmlLoader = new FXMLLoader(Main.class.getResource("fxml/" + parts[0] + ".fxml"));
 
-            switch (fxmlFile) {
+            String resBundle;
+
+            if (this.logged_user == null) resBundle = defaultLanguage;
+            else resBundle = this.logged_user.getLanguage();
+
+            fxmlLoader.setResources(ResourceBundle.getBundle(resBundle));
+
+
+            switch (parts[0]) {
                 case "welcome":
                     fxmlLoader.setController(new WelcomeController(this));
                     break;
@@ -71,15 +72,8 @@ public final class App {
                     fxmlLoader.setController(new RegisterController(this));
                     break;
                 case "main_view":
-                    fxmlLoader.setController(new MenuController(this));
+                    fxmlLoader.setController(new MenuController(this,parts[1],resBundle ));
                     break;
-                case "aplication_for_trainer":
-                    fxmlLoader.setController(new AplicationForTrainerController(this));
-                    break;
-                case "request_for_training":
-                    fxmlLoader.setController(new RequestForTrainingController(this));
-                    break;
-
                 default:
                     throw new Exception("Screen not found!");
             }
@@ -95,7 +89,7 @@ public final class App {
 
     public boolean login(String login, String passwordHash) {
         this.logged_user = database.login(login, passwordHash);
-        this.language = logged_user.getLanguage();
+        //this.language = logged_user.getLanguage();
 
         return this.logged_user != null;
     }
