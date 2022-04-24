@@ -129,9 +129,38 @@ CREATE TABLE IF NOT EXISTS workouts(
 CREATE TABLE IF NOT EXISTS exercises(
 	id serial PRIMARY KEY,
 	name varchar(50) NOT NULL,
-	description TEXT,
-	photo_url TEXT
+	description TEXT
 );
+
+INSERT INTO exercises (name)
+VALUES ('stretch'),
+('plank'),
+('push-up'),
+('diamond push-up'),
+('planche'),
+('dip'),
+('bench-press'),
+('muscle-up'),
+('pull-up'),
+('row'),
+('suspended row'),
+('hyper extension'),
+('front lever'),
+('back lever'),
+('shoulder-press'),
+('handstand'),
+('handstand push-up'),
+('run'),
+('sprint'),
+('rope skipping'),
+('leg-press'),
+('lunge'),
+('squat'),
+('calf raise'),
+('sit-up'),
+('leg-raise'),
+('L-sit'),
+('V-sit');
 
 CREATE TABLE IF NOT EXISTS exercises_in_workouts(
 	id serial PRIMARY KEY,
