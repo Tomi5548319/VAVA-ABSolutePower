@@ -40,10 +40,28 @@ public abstract class User {
     }
 
     public String getAccount_type() {
-        return this.account_type;
+        return this.account_type == null ? "" : this.account_type;
     }
 
     public String getLogin() {
         return this.login;
+    }
+
+    public boolean updateLogin(String new_login) {
+        if (!new_login.equals(login)) {
+            login = new_login;
+            return true;
+            // TODO update v databaze (vratit false ak uz login je v databaze) (databaza vrati false a user to iba return-ne)
+        }
+        return false;
+    }
+
+    public boolean updatePassword(String act_pass, String new_pass, String new_pass_check) {
+        if (act_pass.equals(password_hash) && new_pass.equals(new_pass_check)) {
+            password_hash = new_pass;
+            return true;
+            // TODO update v databaze
+        }
+        return false;
     }
 }

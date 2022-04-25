@@ -67,8 +67,6 @@ public final class MenuController extends Controller {
         //menu_text6.setOnMouseClicked(this::textUI);
         menu_text7.setOnMouseClicked(this::my_profile);
         menu_text8.setOnMouseClicked(this::logout);
-
-
     }
 
     private void page_home(MouseEvent e)
