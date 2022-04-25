@@ -4,15 +4,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import vava.project.vavaprojekt.App;
-import vava.project.vavaprojekt.Language;
 import vava.project.vavaprojekt.Password;
-import vava.project.vavaprojekt.data.User;
-
-import java.util.Locale;
 
 public final class LoginController extends Controller {
 
@@ -21,6 +16,7 @@ public final class LoginController extends Controller {
     @FXML private Text text_password;
     @FXML private PasswordField passwordField_password;
     @FXML private Button button_login;
+    @FXML Button button_back;
 
     public LoginController(App app) {
         super(app);
@@ -29,6 +25,7 @@ public final class LoginController extends Controller {
     @FXML
     protected void initialize() {
         button_login.setOnAction(this::login);
+        button_back.setOnAction(this::go_back);
     }
 
     private void login(ActionEvent event) {
@@ -41,4 +38,8 @@ public final class LoginController extends Controller {
             //TODO : POP UP message
         }
     }
-}
+
+    private void go_back(ActionEvent event) {
+        app.changeWindow("welcome");
+
+    }}

@@ -37,6 +37,14 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="62.0" text="BACK" />
+      <Button fx:id="button_back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="102.0" text="%back">
+         <graphic>
+            <ImageView fitHeight="33.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/icons8-back-67.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="-227.0" layoutY="-129.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

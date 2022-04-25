@@ -5,9 +5,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import vava.project.vavaprojekt.App;
-import vava.project.vavaprojekt.Language;
-
-import java.util.Locale;
 
 public final class WelcomeController extends Controller {
 

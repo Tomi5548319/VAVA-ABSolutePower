@@ -1,27 +1,21 @@
 package vava.project.vavaprojekt.controllers;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import vava.project.vavaprojekt.App;
-import vava.project.vavaprojekt.Language;
 import vava.project.vavaprojekt.Main;
 
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 public final class MenuController extends Controller {
@@ -40,14 +34,12 @@ public final class MenuController extends Controller {
     @FXML private Text menu_text4;
     @FXML private Text menu_text5;
     @FXML private Text menu_text6;
-    @FXML private Text menu_text7;
     @FXML private Text menu_username;
     @FXML private AnchorPane screen_pane;
 
 
-    public MenuController(App a, String pagename, String language) {
+    public MenuController(App a) {
         super(a);
-        this.loadPage(pagename, language);
     }
 
     @FXML
@@ -64,7 +56,6 @@ public final class MenuController extends Controller {
 
     @FXML
     protected void initialize() {
-
         menu_username.setText(app.getUser().getLogin());
 
         if (app.getUser().getLanguage().equals("lang_en"))
@@ -76,30 +67,47 @@ public final class MenuController extends Controller {
         {
             menu_lang.setValue(0.0);
             menu_flag.setImage(new Image(Main.class.getResourceAsStream("icons/icons8-slovakia-80.png")));
-
         }
+
+
+
 
         prev = menu_text1;
         menu_text1.setFill(Color.DODGERBLUE);
 
-        menu_text6.setOnMouseClicked(this::my_profile);
-        menu_text7.setOnMouseClicked(this::logout);
+        menu_text5.setOnMouseClicked(this::my_profile);
+        menu_text6.setOnMouseClicked(this::logout);
 
         menu_lang.setOnMouseReleased(this::change_language);
 
         switch (app.getUser().getAccount_type())
         {
             case "sportsman":
+                menu_text1.setOnMouseClicked(this::page_home);
+                //menu_options.getChildren().set(node -> GridPane.getRowIndex(node) == 2);  ZLE
+                //menu_options.getRowConstraints().get(2).setMaxHeight(0);      ZLE
 
+                this.loadPage("homepage");
+                break;
             case "trainer":
                 menu_text1.setOnMouseClicked(this::page_home);
                 //menu_text2.setOnMouseClicked(this::textUI);
                 //menu_text3.setOnMouseClicked(this::textUI);
                 //menu_text4.setOnMouseClicked(this::textUI);
                 //menu_text5.setOnMouseClicked(this::textUI);
+
+                this.loadPage("homepage");
                 break;
             case "admin":
+                menu_options.getRowConstraints().get(1).setMaxHeight(0);
+                menu_options.getRowConstraints().get(3).setMaxHeight(0);
+
+                menu_text3.setText("%upgrade_requests");
+                //TODO upgrade requests screen - menutext3
+                //menu text 1
+
                 menu_photo.setFill(new ImagePattern(new Image(Main.class.getResourceAsStream("icons/icons8-admin-64.png"))));
+                //load page menutext1
                 break;
         }
 
@@ -115,7 +123,7 @@ public final class MenuController extends Controller {
         String current_lang = app.getUser().getLanguage();
         String currentpage = "main_view-";
 
-
+        //TODO get page
 
 
         if ((n == 0 && current_lang.equals("lang_en")) || (n == 1 && current_lang.equals("lang_sk")))
@@ -128,10 +136,10 @@ public final class MenuController extends Controller {
 
     private void my_profile(MouseEvent e) {
         prev.setFill(Color.BLACK);
-        prev = menu_text6;
+        prev = menu_text5;
         prev.setFill(Color.DODGERBLUE);
 
-        this.loadPage("profile_own", app.getUser().getLanguage());
+        this.loadPage("profile_own");
     }
 
     private void logout(MouseEvent e) {
@@ -144,13 +152,17 @@ public final class MenuController extends Controller {
         prev = menu_text1;
         prev.setFill(Color.DODGERBLUE);
 
-        this.loadPage("homepage", app.getUser().getLanguage());
+        this.loadPage("homepage");
         //System.out.println(view.get);
     }
 
     //page loader
-    private void loadPage(String pagename, String lang)
+    private void loadPage(String pagename)
     {
+        String lang = app.getUser().getLanguage();
+        System.out.println(pagename);
+        System.out.println(lang);
+
         try
         {
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("fxml/" + pagename + ".fxml"));
@@ -159,7 +171,7 @@ public final class MenuController extends Controller {
             switch (pagename)
             {
                 case "homepage":
-                    //fxmlLoader.setController(new WelcomeController(this.app));
+                    //fxmlLoader.setController(new HomeController(this.app));
                     break;
                 case "aplication_for_trainer":
                     //fxmlLoader.setController(new AplicationForTrainerController(this));
@@ -175,6 +187,9 @@ public final class MenuController extends Controller {
                     throw new Exception("Zle meno stranky!");
             }
             this.view = fxmlLoader.load();
+            screen_pane.getChildren().clear();
+            screen_pane.getChildren().add(this.view);
+
         }
         catch (Exception e) {
             e.printStackTrace();

@@ -10,7 +10,6 @@ public class Workout {
     private LocalDateTime scheduled_for;
     private ArrayList<Exercise> exercises;
 
-
     public String getName() {
         return name;
     }

@@ -71,7 +71,7 @@ public final class App {
                     fxmlLoader.setController(new RegisterController(this));
                     break;
                 case "main_view":
-                    fxmlLoader.setController(new MenuController(this,parts[1],resBundle));
+                    fxmlLoader.setController(new MenuController(this));
                     break;
                 default:
                     throw new Exception("Screen not found!");
@@ -80,6 +80,7 @@ public final class App {
             Scene scene = new Scene(fxmlLoader.load());
             stage.setScene(scene);
             stage.show();
+
         }
         catch (Exception e) {
             e.printStackTrace();
