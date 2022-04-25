@@ -86,6 +86,25 @@ public final class App {
         }
     }
 
+    public void update_language(Integer l)
+    {
+        if (this.logged_user == null) return;
+
+        if (l.equals(1))
+        {
+            this.logged_user.setLanguage("en");
+            l = 1;
+        }
+        else if (l.equals(0))
+        {
+            this.logged_user.setLanguage("sk");
+            l = 2;
+        }
+
+        database.update_user(this.logged_user.getLogin(),this.logged_user.getPassword_hash(), "language_id = '" + l + "'");
+        //TODO reload page
+    }
+
     public boolean login(String login, String passwordHash) {
         this.logged_user = database.login(login, passwordHash);
         //this.language = logged_user.getLanguage();

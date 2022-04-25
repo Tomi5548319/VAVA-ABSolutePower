@@ -11,7 +11,6 @@ import java.util.Locale;
 
 public final class WelcomeController extends Controller {
 
-
     @FXML private Button button_register;
     @FXML private Button button_login;
     @FXML private Text text_welcome;

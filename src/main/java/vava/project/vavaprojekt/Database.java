@@ -9,10 +9,7 @@ import java.util.ResourceBundle;
 public final class Database {
     private Connection conn = null;
 
-
-
-    public Database()
-    {
+    public Database() {
         try {
             this.conn = DriverManager.getConnection("jdbc:postgresql://vava-mightygainz.cfjpdf44uln2.us-east-1.rds.amazonaws.com:5432/VAVA_MightyGainz_db", "xoross", "vava.G4inz");
             System.out.println("Uspesne som sa pripojil k databaze");
@@ -21,7 +18,6 @@ public final class Database {
             System.out.println("Nepripojil som sa - " + exSQL.getMessage());
         }
     }
-
     private ResultSet safeExecuteSQL(String query, String... variables) throws SQLException {
         PreparedStatement stmt = conn.prepareStatement(query);
 
@@ -31,9 +27,12 @@ public final class Database {
             i++;
         }
 
+        //System.out.println(stmt);
+
         return stmt.executeQuery();
     }
 
+    //QUERIES
     public User login(String login, String passwordHash) {
 
         try (ResultSet rs = this.safeExecuteSQL(
@@ -75,6 +74,26 @@ public final class Database {
         }
 
         return null;
+    }
+
+    public boolean update_user(String login, String passwordHash, String columns)
+    {
+        try
+        {
+            ResultSet rs = this.safeExecuteSQL(
+                "UPDATE users\n" +
+                        "SET " + columns + "\n" +
+                        "WHERE login = ? AND password = ?" + "\n" +
+                        "RETURNING *",
+                login, passwordHash);
+
+            if (rs.next()) return true;
+            else return false;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     public void close()

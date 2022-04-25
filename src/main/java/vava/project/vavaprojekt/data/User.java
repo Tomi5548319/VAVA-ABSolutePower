@@ -39,6 +39,10 @@ public abstract class User {
         return "lang_" + this.language;
     }
 
+    public String getPassword_hash() {
+        return password_hash;
+    }
+
     public String getAccount_type() {
         return this.account_type == null ? "" : this.account_type;
     }
