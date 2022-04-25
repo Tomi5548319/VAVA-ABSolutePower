@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fx:id="user_logo" fitHeight="93.0" fitWidth="89.0" layoutX="298.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="93.0" fitWidth="89.0" layoutX="298.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../DomashenkoBohdan/MTAA/VAVA-ABSolutePower/src/main/resources/vava/project/vavaprojekt/icons/basic_ban.png" />
          </image>
@@ -42,7 +42,7 @@
             <Font name="Calibri" size="22.0" />
          </font>
       </Text>
-      <Button fx:id="send_reply_btn1" layoutX="459.0" layoutY="462.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="212.0" text="%change_public">
+      <Button fx:id="change_public" layoutX="459.0" layoutY="462.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="212.0" text="%change_public">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>

@@ -28,14 +28,15 @@ public final class MenuController extends Controller {
     @FXML private Text menu_text4;
     @FXML private Text menu_text5;
     @FXML private Text menu_text6;
-    @FXML private Text menu_text7;
+    @FXML private Text menu_text7;//setings
     @FXML private Text menu_text8;
     @FXML private Text menu_username;
     @FXML private AnchorPane screen_pane;
 
-    public MenuController(App a, String pagename, String lang) {
+
+    public MenuController(App a, String pagename, String language) {
         super(a);
-        this.loadPage(pagename, lang);
+        this.loadPage(pagename, language);
     }
 
     @FXML
@@ -64,8 +65,9 @@ public final class MenuController extends Controller {
         //menu_text4.setOnMouseClicked(this::textUI);
         //menu_text5.setOnMouseClicked(this::textUI);
         //menu_text6.setOnMouseClicked(this::textUI);
-        //menu_text7.setOnMouseClicked(this::textUI);
+        menu_text7.setOnMouseClicked(this::my_profile);
         menu_text8.setOnMouseClicked(this::logout);
+
 
     }
 
@@ -78,12 +80,21 @@ public final class MenuController extends Controller {
         this.loadPage("homepage", app.getUser().getLanguage());
     }
 
+    private void my_profile(MouseEvent e)
+    {
+        prev.setStyle("-fx-text-fill: BLACK;");
+        prev = menu_username;
+
+        menu_username.setStyle("-fx-text-fill: DEEPSKYBLUE;");
+
+        this.loadPage("profile_own", app.getUser().getLanguage());
+    }
     private void logout(MouseEvent e) {
         app.logout();
         app.changeWindow("welcome");
     }
 
-    public void loadPage(String pagename, String lang)
+    private void loadPage(String pagename, String lang)
     {
         try
         {
@@ -101,6 +112,10 @@ public final class MenuController extends Controller {
                 case "request_for_training":
                     //fxmlLoader.setController(new RequestForTrainingController(this));
                     break;
+                case "profile_own":
+                    fxmlLoader.setController(new OwnProfileController(this.app));
+                    break;
+
                 default:
                     throw new Exception("Zle meno stranky!");
             }

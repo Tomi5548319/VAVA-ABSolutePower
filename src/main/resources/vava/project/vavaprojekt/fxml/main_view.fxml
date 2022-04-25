@@ -141,7 +141,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Text>
-                  <Text fx:id="menu_text4" onMouseEntered="#textEntered" onMouseExited="#textExited" strokeType="OUTSIDE" strokeWidth="0.0" text="%sportsman" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Text fx:id="menu_text4" onMouseEntered="#textEntered" onMouseExited="#textExited" strokeType="OUTSIDE" strokeWidth="0.0" text="%sportsmen" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="15.0" />
                      </GridPane.margin>

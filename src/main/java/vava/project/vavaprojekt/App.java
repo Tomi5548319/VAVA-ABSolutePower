@@ -60,7 +60,6 @@ public final class App {
 
             fxmlLoader.setResources(ResourceBundle.getBundle(resBundle));
 
-
             switch (parts[0]) {
                 case "welcome":
                     fxmlLoader.setController(new WelcomeController(this));
@@ -72,7 +71,7 @@ public final class App {
                     fxmlLoader.setController(new RegisterController(this));
                     break;
                 case "main_view":
-                    fxmlLoader.setController(new MenuController(this,parts[1],resBundle ));
+                    fxmlLoader.setController(new MenuController(this,parts[1],resBundle));
                     break;
                 default:
                     throw new Exception("Screen not found!");
