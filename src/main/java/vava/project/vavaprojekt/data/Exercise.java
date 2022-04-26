@@ -2,7 +2,7 @@ package vava.project.vavaprojekt.data;
 
 import java.util.ArrayList;
 
-public class Exercise {
+public final class Exercise {
 
     private Integer id;
     private String name;

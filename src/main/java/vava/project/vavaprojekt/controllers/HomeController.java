@@ -19,7 +19,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class HomeController extends Controller {
+public final class HomeController extends Controller {
 
     @FXML private Button button_add;
     @FXML private Button button_all;

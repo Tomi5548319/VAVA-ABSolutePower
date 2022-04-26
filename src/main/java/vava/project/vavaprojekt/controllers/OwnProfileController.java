@@ -29,9 +29,11 @@ public final class OwnProfileController  extends Controller {
     @FXML private PasswordField passField_confirm_password;
     @FXML private Button btn_save_changes;
     @FXML private Button btn_upgrade;
+    private final MenuController mc;
 
-    public OwnProfileController(App a) {
+    public OwnProfileController(App a, MenuController mc) {
         super(a);
+        this.mc = mc;
     }
 
     @Override
@@ -54,6 +56,7 @@ public final class OwnProfileController  extends Controller {
         textField_login.setText((app.getUser()).getLogin());
 
         btn_save_changes.setOnMouseClicked(this::saveChanges);
+        btn_upgrade.setOnMouseClicked(this::upgrade);
     }
 
     private void saveChanges(MouseEvent mouseEvent) {
@@ -87,5 +90,9 @@ public final class OwnProfileController  extends Controller {
         }
         else
             System.out.println("Heslo sa nepodarilo zmenit");
+    }
+
+    private void upgrade(MouseEvent mouseEvent) {
+        mc.loadPage("aplication_for_trainer");
     }
 }

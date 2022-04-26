@@ -110,8 +110,6 @@ public final class MenuController extends Controller {
 
     }
 
-
-
     //Button actions
     private void change_language(MouseEvent mouseEvent)
     {
@@ -153,7 +151,7 @@ public final class MenuController extends Controller {
     }
 
     //page loader
-    private void loadPage(String pagename)
+    public void loadPage(String pagename)
     {
         String lang = app.getUser().getLanguage();
         System.out.println(pagename);
@@ -169,14 +167,17 @@ public final class MenuController extends Controller {
                 case "homepage":
                     //fxmlLoader.setController(new HomeController(this.app));
                     break;
-                case "aplication_for_trainer":
+                case "aplication_for_training":
                     //fxmlLoader.setController(new AplicationForTrainerController(this));
                     break;
                 case "request_for_training":
                     //fxmlLoader.setController(new RequestForTrainingController(this));
                     break;
                 case "profile_own":
-                    fxmlLoader.setController(new OwnProfileController(this.app));
+                    fxmlLoader.setController(new OwnProfileController(this.app, this));
+                    break;
+                case "aplication_for_trainer":
+                    fxmlLoader.setController(new ApplicationForTrainerController(this.app));
                     break;
 
                 default:

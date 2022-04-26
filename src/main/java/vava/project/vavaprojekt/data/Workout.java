@@ -3,7 +3,7 @@ package vava.project.vavaprojekt.data;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class Workout {
+public final class Workout {
     private String name;
     private Integer owner;
     private String description;
