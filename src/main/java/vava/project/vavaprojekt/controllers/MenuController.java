@@ -187,7 +187,7 @@ public final class MenuController extends Controller {
                     //fxmlLoader.setController(new RequestForTrainingController(this));
                     break;
                 case "profile_own":
-                    fxmlLoader.setController(new OwnProfileController(this.app));
+                    fxmlLoader.setController(new OwnProfileController(this.app, this));
                     break;
 
                 default:

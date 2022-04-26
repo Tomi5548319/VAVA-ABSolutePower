@@ -8,6 +8,8 @@ import java.util.Locale;
 import java.util.Objects;
 
 public class Sportsman extends User {
+
+    private Integer id;
     private String nick;
     private int avatar_id;
     private String description;
@@ -16,10 +18,11 @@ public class Sportsman extends User {
     private boolean banned;
     private ArrayList<Trainer> myTrainers;
 
-    protected Sportsman(Database db, String login, String passwordHash, String account_type, String language, String nickname,
+    protected Sportsman(Database db, String id, String login, String passwordHash, String account_type, String language, String nickname,
                         int avatar_id, String description, double weight, double height) {
         super(db, login, passwordHash, account_type, language);
 
+        this.id = Integer.parseInt(id);
         this.nick = nickname;
         this.avatar_id = avatar_id;
         this.description = description;
