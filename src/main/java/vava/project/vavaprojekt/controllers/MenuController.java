@@ -2,6 +2,7 @@ package vava.project.vavaprojekt.controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -15,11 +16,14 @@ import javafx.scene.text.Text;
 import vava.project.vavaprojekt.App;
 import vava.project.vavaprojekt.Main;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public final class MenuController extends Controller {
-    protected Pane view;
+    //protected Pane view;
     private Text prev;
+    private String current_page = null;
 
     @FXML private ImageView menu_flag;
     @FXML private Slider menu_lang;
@@ -79,52 +83,49 @@ public final class MenuController extends Controller {
         switch (app.getUser().getAccount_type())
         {
             case "sportsman":
-                menu_text_homepage.setOnMouseClicked(this::page_home);
-                //menu_options.getChildren().set(node -> GridPane.getRowIndex(node) == 2);  ZLE
-                //menu_options.getRowConstraints().get(2).setMaxHeight(0);      ZLE
+                if (this.current_page == null) current_page = "homepage";
 
-                this.loadPage("homepage");
+                menu_text_homepage.setOnMouseClicked(this::page_home);
+                this.remove_menuROW(new ArrayList<Integer>(List.of(2)));
+
                 break;
             case "trainer":
+                if (this.current_page == null) current_page = "homepage";
+
                 menu_text_homepage.setOnMouseClicked(this::page_home);
                 //menu_text2.setOnMouseClicked(this::textUI);
                 //menu_text3.setOnMouseClicked(this::textUI);
                 //menu_text4.setOnMouseClicked(this::textUI);
                 //menu_text5.setOnMouseClicked(this::textUI);
 
-                this.loadPage("homepage");
                 break;
             case "admin":
-                menu_options.getRowConstraints().get(1).setMaxHeight(0);
-                menu_options.getRowConstraints().get(3).setMaxHeight(0);
+                //if (this.current_page == null) current_page = "";
+                this.remove_menuROW(new ArrayList<Integer>(List.of(1,3)));
 
-                menu_text_training_req.setText("%upgrade_requests");
-                //TODO upgrade requests screen - menutext3
-                //menu text 1
+                menu_text_training_req.setText(ResourceBundle.getBundle(app.getUser().getLanguage()).getString("upgrade_requests"));
+                //TODO upgrade requests screen - menutext3 + menu text 1
 
                 menu_photo.setFill(new ImagePattern(new Image(Main.class.getResourceAsStream("icons/icons8-admin-64.png"))));
-                //load page menutext1
                 break;
-        }
 
+
+        }
+        if (this.current_page != null) this.loadPage(current_page);
 
     }
+
 
     //Button actions
     private void change_language(MouseEvent mouseEvent)
     {
         Integer n = Math.toIntExact(Math.round(menu_lang.getValue()));
         String current_lang = app.getUser().getLanguage();
-        String currentpage = "main_view-";
-
-        //TODO get page
-
 
         if ((n == 0 && current_lang.equals("lang_en")) || (n == 1 && current_lang.equals("lang_sk")))
         {
             app.update_language(n);
-            if (n == 0) menu_flag.setImage(new Image(Main.class.getResourceAsStream("icons/icons8-slovakia-80.png")));
-            else menu_flag.setImage(new Image(Main.class.getResourceAsStream("icons/icons8-great-britain-80.png")));
+            app.changeWindow("main_view-" + this.current_page);
         }
     }
 
@@ -147,15 +148,27 @@ public final class MenuController extends Controller {
         prev.setFill(Color.DODGERBLUE);
 
         this.loadPage("homepage");
-        //System.out.println(view.get);
+    }
+
+    private void remove_menuROW(ArrayList<Integer> rows)
+    {
+        for (Node node : this.menu_options.getChildren())
+            if(rows.contains(this.menu_options.getRowIndex(node)))
+            {
+                node.setVisible(false);
+                node.setManaged(false);
+                menu_options.getRowConstraints().get(this.menu_options.getRowIndex(node)).setMaxHeight(0);
+                menu_options.getRowConstraints().get(this.menu_options.getRowIndex(node)).setMinHeight(0);
+                //node.setP
+                //node.setMa
+            }
     }
 
     //page loader
     public void loadPage(String pagename)
     {
         String lang = app.getUser().getLanguage();
-        System.out.println(pagename);
-        System.out.println(lang);
+        this.current_page = pagename;
 
         try
         {
@@ -167,25 +180,23 @@ public final class MenuController extends Controller {
                 case "homepage":
                     //fxmlLoader.setController(new HomeController(this.app));
                     break;
-                case "aplication_for_training":
+                case "aplication_for_trainer":
                     //fxmlLoader.setController(new AplicationForTrainerController(this));
                     break;
                 case "request_for_training":
                     //fxmlLoader.setController(new RequestForTrainingController(this));
                     break;
                 case "profile_own":
-                    fxmlLoader.setController(new OwnProfileController(this.app, this));
-                    break;
-                case "aplication_for_trainer":
-                    fxmlLoader.setController(new ApplicationForTrainerController(this.app));
+                    fxmlLoader.setController(new OwnProfileController(this.app));
                     break;
 
                 default:
                     throw new Exception("Zle meno stranky!");
             }
-            this.view = fxmlLoader.load();
+
+            Pane view = fxmlLoader.load();
             screen_pane.getChildren().clear();
-            screen_pane.getChildren().add(this.view);
+            screen_pane.getChildren().add(view);
 
         }
         catch (Exception e) {

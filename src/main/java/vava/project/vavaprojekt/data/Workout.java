@@ -1,14 +1,26 @@
 package vava.project.vavaprojekt.data;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-public final class Workout {
+public class Workout {
+    private Integer id;
     private String name;
     private Integer owner;
     private String description;
-    private LocalDateTime scheduled_for;
+    private Timestamp scheduled_for;
     private ArrayList<Exercise> exercises;
+
+    public Workout(Integer id, String name, Integer owner, String description, Timestamp scheduled_for)
+    {
+        this.id = id;
+        this.name = name;
+        this.owner = owner;
+        this.description = description;
+        this.scheduled_for = scheduled_for;
+    }
 
     public String getName() {
         return name;
@@ -34,11 +46,19 @@ public final class Workout {
         this.description = description;
     }
 
-    public LocalDateTime getScheduled_for() {
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Timestamp getScheduled_for() {
         return scheduled_for;
     }
 
-    public void setScheduled_for(LocalDateTime scheduled_for) {
+    public void setScheduled_for(Timestamp scheduled_for) {
         this.scheduled_for = scheduled_for;
     }
 

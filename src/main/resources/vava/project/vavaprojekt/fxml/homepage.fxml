@@ -27,7 +27,7 @@
       <ListView fx:id="list_workout" layoutX="15.0" layoutY="65.0" prefHeight="410.0" prefWidth="656.0" />
       <HBox alignment="CENTER" layoutX="15.0" layoutY="484.0" prefHeight="45.0" prefWidth="656.0" spacing="40.0">
          <children>
-            <Button fx:id="button_add" mnemonicParsing="false" prefHeight="35.0" prefWidth="140.0" text="%add_new_workout">
+            <Button fx:id="button_add" mnemonicParsing="false" prefHeight="35.0" prefWidth="159.0" text="%add_new_workout">
                <font>
                   <Font size="14.0" />
                </font>
@@ -35,7 +35,7 @@
                   <Insets />
                </HBox.margin>
             </Button>
-            <Button fx:id="button_all" mnemonicParsing="false" prefHeight="35.0" prefWidth="80.0" text="%select_all">
+            <Button fx:id="button_all" mnemonicParsing="false" prefHeight="35.0" prefWidth="115.0" text="%select_all">
                <font>
                   <Font size="14.0" />
                </font>
@@ -48,7 +48,7 @@
                   <Font size="16.0" />
                </font>
                <HBox.margin>
-                  <Insets left="15.0" right="-30.0" />
+                  <Insets left="5.0" right="-30.0" />
                </HBox.margin>
             </Text>
             <Button fx:id="button_del" mnemonicParsing="false" prefHeight="35.0" prefWidth="140.0" text="%delete_selected">

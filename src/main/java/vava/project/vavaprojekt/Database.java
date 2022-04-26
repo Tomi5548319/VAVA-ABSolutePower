@@ -1,12 +1,11 @@
 package vava.project.vavaprojekt;
 
+import vava.project.vavaprojekt.data.Exercise;
 import vava.project.vavaprojekt.data.User;
+import vava.project.vavaprojekt.data.Workout;
 
 import java.sql.*;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public final class Database {
 
@@ -132,7 +131,8 @@ public final class Database {
         if (rs == null) return null;
 
         try {
-            if (rs.next()) {
+            if (rs.next())
+            {
                 int id = rs.getInt("id");
                 String account_type = rs.getString("account_type");
                 String language = rs.getString("language");
@@ -148,6 +148,7 @@ public final class Database {
                         if (rs2 == null) return null;
 
                         if (rs2.next()) {
+                            String sportsmen_id = rs2.getString("id");
                             String nickname = rs2.getString("nickname");
                             int avatar_id = rs2.getInt("avatar_id");
                             String description = rs2.getString("description");
@@ -156,14 +157,14 @@ public final class Database {
                             boolean banned = rs2.getBoolean("banned");
 
                             if (!banned)
-                                return User.login(this, login, passwordHash, account_type, language, nickname, avatar_id, description, weight, height);
+                                return User.login(this, sportsmen_id, login, passwordHash, account_type, language, nickname, avatar_id, description, weight, height);
                             else {
                                 // TODO sportovec ma ban
                             }
                         }
                         break;
                     case "admin":
-                        return User.login(this, login, passwordHash, account_type, language);
+                        return User.login(this, null,  login, passwordHash, account_type, language);
                 }
             }
             else {
@@ -174,6 +175,42 @@ public final class Database {
         }
 
         return null;
+    }
+
+    public ArrayList<Workout> get_workouts (Integer user_id)
+    {
+        ArrayList<Workout> list = new ArrayList<Workout>();
+
+
+        ResultSet rs = this.safeExecuteSQL(
+                "SELECT workouts.name as workoutname, workouts.owner_id , workouts.description as workoutdesc,workouts.scheduled_for, exercises_in_workouts.*, exercises.name, exercises.description\n" +
+                        "from sportsmen\n" +
+                        "join workouts on sportsmen.id = "+ user_id + " AND workouts.owner_id = sportsmen.id\n" +
+                        "join exercises_in_workouts on exercises_in_workouts.workout_id = workouts.id\n" +
+                        "join exercises on exercises.id = exercises_in_workouts.exercise_id");
+
+        try
+        {
+            //if (!rs.next()) throw new Exception("No workouts found");
+
+
+            while(rs.next())
+            {
+                Workout temp = new Workout(rs.getInt("workout_id"), rs.getString("workoutname"), rs.getInt("owner_id"), rs.getString("workoutdesc"), rs.getTimestamp("scheduled_for"));
+
+
+
+                //list.
+                //Exercise e = new Exercise(rs.getInt("exercise_id"));
+
+                //temp.add
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return list;
     }
 
     public boolean update_user(String login, String passwordHash, String columns)

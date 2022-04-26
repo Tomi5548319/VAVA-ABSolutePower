@@ -19,7 +19,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public final class HomeController extends Controller {
+public class HomeController extends Controller {
 
     @FXML private Button button_add;
     @FXML private Button button_all;
@@ -38,9 +38,6 @@ public final class HomeController extends Controller {
 
     @Override
     protected void initialize() {
-
-
-
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("fxml/item_calendar.fxml"));
             this.item = fxmlLoader.load();
@@ -58,7 +55,7 @@ public final class HomeController extends Controller {
             LocalDate picked = date_picker.getValue();
             ObservableList<Workout> temp = FXCollections.observableArrayList();
 
-            for (Workout w : this.user_workouts) if (w.getScheduled_for().toLocalDate().equals(picked)) temp.add(w);
+            //for (Workout w : this.user_workouts) if (w.getScheduled_for().toLocalDate().equals(picked)) temp.add(w);
 
             this.set_List(temp);
         });
@@ -84,7 +81,6 @@ public final class HomeController extends Controller {
     }
 
 
-
     private class CustomListCell extends ListCell<Workout> {
         private HBox content;
         private Text name;
@@ -106,7 +102,7 @@ public final class HomeController extends Controller {
             {
                 name.setText(item.getName());
                 pr.setProgress(item.getProgress());
-                time.setText(String.valueOf(item.getScheduled_for().getHour() + ":" + item.getScheduled_for().getMinute()));
+                //time.setText(String.valueOf(item.getScheduled_for().getHour() + ":" + item.getScheduled_for().getMinute()));
                 setGraphic(content);
             }
             else setGraphic(null);

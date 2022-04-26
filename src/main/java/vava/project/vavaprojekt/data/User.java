@@ -19,16 +19,16 @@ public abstract class User {
         this.language = language;
     }
 
-    public static User login(Database db, String login, String passwordHash, String account_type, String language, Object... extras) {
+    public static User login(Database db, String id, String login, String passwordHash, String account_type, String language, Object... extras) {
 
         switch (account_type) {
             case "admin":
                 return new Admin(db, login, passwordHash, language);
             case "sportsman":
-                return new Sportsman(db, login, passwordHash, account_type, language, (String)extras[0], (Integer)extras[1],
+                return new Sportsman(db, id,  login, passwordHash, account_type, language, (String)extras[0], (Integer)extras[1],
                         (String)extras[2], (Double)extras[3], (Double)extras[4]);
             case "trainer":
-                return new Trainer(db, login, passwordHash, account_type, language, (String)extras[0], (Integer)extras[1],
+                return new Trainer(db, id,  login, passwordHash, account_type, language, (String)extras[0], (Integer)extras[1],
                         (String)extras[2], (Double)extras[3], (Double)extras[4]);
         }
         return null;
