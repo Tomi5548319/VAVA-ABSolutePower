@@ -60,6 +60,64 @@ public final class Database {
     }
 
     //QUERIES
+    public boolean register(String login, String passwordHash) {
+        ResultSet rs = this.safeExecuteSQL(
+            "SELECT login\n" +
+                    "FROM users\n" +
+                    "WHERE login = ?",
+            login);
+        if (rs == null) return false;
+
+        try {
+            if (rs.next()) return false;
+
+            // Language
+            rs = this.safeExecuteSQL(
+                    "SELECT id FROM languages\n" +
+                            "WHERE lang = 'en'");
+            if(rs == null) return false;
+            rs.next();
+
+            int lang_id = rs.getInt("id");
+
+            // Account type
+            rs = this.safeExecuteSQL(
+                    "SELECT id FROM account_types\n" +
+                            "WHERE type = 'sportsman'");
+            if(rs == null) return false;
+            rs.next();
+
+            int acc_type_id = rs.getInt("id");
+
+            // Insert user
+            this.safeExecuteSQL(
+                    "INSERT INTO users (account_type, language_id, login, password) VALUES\n" +
+                            "(?, ?, ?, ?);",
+                    acc_type_id, lang_id, login, passwordHash);
+
+            // Get ID of inserted user
+            rs = this.safeExecuteSQL(
+                    "SELECT id FROM users\n" +
+                            "WHERE login = ?", login);
+            if(rs == null) return false;
+            rs.next();
+
+            int user_id = rs.getInt("id");
+
+            this.safeExecuteSQL(
+                    "INSERT INTO sportsmen (avatar_id, banned, user_id) VALUES\n" +
+                            "(1, false, ?);",
+                    user_id);
+
+            return true;
+
+        } catch (SQLException e) {
+            System.out.println("Chyba: " + e);
+        }
+
+        return false;
+    }
+
     public User login(String login, String passwordHash) {
 
         ResultSet rs = this.safeExecuteSQL(

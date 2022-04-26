@@ -12,9 +12,9 @@ import java.util.ResourceBundle;
 public final class App {
 
     private final Stage stage;
-    private Database database;
+    private final Database database;
     private User logged_user = null;
-    private static String defaultLanguage = "lang_en";
+    private static final String defaultLanguage = "lang_en";
 
     private App (Stage stage) {
         this.stage = stage;
@@ -30,6 +30,10 @@ public final class App {
 
     public User getUser() {
         return this.logged_user;
+    }
+
+    public Database getDB() {
+        return this.database;
     }
 
     public static void start() {

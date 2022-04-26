@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS user_activity_logs(
 
 CREATE TABLE IF NOT EXISTS sportsmen(
 	id serial PRIMARY KEY,
-	nickname varchar(50) NOT NULL,
+	nickname varchar(50),
 	avatar_id INT NOT NULL,
 	description TEXT,
 	weight DECIMAL,
