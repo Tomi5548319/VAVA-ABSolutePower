@@ -24,12 +24,14 @@ public abstract class User {
         switch (account_type) {
             case "admin":
                 return new Admin(db, login, passwordHash, language);
-            case "verifier":
-                return new Verifier(db, login, passwordHash, language);
-            default:
+            case "sportsman":
                 return new Sportsman(db, login, passwordHash, account_type, language, (String)extras[0], (Integer)extras[1],
                         (String)extras[2], (Double)extras[3], (Double)extras[4]);
+            case "trainer":
+                return new Trainer(db, login, passwordHash, account_type, language, (String)extras[0], (Integer)extras[1],
+                        (String)extras[2], (Double)extras[3], (Double)extras[4]);
         }
+        return null;
     }
 
 

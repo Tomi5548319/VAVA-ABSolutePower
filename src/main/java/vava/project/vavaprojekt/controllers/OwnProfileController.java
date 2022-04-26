@@ -10,6 +10,7 @@ import javafx.scene.text.Text;
 import vava.project.vavaprojekt.App;
 import vava.project.vavaprojekt.Password;
 import vava.project.vavaprojekt.data.Sportsman;
+import vava.project.vavaprojekt.data.Trainer;
 
 import java.util.Objects;
 
@@ -39,6 +40,9 @@ public final class OwnProfileController  extends Controller {
             text_nickname_heading.setText(((Sportsman)app.getUser()).getNickname());
             textArea_description.setText(((Sportsman)app.getUser()).getDescription());
             textField_nickname.setText(((Sportsman)app.getUser()).getNickname());
+            if (app.getUser() instanceof Trainer) {
+                btn_upgrade.setVisible(false);
+            }
         }
         else {
             text_nickname_heading.setText(app.getUser().getLogin());

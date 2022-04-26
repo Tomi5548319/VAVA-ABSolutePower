@@ -3,9 +3,8 @@ CREATE TABLE IF NOT EXISTS account_types(
 	type varchar(20) UNIQUE NOT NULL
 );
 
-INSERT INTO account_types (type)
-VALUES ('admin'),
-('verifier'),
+INSERT INTO account_types (type) VALUES
+('admin'),
 ('sportsman'),
 ('trainer');
 
@@ -17,8 +16,8 @@ CREATE TABLE IF NOT EXISTS languages(
 	cntry varchar(2) NOT NULL
 );
 
-INSERT INTO languages (language, lang, country, cntry)
-VALUES ('English', 'en', 'United Kingdom', 'GB'),
+INSERT INTO languages (language, lang, country, cntry) VALUES
+('English', 'en', 'United Kingdom', 'GB'),
 ('Slovak', 'sk', 'Slovakia', 'SK');
 
 CREATE TABLE IF NOT EXISTS users(
@@ -29,21 +28,21 @@ CREATE TABLE IF NOT EXISTS users(
 	password varchar(50) NOT NULL,
 	
 	FOREIGN KEY (account_type)
-      REFERENCES account_types (id),
+      REFERENCES account_types (id)
+	  ON DELETE CASCADE,
 	  
 	FOREIGN KEY (language_id)
       REFERENCES languages (id)
+	  ON DELETE CASCADE
 );
 
-INSERT INTO users (account_type, language_id, login, password)
-VALUES (1, 1, 'admin', 'ehqmr'),
-(2, 1, 'verifier', 'zivmjmiv'),
-(3, 1, 'sportsman', 'wtsvxwqer'),
-(4, 1, 'trainer', 'xvemriv'),
+INSERT INTO users (account_type, language_id, login, password) VALUES
+(1, 1, 'admin', 'ehqmr'),
+(2, 1, 'sportsman', 'wtsvxwqer'),
+(3, 1, 'trainer', 'xvemriv'),
 (1, 2, 'admin-sk', 'ehqmr'),
-(2, 2, 'verifier-sk', 'zivmjmiv'),
-(3, 2, 'sportsman-sk', 'wtsvxwqer'),
-(4, 2, 'trainer-sk', 'xvemriv');
+(2, 2, 'sportsman-sk', 'wtsvxwqer'),
+(3, 2, 'trainer-sk', 'xvemriv');
 
 CREATE TABLE IF NOT EXISTS user_activity_logs(
 	id serial PRIMARY KEY,
@@ -53,6 +52,7 @@ CREATE TABLE IF NOT EXISTS user_activity_logs(
 	
 	FOREIGN KEY (user_id)
       REFERENCES users (id)
+	  ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS sportsmen(
@@ -68,7 +68,14 @@ CREATE TABLE IF NOT EXISTS sportsmen(
 	
 	FOREIGN KEY (user_id)
       REFERENCES users (id)
+	  ON DELETE CASCADE
 );
+
+INSERT INTO sportsmen (nickname, avatar_id, description, weight, height, banned, user_id) VALUES
+('English sportsman', 1, 'Best English sportsman in the whole wide world', 50, 153, false, 2),
+('English trainer', 1, 'Best English trainer in the whole wide world', 62, 170, false, 3),
+('Slovensky sportovec', 1, 'Najlepsi Slovensky sportovec na celom svete', 81, 190, false, 5),
+('Slovensky trener', 1, 'Najlepsi Slovensky trener na celom svete', 70, 172, false, 6);
 
 CREATE TABLE IF NOT EXISTS sportsman_trainers(
 	id serial PRIMARY KEY,
@@ -78,10 +85,12 @@ CREATE TABLE IF NOT EXISTS sportsman_trainers(
 	rating INT,
 	
 	FOREIGN KEY (trainer_id)
-      REFERENCES sportsmen (id),
+      REFERENCES sportsmen (id)
+	  ON DELETE CASCADE,
 	
 	FOREIGN KEY (sportsman_id)
       REFERENCES sportsmen (id)
+	  ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS training_requests(
@@ -94,10 +103,12 @@ CREATE TABLE IF NOT EXISTS training_requests(
 	reply_text TEXT,
 	
 	FOREIGN KEY (sportsman_id)
-      REFERENCES sportsmen (id),
+      REFERENCES sportsmen (id)
+	  ON DELETE CASCADE,
 	
 	FOREIGN KEY (trainer_id)
       REFERENCES sportsmen (id)
+	  ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS training_questions_answers(
@@ -108,6 +119,7 @@ CREATE TABLE IF NOT EXISTS training_questions_answers(
 	
 	FOREIGN KEY (request_id)
       REFERENCES training_requests (id)
+	  ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS report_reasons(
@@ -124,7 +136,11 @@ CREATE TABLE IF NOT EXISTS workouts(
 	
 	FOREIGN KEY (owner_id)
       REFERENCES sportsmen (id)
+	  ON DELETE CASCADE
 );
+
+INSERT INTO workouts (name, owner_id, description) VALUES
+('Basic workout', 2, 'Workout for beginners');
 
 CREATE TABLE IF NOT EXISTS exercises(
 	id serial PRIMARY KEY,
@@ -132,8 +148,8 @@ CREATE TABLE IF NOT EXISTS exercises(
 	description TEXT
 );
 
-INSERT INTO exercises (name)
-VALUES ('stretch'),
+INSERT INTO exercises (name) VALUES
+('stretch'),
 ('plank'),
 ('push-up'),
 ('diamond push-up'),
@@ -175,11 +191,18 @@ CREATE TABLE IF NOT EXISTS exercises_in_workouts(
 	reps_selected BOOLEAN NOT NULL,
 	
 	FOREIGN KEY (exercise_id)
-      REFERENCES exercises (id),
+      REFERENCES exercises (id)
+	  ON DELETE CASCADE,
 	
 	FOREIGN KEY (workout_id)
       REFERENCES workouts (id)
+	  ON DELETE CASCADE
 );
+
+INSERT INTO exercises_in_workouts (sets, exercise_id, workout_id, completed_sets, repetitions, rest, time_for_rep, reps_selected) VALUES
+(1, 1, 1, 0, null, '00:00:00', '00:05:00', false),
+(4, 3, 1, 0, 10, '00:03:30', null, true),
+(4, 9, 1, 0, 8, '00:04:00', null, true);
 
 CREATE TABLE IF NOT EXISTS competitions(
 	id serial PRIMARY KEY,
@@ -190,6 +213,7 @@ CREATE TABLE IF NOT EXISTS competitions(
 	
 	FOREIGN KEY (workout_id)
       REFERENCES workouts (id)
+	  ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS participants(
@@ -200,10 +224,12 @@ CREATE TABLE IF NOT EXISTS participants(
 	paused BOOLEAN NOT NULL,
 	
 	FOREIGN KEY (sportsman_id)
-      REFERENCES sportsmen (id),
+      REFERENCES sportsmen (id)
+	  ON DELETE CASCADE,
 	
 	FOREIGN KEY (competition_id)
       REFERENCES competitions (id)
+	  ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS personal_bests(
@@ -216,10 +242,12 @@ CREATE TABLE IF NOT EXISTS personal_bests(
 	reps_selected BOOLEAN NOT NULL,
 	
 	FOREIGN KEY (sportsman_id)
-      REFERENCES sportsmen (id),
+      REFERENCES sportsmen (id)
+	  ON DELETE CASCADE,
 	
 	FOREIGN KEY (exercise_id)
       REFERENCES exercises (id)
+	  ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS reports(
@@ -233,16 +261,20 @@ CREATE TABLE IF NOT EXISTS reports(
 	solved BOOLEAN NOT NULL,
 	
 	FOREIGN KEY (reporter_id)
-      REFERENCES sportsmen (id),
+      REFERENCES sportsmen (id)
+	  ON DELETE CASCADE,
 	
 	FOREIGN KEY (reported_id)
-      REFERENCES sportsmen (id),
+      REFERENCES sportsmen (id)
+	  ON DELETE CASCADE,
 	
 	FOREIGN KEY (reason)
-      REFERENCES report_reasons (id),
+      REFERENCES report_reasons (id)
+	  ON DELETE CASCADE,
 	
 	FOREIGN KEY (workout_id)
       REFERENCES workouts (id)
+	  ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS upgrade_requests(
@@ -253,6 +285,7 @@ CREATE TABLE IF NOT EXISTS upgrade_requests(
 	
 	FOREIGN KEY (sportsman_id)
       REFERENCES sportsmen (id)
+	  ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS upgrade_questions_answers(
@@ -263,4 +296,5 @@ CREATE TABLE IF NOT EXISTS upgrade_questions_answers(
 	
 	FOREIGN KEY (request_id)
       REFERENCES upgrade_requests (id)
+	  ON DELETE CASCADE
 );

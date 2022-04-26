@@ -6,7 +6,7 @@ import java.net.URL;
 import java.util.Locale;
 import java.util.Objects;
 
-public final class Sportsman extends User {
+public class Sportsman extends User {
     private String nick;
     private int avatar_id;
     private String description;

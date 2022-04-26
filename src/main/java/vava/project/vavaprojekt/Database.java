@@ -83,6 +83,7 @@ public final class Database {
 
                 switch (account_type) {
                     case "sportsman":
+                    case "trainer":
                         ResultSet rs2 = this.safeExecuteSQL(
                                 "select * from sportsmen where user_id = ?", id
                         );
@@ -103,9 +104,6 @@ public final class Database {
                             }
                         }
                         break;
-                    case "trainer":
-                        // Sportsman or trainer
-                        return User.login(this, login, passwordHash, account_type, language);
                     case "admin":
                         return User.login(this, login, passwordHash, account_type, language);
                 }
