@@ -68,9 +68,6 @@ public final class MenuController extends Controller {
             menu_flag.setImage(new Image(Main.class.getResourceAsStream("icons/icons8-slovakia-80.png")));
         }
 
-
-
-
         prev = menu_text_homepage;
         menu_text_homepage.setFill(Color.DODGERBLUE);
 

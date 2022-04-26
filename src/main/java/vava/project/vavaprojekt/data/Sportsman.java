@@ -5,16 +5,22 @@ import java.util.Locale;
 import java.util.Objects;
 
 public final class Sportsman extends User {
-
-    private Integer weight;
-    private Integer height;
-    private boolean banned;
-    private String description;
     private String nick;
+    private int avatar_id;
+    private String description;
+    private double weight;
+    private double height;
+    private boolean banned;
 
-
-    protected Sportsman(String login, String passwordHash, String account_type, String language) {
+    protected Sportsman(String login, String passwordHash, String account_type, String language, String nickname,
+                        int avatar_id, String description, double weight, double height) {
         super(login, passwordHash, account_type, language);
+
+        this.nick = nickname;
+        this.avatar_id = avatar_id;
+        this.description = description;
+        this.weight = weight;
+        this.height = height;
     }
 
     public String getNickname() {

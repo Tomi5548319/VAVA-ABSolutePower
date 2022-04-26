@@ -17,12 +17,12 @@ public final class App {
     private static String defaultLanguage = "lang_en";
 
     private App (Stage stage) {
-        stage.setOnCloseRequest(e -> this.database.close());
-
         this.stage = stage;
         this.database = new Database();
 
-        stage.setOnCloseRequest(e -> this.database.close());
+        stage.setOnCloseRequest(e -> {
+            this.database.close();
+        });
 
         stage.setTitle("Mighty Gainz");
         this.changeWindow("welcome");

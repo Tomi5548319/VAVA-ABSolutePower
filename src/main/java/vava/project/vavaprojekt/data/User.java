@@ -19,7 +19,7 @@ public abstract class User {
         this.language = language;
     }
 
-    public static User login(String login, String passwordHash, String account_type, String language) {
+    public static User login(String login, String passwordHash, String account_type, String language, Object... extras) {
 
         switch (account_type) {
             case "admin":
@@ -27,7 +27,8 @@ public abstract class User {
             case "verifier":
                 return new Verifier(login, passwordHash, language);
             default:
-                return new Sportsman(login, passwordHash, account_type, language);
+                return new Sportsman(login, passwordHash, account_type, language, (String)extras[0], (Integer)extras[1],
+                        (String)extras[2], (Double)extras[3], (Double)extras[4]);
         }
     }
 
