@@ -3,6 +3,7 @@ package vava.project.vavaprojekt.data;
 import vava.project.vavaprojekt.Database;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -13,6 +14,7 @@ public class Sportsman extends User {
     private double weight;
     private double height;
     private boolean banned;
+    private ArrayList<Trainer> myTrainers;
 
     protected Sportsman(Database db, String login, String passwordHash, String account_type, String language, String nickname,
                         int avatar_id, String description, double weight, double height) {
