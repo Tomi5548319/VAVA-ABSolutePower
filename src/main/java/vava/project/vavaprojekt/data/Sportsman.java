@@ -1,5 +1,7 @@
 package vava.project.vavaprojekt.data;
 
+import vava.project.vavaprojekt.Database;
+
 import java.net.URL;
 import java.util.Locale;
 import java.util.Objects;
@@ -12,9 +14,9 @@ public final class Sportsman extends User {
     private double height;
     private boolean banned;
 
-    protected Sportsman(String login, String passwordHash, String account_type, String language, String nickname,
+    protected Sportsman(Database db, String login, String passwordHash, String account_type, String language, String nickname,
                         int avatar_id, String description, double weight, double height) {
-        super(login, passwordHash, account_type, language);
+        super(db, login, passwordHash, account_type, language);
 
         this.nick = nickname;
         this.avatar_id = avatar_id;

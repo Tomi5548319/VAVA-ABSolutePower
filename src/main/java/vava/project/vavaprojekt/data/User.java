@@ -1,33 +1,36 @@
 package vava.project.vavaprojekt.data;
 
 import vava.project.vavaprojekt.App;
+import vava.project.vavaprojekt.Database;
 
 import java.util.Locale;
 
 public abstract class User {
 
+    private Database db;
     private String login;
     private String password_hash;
     private String account_type;
     private String language;
 
-    protected User(String login, String passwordHash, String account_type, String language)
+    protected User(Database db, String login, String passwordHash, String account_type, String language)
     {
+        this.db = db;
         this.login = login;
         this.password_hash = passwordHash;
         this.account_type = account_type;
         this.language = language;
     }
 
-    public static User login(String login, String passwordHash, String account_type, String language, Object... extras) {
+    public static User login(Database db, String login, String passwordHash, String account_type, String language, Object... extras) {
 
         switch (account_type) {
             case "admin":
-                return new Admin(login, passwordHash, language);
+                return new Admin(db, login, passwordHash, language);
             case "verifier":
-                return new Verifier(login, passwordHash, language);
+                return new Verifier(db, login, passwordHash, language);
             default:
-                return new Sportsman(login, passwordHash, account_type, language, (String)extras[0], (Integer)extras[1],
+                return new Sportsman(db, login, passwordHash, account_type, language, (String)extras[0], (Integer)extras[1],
                         (String)extras[2], (Double)extras[3], (Double)extras[4]);
         }
     }
@@ -64,8 +67,7 @@ public abstract class User {
     public boolean updatePassword(String act_pass, String new_pass, String new_pass_check) {
         if (act_pass.equals(password_hash) && new_pass.equals(new_pass_check)) {
             password_hash = new_pass;
-            return true;
-            // TODO update v databaze
+            return db.update_user(login, act_pass, "password = '" + new_pass + "'");
         }
         return false;
     }

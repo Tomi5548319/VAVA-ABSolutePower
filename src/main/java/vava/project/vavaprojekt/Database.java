@@ -97,7 +97,7 @@ public final class Database {
                             boolean banned = rs2.getBoolean("banned");
 
                             if (!banned)
-                                return User.login(login, passwordHash, account_type, language, nickname, avatar_id, description, weight, height);
+                                return User.login(this, login, passwordHash, account_type, language, nickname, avatar_id, description, weight, height);
                             else {
                                 // TODO sportovec ma ban
                             }
@@ -105,9 +105,9 @@ public final class Database {
                         break;
                     case "trainer":
                         // Sportsman or trainer
-                        return User.login(login, passwordHash, account_type, language);
+                        return User.login(this, login, passwordHash, account_type, language);
                     case "admin":
-                        return User.login(login, passwordHash, account_type, language);
+                        return User.login(this, login, passwordHash, account_type, language);
                 }
             }
             else {
