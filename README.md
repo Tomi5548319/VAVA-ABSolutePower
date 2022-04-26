@@ -14,6 +14,22 @@ public final class Workout {    private String name;
 Logovanie v našej aplikácii sa používa na zaznamenávanie podozrivej aktivity (pokus o SQL injection keď niekto zadá do prihlasovacieho formulára neplatne znaky a atď.. ), informácii o prihlásení, registrácii, zmeny osobných údajov používateľa. Všetky udalosti budú zaznamenane v tabuľke databázy v tvare
 <br /> 'aktivita' + 'time' + 'user_id'<br /> 
 Funkcionalita pre logovanie je implementovaná v 'Database.java'.<br /><br />
+```
+ public void log(String activity, int user_id) {
+        System.out.println("Pridavam log: " + activity + ", user: " + user_id);
+        Timestamp time = Timestamp.valueOf(LocalDateTime.now());
+
+        this.safeExecuteSQL(
+                "INSERT INTO user_activity_logs (activity, time, user_id) VALUES\n" +
+                        "(?, ?, ?)", activity, time, user_id);
+    }
+
+    public void log(String activity, String login) {
+        ResultSet rs = this.safeExecuteSQL(
+                "SELECT id\n" +
+                        "FROM users\n" +
+                        "WHERE login = ?", login);
+```
 
 ## 3. Lokalizácia<br /><br /> 
 
