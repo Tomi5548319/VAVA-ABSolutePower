@@ -1,9 +1,6 @@
 package vava.project.vavaprojekt.data;
 
-import vava.project.vavaprojekt.App;
 import vava.project.vavaprojekt.Database;
-
-import java.util.Locale;
 
 public abstract class User {
 
@@ -35,12 +32,13 @@ public abstract class User {
         }
     }
 
-    public void setLanguage(String language) {
-        this.language = language;
-    }
 
     public String getLanguage() {
         return "lang_" + this.language;
+    }
+
+    public String getLogin() {
+        return this.login;
     }
 
     public String getPassword_hash() {
@@ -51,20 +49,21 @@ public abstract class User {
         return this.account_type == null ? "" : this.account_type;
     }
 
-    public String getLogin() {
-        return this.login;
+    public boolean setLanguage(String language) {
+        this.language = language;
+        return true;
+        // TODO update v databaze
     }
 
-    public boolean updateLogin(String new_login) {
-        if (!new_login.equals(login)) {
+    public boolean setLogin(String new_login) {
+        if (!new_login.equals(login) && db.update_user(login, password_hash, "login = '" + new_login + "'")) {
             login = new_login;
             return true;
-            // TODO update v databaze (vratit false ak uz login je v databaze) (databaza vrati false a user to iba return-ne)
         }
         return false;
     }
 
-    public boolean updatePassword(String act_pass, String new_pass, String new_pass_check) {
+    public boolean setPassword(String act_pass, String new_pass, String new_pass_check) {
         if (act_pass.equals(password_hash) && new_pass.equals(new_pass_check)) {
             password_hash = new_pass;
             return db.update_user(login, act_pass, "password = '" + new_pass + "'");

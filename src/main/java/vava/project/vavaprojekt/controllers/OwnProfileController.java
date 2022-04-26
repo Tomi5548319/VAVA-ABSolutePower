@@ -7,7 +7,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
 import vava.project.vavaprojekt.App;
 import vava.project.vavaprojekt.Password;
 import vava.project.vavaprojekt.data.Sportsman;
@@ -56,11 +55,20 @@ public final class OwnProfileController  extends Controller {
         // TODO popup pre udaje ktore sa nepodari aktualizovat
         ((Sportsman)app.getUser()).updateDescription(new_desc);
         ((Sportsman)app.getUser()).updateNickname(new_nick);
-        app.getUser().updateLogin(new_login);
-        if (app.getUser().updatePassword(act_pass, new_pass, new_pass_check))
+        if (app.getUser().setLogin(new_login))
+            System.out.println("Login bol zmeneny uspesne");
+        else {
+            textField_login.setText(app.getUser().getLogin());
+            System.out.println("Login sa nepodarilo zmenit");
+        }
+        if (app.getUser().setPassword(act_pass, new_pass, new_pass_check))
             System.out.println("Heslo bolo zmenene uspesne");
         else
             System.out.println("Heslo sa nepodarilo zmenit");
+
+        passField_act_password.setText("");
+        passField_new_password.setText("");
+        passField_confirm_password.setText("");
 
     }
 }

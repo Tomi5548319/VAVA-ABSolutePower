@@ -127,12 +127,13 @@ public final class Database {
             ResultSet rs = this.safeExecuteSQL(
                 "UPDATE users\n" +
                         "SET " + columns + "\n" +
-                        "WHERE login = ? AND password = ?" + "\n" +
+                        "WHERE login = ? AND password = ?\n" +
                         "RETURNING *",
                 login, passwordHash);
 
-            if (rs.next()) return true;
-            else return false;
+            if (rs == null) return false;
+
+            return rs.next();
         }
         catch (Exception e) {
             e.printStackTrace();
