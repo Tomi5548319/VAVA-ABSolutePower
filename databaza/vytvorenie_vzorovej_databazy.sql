@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS sportsmen(
 	height DECIMAL,
 	banned BOOLEAN NOT NULL,
 	banned_untill TIMESTAMP,
-	user_id INT NOT NULL,
+	user_id INT UNIQUE NOT NULL,
 	
 	FOREIGN KEY (user_id)
       REFERENCES users (id)
