@@ -36,11 +36,6 @@ Funkcionalita pre logovanie je implementovaná v 'Database.java'.<br /><br />
 Preklad a lokalizácia je vytvorená pre ENG a SK jazyky je implementovaná pomocou ResourceBundle. @TODO v daných súboroch sa nachádzajú všetky preklady nadpisov a textov. Jazyk pre užívateľa sa ukladá do profilu usera v Databáze ako predvolený jazyk aby pri budúcom prihlásení si to nemusel meniť ak nechce používať predvolený SK Language. Načítavanie je zakomponovane v fxmlLoadery kde sa získa jazyk používateľa a načíta sa obrazovka.<br /><br />
 
 
-## 4.<br /><br />
-
-
-## 5.<br /><br />
-
 
 ## 6. JDBC pripojenie na databazu<br /><br />
 V projekte používame JDBC Driver na pripojenie k PostgreSQL databáze, ktorý sme stiahli z linku https://jdbc.postgresql.org/download/postgresql-42.3.4.jar (konektor sa nachádza aj v priečinku "databáza")<br />
