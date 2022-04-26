@@ -11,30 +11,24 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text fx:id="text_email" layoutX="226.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%email">
+      <Text fx:id="text_login" layoutX="225.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%login">
          <font>
             <Font name="Calibri Bold" size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="textField_email" layoutX="226.0" layoutY="141.0" prefHeight="30.0" prefWidth="149.0" />
-      <Text fx:id="text_login" layoutX="226.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%login">
+      <TextField fx:id="textField_login" layoutX="225.0" layoutY="187.0" prefHeight="30.0" prefWidth="149.0" AnchorPane.bottomAnchor="183.0" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="226.0" AnchorPane.topAnchor="187.0" />
+      <Text fx:id="text_password" layoutX="225.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%password">
          <font>
             <Font name="Calibri Bold" size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="textField_login" layoutX="226.0" layoutY="205.0" prefHeight="30.0" prefWidth="149.0" AnchorPane.bottomAnchor="165.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="225.0" AnchorPane.topAnchor="205.0" />
-      <Text fx:id="text_password" layoutX="226.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%password">
-         <font>
-            <Font name="Calibri Bold" size="18.0" />
-         </font>
-      </Text>
-      <PasswordField fx:id="passwordField_password" layoutX="227.0" layoutY="267.0" prefHeight="30.0" prefWidth="149.0" />
-      <Button fx:id="button_register" layoutX="258.0" layoutY="327.0" mnemonicParsing="false" text="%register">
+      <PasswordField fx:id="passwordField_password" layoutX="226.0" layoutY="249.0" prefHeight="30.0" prefWidth="149.0" />
+      <Button fx:id="button_register" layoutX="227.0" layoutY="296.0" mnemonicParsing="false" text="%register">
          <font>
             <Font name="Calibri Bold" size="18.0" />
          </font>
       </Button>
-      <ImageView fx:id="registration_logo" fitHeight="115.0" fitWidth="149.0" layoutX="227.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="registration_logo" fitHeight="115.0" fitWidth="149.0" layoutX="226.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../icons/LOGO.png" />
          </image>

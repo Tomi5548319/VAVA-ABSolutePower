@@ -41,5 +41,5 @@ public final class LoginController extends Controller {
 
     private void go_back(ActionEvent event) {
         app.changeWindow("welcome");
-
-    }}
+    }
+}
