@@ -61,8 +61,38 @@ Driver je potrebné importovať do projektu následovne (IntelliJ): File > Proje
 
 ## 8.GUI<br /><br />
 
-Grafické rozhranie je implementovane pomocou Java FX z použitím Scene Builder. Každá obrazovka ma svoj súbor FXML. Obrazovka hlavného menu je rozdelená na 2 časti. Na ľavej vždy sa nachádza menu pre Usera aby sa vedel rýchlo dostáť z jednej obrazovky na inú.<br /><br />
+Grafické rozhranie je implementovane pomocou Java FX z použitím Scene Builder. Každá obrazovka ma svoj súbor FXML. Obrazovka hlavného menu je rozdelená na 2 časti. Na ľavej vždy sa nachádza menu pre Usera aby sa vedel rýchlo dostáť z jednej obrazovky na inú. Každá obrazovka má vlastný controller, ktorý obsahuje dynamické prvky zobrazované v hlavnom okne a metódy použité na spracovanie vstupov (event handlers). <br /><br />
 
+```
+public final class LoginController extends Controller {
+    @FXML private Text text_username;
+    @FXML private TextField textField_username;
+    @FXML private Text text_password;
+    @FXML private PasswordField passwordField_password;
+    @FXML private Button button_login;
+    @FXML Button button_back;
+    
+    public LoginController(App app) {
+        super(app);
+    }
+
+    @FXML protected void initialize() {
+        button_login.setOnAction(this::login);
+        button_back.setOnAction(this::go_back);
+    }
+
+    private void login(ActionEvent event) {
+        String login = textField_username.getText();
+        String passwordHash = Password.getHash(passwordField_password.getText());
+
+        if(app.login(login, passwordHash)) app.changeWindow("main_view-homepage");
+    }
+
+    private void go_back(ActionEvent event) {
+        app.changeWindow("welcome");
+    }
+}
+```
 ## 9.Pouzivatelia <br /><br />
 
  Nasa aplikacia obsahuje 3ch pouzivatelov:<br> Sportsman(Sportovec), Admin/Verifikator a Trainer(Trener).<br><br>
