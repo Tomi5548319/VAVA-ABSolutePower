@@ -54,9 +54,58 @@ private void change_language(MouseEvent mouseEvent)
 V projekte používame JDBC Driver na pripojenie k PostgreSQL databáze, ktorý sme stiahli z linku https://jdbc.postgresql.org/download/postgresql-42.3.4.jar (konektor sa nachádza aj v priečinku "databáza")<br />
 
 Driver je potrebné importovať do projektu následovne (IntelliJ): File > Project Structure... > Modules > + > JARs or Directories... > [treba vybrať .jar súbor JDBC drivera] > [zvoliť pridaný modul v zozname modulov] > OK<br /><br />
+```
+private Connection connect() {
+        try {
+            return DriverManager.getConnection("jdbc:postgresql://vava-mightygainz.cfjpdf44uln2.us-east-1.rds.amazonaws.com:5432/VAVA_MightyGainz_db", "xoross", "vava.G4inz");
+            //System.out.println("Uspesne som sa pripojil k databaze");
+        }
+        catch (SQLException exSQL) {
+            System.out.println("Nepodarilo sa pripojit k databaze: " + exSQL.getMessage());
+        }
+        return null;
+    }
+PreparedStatement stmt = conn.prepareStatement(query);
+```
 
 
-## 7.<br /><br />
+## 7.Pre ošetrovanie voči SQL injection používame Prepare Statement Metódu na rozdeľovanie a ošetrovanie vstupov. Funkcia si to preverí a skonvertuje do správneho typu a následne si zavolá Query.<br><br>
+```
+private ResultSet safeExecuteSQL(String query, Object... variables) {
+        if (conn == null) {
+            System.out.println("Aplikacia nieje pripojena k databaze, preto nevykonala nasledovne query: " + query);
+            return null;
+        }
+
+        try {
+            PreparedStatement stmt = conn.prepareStatement(query);
+
+            int i = 1;
+            for (Object variable : variables) {
+                System.out.println("obj[" + i + "] type: " + variable.getClass());
+
+                String cls = variable.getClass().toString();
+
+                if(cls.equals("class java.lang.String"))
+                    stmt.setString(i, (String)variable);
+                else if(cls.equals("class java.lang.Integer"))
+                    stmt.setInt(i, (Integer) variable);
+                else if(cls.equals("class java.sql.Timestamp"))
+                    stmt.setTimestamp(i, (Timestamp) variable);
+                //stmt.setString(i, variable);
+                i++;
+            }
+            return stmt.executeQuery();
+
+        } catch (SQLException exSQL) {
+            System.out.println("Chyba pocas vykonavania query: " + exSQL.getMessage());
+        }
+        //System.out.println(stmt);
+
+        return null;
+    }
+```
+
 
 
 ## 8.GUI<br /><br />
