@@ -9,18 +9,28 @@ public final class Workout {    private String name;
     private ArrayList<Exercise> exercises;
  ```
 <br /><br />
-## 2. Logovanie**<br /><br />Logovanie v našej aplikácii sa používa na zaznamenávanie podozrivej aktivity (pokus o SQL injection keď niekto zadá do prihlasovacieho formulára neplatne znaky a atď.. ), informácii o prihlásení, registrácii, zmeny osobných údajov používateľa. Všetky udalosti budú zaznamenane v tabuľke databázy v tvare<br /> 'aktivita' + 'time' + 'user_id'.<br /> Funkcionalita pre logovanie je implementovaná v 'Database.java'.<br /><br />
+## 2. Logovanie <br /><br />
+
+Logovanie v našej aplikácii sa používa na zaznamenávanie podozrivej aktivity (pokus o SQL injection keď niekto zadá do prihlasovacieho formulára neplatne znaky a atď.. ), informácii o prihlásení, registrácii, zmeny osobných údajov používateľa. Všetky udalosti budú zaznamenane v tabuľke databázy v tvare
+<br /> 'aktivita' + 'time' + 'user_id'<br /> 
+Funkcionalita pre logovanie je implementovaná v 'Database.java'.<br /><br />
 
 ## 3. Lokalizácia<br /><br /> 
 
-Preklad a lokalizácia je vytvorená pre ENG a SK jazyky je implementovaná pomocou ResourceBundle. @TODO v daných súboroch sa nachádzajú všetky preklady nadpisov a textov. Jazyk pre užívateľa sa ukladá do profilu usera v Databáze ako predvolený jazyk aby pri budúcom prihlásení si to nemusel meniť ak nechce používať predvolený SK Language. Načítavanie je zakomponovane v fxmlLoadery kde sa získa jazyk používateľa a načíta sa obrazovka./n
+Preklad a lokalizácia je vytvorená pre ENG a SK jazyky je implementovaná pomocou ResourceBundle. @TODO v daných súboroch sa nachádzajú všetky preklady nadpisov a textov. Jazyk pre užívateľa sa ukladá do profilu usera v Databáze ako predvolený jazyk aby pri budúcom prihlásení si to nemusel meniť ak nechce používať predvolený SK Language. Načítavanie je zakomponovane v fxmlLoadery kde sa získa jazyk používateľa a načíta sa obrazovka.<br /><br />
+
+
 ## 4.<br /><br />
+
 
 ## 5.<br /><br />
 
+
 ## 6.<br /><br />
 
+
 ## 7.<br /><br />
+
 
 ## 8.GUI<br /><br />Grafické rozhranie je implementovane pomocou Java FX z použitím Scene Builder. Každá obrazovka ma svoj súbor FXML. Obrazovka hlavného menu je rozdelená na 2 časti. Na ľavej vždy sa nachádza menu pre Usera aby sa vedel rýchlo dostáť z jednej obrazovky na inú.<br /><br />
 
