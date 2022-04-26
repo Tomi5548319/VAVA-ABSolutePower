@@ -30,12 +30,17 @@ public final class LoginController extends Controller {
 
     private void login(ActionEvent event) {
         String login = textField_username.getText();
-        String passwordHash = Password.getHash(passwordField_password.getText());
+
+        String password = passwordField_password.getText();
+        String passwordHash = Password.getHash(password);
+
+        if (password.contains("--") || password.contains("'") || password.contains("/*") || password.contains("*/"))
+            app.log("Pravdepodobne sa pokusil o SQL injection", 0);
 
         if(app.login(login, passwordHash)) app.changeWindow("main_view-homepage");
         else
         {
-            //TODO : POP UP message
+            //TODO : POP UP message - nespravny login alebo heslo
         }
     }
 

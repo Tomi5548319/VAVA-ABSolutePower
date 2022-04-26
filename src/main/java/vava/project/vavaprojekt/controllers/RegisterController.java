@@ -34,15 +34,19 @@ public final class RegisterController extends Controller {
 
     private void register(ActionEvent actionEvent) {
         String login = textField_login.getText();
-        String password = Password.getHash(passwordField_password.getText());
+        String password = passwordField_password.getText();
+        String passwordHash = Password.getHash(password);
 
-        if(app.getDB().register(login, password)) {
+        if (password.contains("--") || password.contains("'") || password.contains("/*") || password.contains("*/"))
+            app.log("Pravdepodobne sa pokusil o SQL injection", 0);
+
+        if(app.getDB().register(login, passwordHash)) {
             // Uspesna registracia -> rovno sa prihlasime
-            if(app.login(login, password)) app.changeWindow("main_view-homepage");
+            if(app.login(login, passwordHash)) app.changeWindow("main_view-homepage");
         }
         else {
             System.out.println("Login je obsadeny");
-            // TODO popup
+            // TODO popup - nespravny login alebo heslo
         }
     }
 }

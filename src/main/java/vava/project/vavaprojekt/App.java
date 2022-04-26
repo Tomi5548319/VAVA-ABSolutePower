@@ -41,9 +41,8 @@ public final class App {
         new App(stage);
     }
 
-    private void log(String message) {
-        // TODO logs
-        System.out.println("Log: " + message);
+    public void log(String activity, int user_id) {
+        database.log(activity, user_id);
     }
 
     public void changeWindow(String fxmlFile, Object... data) {
