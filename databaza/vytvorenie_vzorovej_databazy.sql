@@ -187,8 +187,7 @@ CREATE TABLE IF NOT EXISTS exercises_in_workouts(
 	repetitions INT,
 	extra_weight DECIMAL,
 	rest INTERVAL NOT NULL,
-	time_for_rep INTERVAL,
-	reps_selected BOOLEAN NOT NULL,
+	time_for_rep INTERVAL
 	
 	FOREIGN KEY (exercise_id)
       REFERENCES exercises (id)
@@ -199,10 +198,10 @@ CREATE TABLE IF NOT EXISTS exercises_in_workouts(
 	  ON DELETE CASCADE
 );
 
-INSERT INTO exercises_in_workouts (sets, exercise_id, workout_id, completed_sets, repetitions, rest, time_for_rep, reps_selected) VALUES
-(1, 1, 1, 0, null, '00:00:00', '00:05:00', false),
-(4, 3, 1, 0, 10, '00:03:30', null, true),
-(4, 9, 1, 0, 8, '00:04:00', null, true);
+INSERT INTO exercises_in_workouts (sets, exercise_id, workout_id, completed_sets, repetitions, rest, time_for_rep) VALUES
+(1, 1, 1, 0, null, '00:00:00', '00:05:00'),
+(4, 3, 1, 0, 10, '00:03:30', null),
+(4, 9, 1, 0, 8, '00:04:00', null);
 
 CREATE TABLE IF NOT EXISTS competitions(
 	id serial PRIMARY KEY,
