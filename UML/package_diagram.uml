@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JIGSAW</ID>
+  <OriginalElement>vava.project.vavaprojekt</OriginalElement>
+  <nodes>
+    <node x="1477.1166666666668" y="436.0">jdk.jsobject</node>
+    <node x="1269.3666666666668" y="436.0">javafx.media</node>
+    <node x="1216.85" y="904.0">java.datatransfer</node>
+    <node x="1492.3666666666668" y="234.0">javafx.web</node>
+    <node x="954.7233597883605" y="0.0">vava.project.vavaprojekt</node>
+    <node x="448.63994708994727" y="558.0">java.scripting</node>
+    <node x="1422.7899470899472" y="1046.0">java.xml</node>
+    <node x="466.58333333333337" y="700.0">jdk.unsupported</node>
+    <node x="1360.0399470899472" y="802.0">java.desktop</node>
+    <node x="1642.502592592593" y="436.0">jdk.xml.dom</node>
+    <node x="428.88994708994727" y="436.0">javafx.fxml</node>
+    <node x="612.6399470899473" y="558.0">javafx.graphics</node>
+    <node x="204.0" y="1046.0">java.logging</node>
+    <node x="1030.4166666666665" y="436.0">javafx.controls</node>
+    <node x="1404.85" y="904.0">java.prefs</node>
+    <node x="1078.5899470899471" y="700.0">javafx.base</node>
+    <node x="0.0" y="1046.0">java.transaction.xa</node>
+    <node x="1039.0833333333335" y="132.0">com.dlsc.formsfx</node>
+    <node x="839.8899470899473" y="234.0">java.base</node>
+    <node x="122.08333333333337" y="436.0">org.kordamp.ikonli.core</node>
+    <node x="50.83333333333337" y="904.0">java.sql</node>
+    <node x="562.5833333333334" y="234.0">org.kordamp.ikonli.javafx</node>
+    <node x="1214.4166666666665" y="234.0">org.controlsfx.controls</node>
+    <node x="842.0833333333334" y="132.0">eu.hansolo.tilesfx</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="java.logging" target="java.sql">
+      <point x="-42.66666666666666" y="-26.0" />
+      <point x="225.33333333333337" y="1026.0" />
+      <point x="98.83333333333337" y="1026.0" />
+      <point x="0.0" y="26.0" />
+    </edge>
+    <edge source="java.transaction.xa" target="java.sql">
+      <point x="0.0" y="-26.0" />
+      <point x="92.0" y="1026.0" />
+      <point x="66.83333333333337" y="1026.0" />
+      <point x="-32.0" y="26.0" />
+    </edge>
+    <edge source="java.logging" target="org.kordamp.ikonli.core">
+      <point x="0.0" y="-26.0" />
+      <point x="268.0" y="1016.0" />
+      <point x="230.08333333333337" y="1016.0" />
+      <point x="0.0" y="26.0" />
+    </edge>
+    <edge source="java.scripting" target="javafx.fxml">
+      <point x="0.0" y="-26.0" />
+      <point x="520.6399470899473" y="538.0" />
+      <point x="503.88994708994727" y="538.0" />
+      <point x="15.0" y="26.0" />
+    </edge>
+    <edge source="javafx.controls" target="vava.project.vavaprojekt">
+      <point x="-12.666666666666742" y="-26.0" />
+      <point x="1093.75" y="306.0" />
+      <point x="1028.5833333333335" y="306.0" />
+      <point x="1028.5833333333335" y="112.0" />
+      <point x="1080.7233597883605" y="112.0" />
+      <point x="14.0" y="26.0" />
+    </edge>
+    <edge source="com.dlsc.formsfx" target="vava.project.vavaprojekt">
+      <point x="0.0" y="-26.0" />
+      <point x="1119.0833333333335" y="112.0" />
+      <point x="1108.7233597883605" y="112.0" />
+      <point x="42.0" y="26.0" />
+    </edge>
+    <edge source="javafx.media" target="org.controlsfx.controls">
+      <point x="-32.0" y="-26.0" />
+      <point x="1301.3666666666668" y="356.0" />
+      <point x="1322.4166666666665" y="356.0" />
+      <point x="0.0" y="26.0" />
+    </edge>
+    <edge source="javafx.controls" target="org.controlsfx.controls">
+      <point x="38.0" y="-26.0" />
+      <point x="1144.4166666666665" y="356.0" />
+      <point x="1279.2166666666667" y="356.0" />
+      <point x="-43.200000000000045" y="26.0" />
+    </edge>
+    <edge source="javafx.graphics" target="javafx.controls">
+      <point x="12.666666666666629" y="-26.0" />
+      <point x="701.3066137566138" y="518.0" />
+      <point x="1068.4166666666665" y="518.0" />
+      <point x="-38.0" y="26.0" />
+    </edge>
+    <edge source="javafx.controls" target="org.kordamp.ikonli.javafx">
+      <point x="-63.33333333333326" y="-26.0" />
+      <point x="1043.0833333333335" y="326.0" />
+      <point x="765.5833333333334" y="326.0" />
+      <point x="87.0" y="26.0" />
+    </edge>
+    <edge source="javafx.base" target="javafx.controls">
+      <point x="-7.5" y="-26.0" />
+      <point x="1131.0899470899471" y="640.0" />
+      <point x="1144.4166666666665" y="640.0" />
+      <point x="38.0" y="26.0" />
+    </edge>
+    <edge source="java.desktop" target="jdk.jsobject">
+      <point x="51.19999999999999" y="-26.0" />
+      <point x="1475.2399470899472" y="782.0" />
+      <point x="1541.1166666666668" y="782.0" />
+      <point x="0.0" y="26.0" />
+    </edge>
+    <edge source="org.controlsfx.controls" target="vava.project.vavaprojekt">
+      <point x="0.0" y="-26.0" />
+      <point x="1322.4166666666665" y="112.0" />
+      <point x="1136.7233597883605" y="112.0" />
+      <point x="70.0" y="26.0" />
+    </edge>
+    <edge source="javafx.graphics" target="org.kordamp.ikonli.javafx">
+      <point x="-38.0" y="-26.0" />
+      <point x="650.6399470899473" y="538.0" />
+      <point x="653.3899470899473" y="538.0" />
+      <point x="653.3899470899473" y="336.0" />
+      <point x="649.5833333333334" y="336.0" />
+      <point x="-29.0" y="26.0" />
+    </edge>
+    <edge source="java.xml" target="javafx.graphics">
+      <point x="-13.71428571428578" y="-26.0" />
+      <point x="1457.0756613756614" y="986.0" />
+      <point x="629.0833333333334" y="986.0" />
+      <point x="629.0833333333334" y="670.0" />
+      <point x="669.6399470899473" y="670.0" />
+      <point x="-19.0" y="26.0" />
+    </edge>
+    <edge source="java.desktop" target="org.controlsfx.controls">
+      <point x="0.0" y="-26.0" />
+      <point x="1424.0399470899472" y="772.0" />
+      <point x="1455.6166666666668" y="772.0" />
+      <point x="1455.6166666666668" y="346.0" />
+      <point x="1408.8166666666666" y="346.0" />
+      <point x="86.40000000000009" y="26.0" />
+    </edge>
+    <edge source="jdk.unsupported" target="javafx.graphics">
+      <point x="0.0" y="-26.0" />
+      <point x="542.5833333333334" y="660.0" />
+      <point x="631.6399470899473" y="660.0" />
+      <point x="-57.0" y="26.0" />
+    </edge>
+    <edge source="org.kordamp.ikonli.javafx" target="vava.project.vavaprojekt">
+      <point x="0.0" y="-26.0" />
+      <point x="678.5833333333334" y="92.0" />
+      <point x="1024.7233597883605" y="92.0" />
+      <point x="-42.0" y="26.0" />
+    </edge>
+    <edge source="java.xml" target="java.prefs">
+      <point x="0.0" y="-26.0" />
+      <point x="1470.7899470899472" y="976.0" />
+      <point x="1460.85" y="976.0" />
+      <point x="0.0" y="26.0" />
+    </edge>
+    <edge source="java.xml" target="java.desktop">
+      <point x="13.71428571428578" y="-26.0" />
+      <point x="1484.504232804233" y="1006.0" />
+      <point x="1537.2899470899472" y="1006.0" />
+      <point x="1537.2899470899472" y="879.0" />
+      <point x="1466.706613756614" y="879.0" />
+      <point x="42.666666666666686" y="26.0" />
+    </edge>
+    <edge source="javafx.base" target="org.kordamp.ikonli.javafx">
+      <point x="-22.5" y="-26.0" />
+      <point x="1116.0899470899471" y="630.0" />
+      <point x="775.1399470899473" y="630.0" />
+      <point x="775.1399470899473" y="336.0" />
+      <point x="707.5833333333334" y="336.0" />
+      <point x="29.0" y="26.0" />
+    </edge>
+    <edge source="javafx.graphics" target="javafx.media">
+      <point x="63.33333333333337" y="-26.0" />
+      <point x="751.9732804232806" y="538.0" />
+      <point x="1301.3666666666668" y="538.0" />
+      <point x="-32.0" y="26.0" />
+    </edge>
+    <edge source="javafx.base" target="org.controlsfx.controls">
+      <point x="37.5" y="-26.0" />
+      <point x="1176.0899470899471" y="670.0" />
+      <point x="1430.1166666666668" y="670.0" />
+      <point x="1430.1166666666668" y="356.0" />
+      <point x="1365.6166666666668" y="356.0" />
+      <point x="43.200000000000045" y="26.0" />
+    </edge>
+    <edge source="javafx.base" target="javafx.media">
+      <point x="22.5" y="-26.0" />
+      <point x="1161.0899470899471" y="660.0" />
+      <point x="1365.3666666666668" y="660.0" />
+      <point x="32.0" y="26.0" />
+    </edge>
+    <edge source="jdk.xml.dom" target="javafx.web">
+      <point x="0.0" y="-26.0" />
+      <point x="1702.502592592593" y="406.0" />
+      <point x="1597.3666666666668" y="406.0" />
+      <point x="49.0" y="26.0" />
+    </edge>
+    <edge source="eu.hansolo.tilesfx" target="vava.project.vavaprojekt">
+      <point x="0.0" y="-26.0" />
+      <point x="930.0833333333334" y="102.0" />
+      <point x="1052.7233597883605" y="102.0" />
+      <point x="-14.0" y="26.0" />
+    </edge>
+    <edge source="javafx.base" target="javafx.graphics">
+      <point x="-37.5" y="-26.0" />
+      <point x="1101.0899470899471" y="640.0" />
+      <point x="745.6399470899473" y="640.0" />
+      <point x="57.0" y="26.0" />
+    </edge>
+    <edge source="javafx.fxml" target="vava.project.vavaprojekt">
+      <point x="5.6843418860808015E-14" y="-26.0" />
+      <point x="488.8899470899473" y="326.0" />
+      <point x="438.08333333333337" y="326.0" />
+      <point x="438.08333333333337" y="82.0" />
+      <point x="996.7233597883605" y="82.0" />
+      <point x="-70.0" y="26.0" />
+    </edge>
+    <edge source="javafx.controls" target="javafx.web">
+      <point x="63.33333333333326" y="-26.0" />
+      <point x="1169.75" y="366.0" />
+      <point x="1499.3666666666668" y="366.0" />
+      <point x="-49.0" y="26.0" />
+    </edge>
+    <edge source="java.xml" target="javafx.web">
+      <point x="27.42857142857133" y="-26.0" />
+      <point x="1498.2185185185185" y="1016.0" />
+      <point x="1632.002592592593" y="1016.0" />
+      <point x="1632.002592592593" y="416.0" />
+      <point x="1583.3666666666668" y="416.0" />
+      <point x="35.0" y="26.0" />
+    </edge>
+    <edge source="java.xml" target="java.sql">
+      <point x="-41.14285714285711" y="-26.0" />
+      <point x="1429.64708994709" y="1006.0" />
+      <point x="130.83333333333337" y="1006.0" />
+      <point x="32.0" y="26.0" />
+    </edge>
+    <edge source="jdk.jsobject" target="javafx.web">
+      <point x="0.0" y="-26.0" />
+      <point x="1541.1166666666668" y="416.0" />
+      <point x="1569.3666666666668" y="416.0" />
+      <point x="21.0" y="26.0" />
+    </edge>
+    <edge source="javafx.graphics" target="javafx.fxml">
+      <point x="-63.33333333333326" y="-26.0" />
+      <point x="625.3066137566141" y="538.0" />
+      <point x="533.8899470899473" y="538.0" />
+      <point x="45.00000000000006" y="26.0" />
+    </edge>
+    <edge source="javafx.controls" target="eu.hansolo.tilesfx">
+      <point x="-38.0" y="-26.0" />
+      <point x="1068.4166666666665" y="316.0" />
+      <point x="954.3899470899473" y="316.0" />
+      <point x="954.3899470899473" y="214.0" />
+      <point x="930.0833333333334" y="214.0" />
+      <point x="0.0" y="26.0" />
+    </edge>
+    <edge source="javafx.base" target="javafx.fxml">
+      <point x="-52.5" y="-26.0" />
+      <point x="1086.0899470899471" y="650.0" />
+      <point x="438.13994708994727" y="650.0" />
+      <point x="438.13994708994727" y="538.0" />
+      <point x="473.88994708994727" y="538.0" />
+      <point x="-15.0" y="26.0" />
+    </edge>
+    <edge source="java.desktop" target="javafx.web">
+      <point x="25.599999999999852" y="-26.0" />
+      <point x="1449.639947089947" y="782.0" />
+      <point x="1466.6166666666668" y="782.0" />
+      <point x="1466.6166666666668" y="406.0" />
+      <point x="1555.3666666666668" y="406.0" />
+      <point x="7.0" y="26.0" />
+    </edge>
+    <edge source="java.desktop" target="javafx.graphics">
+      <point x="-51.200000000000045" y="-26.0" />
+      <point x="1372.8399470899471" y="782.0" />
+      <point x="640.0833333333334" y="782.0" />
+      <point x="640.0833333333334" y="680.0" />
+      <point x="707.6399470899473" y="680.0" />
+      <point x="19.0" y="26.0" />
+    </edge>
+    <edge source="java.sql" target="vava.project.vavaprojekt">
+      <point x="0.0" y="-26.0" />
+      <point x="98.83333333333337" y="72.0" />
+      <point x="968.7233597883605" y="72.0" />
+      <point x="-98.0" y="26.0" />
+    </edge>
+    <edge source="javafx.web" target="vava.project.vavaprojekt">
+      <point x="28.0" y="-26.0" />
+      <point x="1576.3666666666668" y="102.0" />
+      <point x="1164.7233597883605" y="102.0" />
+      <point x="98.0" y="26.0" />
+    </edge>
+    <edge source="org.kordamp.ikonli.core" target="org.kordamp.ikonli.javafx">
+      <point x="0.0" y="-26.0" />
+      <point x="230.08333333333337" y="336.0" />
+      <point x="591.5833333333334" y="336.0" />
+      <point x="-87.0" y="26.0" />
+    </edge>
+    <edge source="java.base" target="eu.hansolo.tilesfx">
+      <point x="0.0" y="-26.0" />
+      <point x="891.8899470899473" y="214.0" />
+      <point x="894.8833333333333" y="214.0" />
+      <point x="-35.200000000000045" y="26.0" />
+    </edge>
+    <edge source="java.logging" target="org.controlsfx.controls">
+      <point x="42.66666666666674" y="-26.0" />
+      <point x="310.66666666666674" y="1026.0" />
+      <point x="348.58333333333337" y="1026.0" />
+      <point x="348.58333333333337" y="346.0" />
+      <point x="1236.0166666666664" y="346.0" />
+      <point x="-86.40000000000009" y="26.0" />
+    </edge>
+    <edge source="java.xml" target="javafx.fxml">
+      <point x="-27.42857142857133" y="-26.0" />
+      <point x="1443.3613756613759" y="996.0" />
+      <point x="359.58333333333337" y="996.0" />
+      <point x="359.58333333333337" y="528.0" />
+      <point x="443.88994708994727" y="528.0" />
+      <point x="-45.0" y="26.0" />
+    </edge>
+    <edge source="javafx.media" target="javafx.web">
+      <point x="32.0" y="-26.0" />
+      <point x="1365.3666666666668" y="386.0" />
+      <point x="1527.3666666666668" y="386.0" />
+      <point x="-21.0" y="26.0" />
+    </edge>
+    <edge source="java.desktop" target="javafx.base">
+      <point x="-25.59999999999991" y="-26.0" />
+      <point x="1398.4399470899473" y="772.0" />
+      <point x="1138.5899470899471" y="772.0" />
+      <point x="0.0" y="26.0" />
+    </edge>
+    <edge source="javafx.controls" target="com.dlsc.formsfx">
+      <point x="12.666666666666742" y="-26.0" />
+      <point x="0.0" y="26.0" />
+    </edge>
+    <edge source="java.prefs" target="java.desktop">
+      <point x="0.0" y="-26.0" />
+      <point x="1460.85" y="879.0" />
+      <point x="1424.0399470899472" y="879.0" />
+      <point x="0.0" y="26.0" />
+    </edge>
+    <edge source="java.xml" target="jdk.xml.dom">
+      <point x="41.14285714285711" y="-26.0" />
+      <point x="1511.9328042328043" y="1026.0" />
+      <point x="1702.502592592593" y="1026.0" />
+      <point x="0.0" y="26.0" />
+    </edge>
+    <edge source="javafx.graphics" target="eu.hansolo.tilesfx">
+      <point x="-12.666666666666629" y="-26.0" />
+      <point x="675.9732804232806" y="508.0" />
+      <point x="829.3899470899473" y="508.0" />
+      <point x="829.3899470899473" y="214.0" />
+      <point x="859.6833333333334" y="214.0" />
+      <point x="-70.39999999999998" y="26.0" />
+    </edge>
+    <edge source="javafx.web" target="eu.hansolo.tilesfx">
+      <point x="-28.0" y="-26.0" />
+      <point x="1520.3666666666668" y="204.0" />
+      <point x="1000.4833333333333" y="204.0" />
+      <point x="70.39999999999998" y="26.0" />
+    </edge>
+    <edge source="java.datatransfer" target="java.desktop">
+      <point x="0.0" y="-26.0" />
+      <point x="1300.85" y="879.0" />
+      <point x="1381.3732804232804" y="879.0" />
+      <point x="-42.66666666666674" y="26.0" />
+    </edge>
+    <edge source="javafx.base" target="eu.hansolo.tilesfx">
+      <point x="7.5" y="-26.0" />
+      <point x="1146.0899470899471" y="650.0" />
+      <point x="1203.9166666666665" y="650.0" />
+      <point x="1203.9166666666665" y="214.0" />
+      <point x="965.2833333333334" y="214.0" />
+      <point x="35.200000000000045" y="26.0" />
+    </edge>
+    <edge source="javafx.base" target="javafx.web">
+      <point x="52.5" y="-26.0" />
+      <point x="1191.0899470899471" y="680.0" />
+      <point x="1441.1166666666668" y="680.0" />
+      <point x="1441.1166666666668" y="396.0" />
+      <point x="1541.3666666666668" y="396.0" />
+      <point x="-7.0" y="26.0" />
+    </edge>
+    <edge source="javafx.graphics" target="javafx.web">
+      <point x="38.0" y="-26.0" />
+      <point x="726.6399470899473" y="528.0" />
+      <point x="1192.9166666666665" y="528.0" />
+      <point x="1192.9166666666665" y="376.0" />
+      <point x="1513.3666666666668" y="376.0" />
+      <point x="-35.0" y="26.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.5000000000000001" x="927.6518518518517" y="461.9999999999999" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>Project Files</SCOPE>
+</Diagram>
+
