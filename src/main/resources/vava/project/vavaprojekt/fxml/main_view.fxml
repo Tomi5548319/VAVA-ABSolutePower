@@ -125,7 +125,7 @@
                      <image>
                         <Image url="@../icons/icons8-logout-100.png" />
                      </image></ImageView>
-                  <Text fx:id="menu_text1" onMouseEntered="#textEntered" onMouseExited="#textExited" strokeType="OUTSIDE" strokeWidth="0.0" text="Homepage" GridPane.columnIndex="1">
+                  <Text fx:id="menu_text_homepage" onMouseEntered="#textEntered" onMouseExited="#textExited" strokeType="OUTSIDE" strokeWidth="0.0" text="Homepage" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets left="15.0" />
                      </GridPane.margin>
@@ -136,7 +136,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Text>
-                  <Text fx:id="menu_text2" onMouseEntered="#textEntered" onMouseExited="#textExited" strokeType="OUTSIDE" strokeWidth="0.0" text="%sportsmen" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Text fx:id="menu_text_sportsmen" onMouseEntered="#textEntered" onMouseExited="#textExited" strokeType="OUTSIDE" strokeWidth="0.0" text="%sportsmen" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="15.0" />
                      </GridPane.margin>
@@ -147,7 +147,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Text>
-                  <Text fx:id="menu_text3" onMouseEntered="#textEntered" onMouseExited="#textExited" strokeType="OUTSIDE" strokeWidth="0.0" text="%training_request" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Text fx:id="menu_text_training_req" onMouseEntered="#textEntered" onMouseExited="#textExited" strokeType="OUTSIDE" strokeWidth="0.0" text="%training_request" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="15.0" />
                      </GridPane.margin>
@@ -158,7 +158,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Text>
-                  <Text fx:id="menu_text4" onMouseEntered="#textEntered" onMouseExited="#textExited" strokeType="OUTSIDE" strokeWidth="0.0" text="%statistics" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <Text fx:id="menu_text_stats" onMouseEntered="#textEntered" onMouseExited="#textExited" strokeType="OUTSIDE" strokeWidth="0.0" text="%statistics" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets left="15.0" />
                      </GridPane.margin>
@@ -169,7 +169,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Text>
-                  <Text fx:id="menu_text5" onMouseEntered="#textEntered" onMouseExited="#textExited" strokeType="OUTSIDE" strokeWidth="0.0" text="%settings" wrappingWidth="93.22656631469727" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <Text fx:id="menu_text_settings" onMouseEntered="#textEntered" onMouseExited="#textExited" strokeType="OUTSIDE" strokeWidth="0.0" text="%settings" wrappingWidth="93.22656631469727" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <GridPane.margin>
                         <Insets left="15.0" />
                      </GridPane.margin>
@@ -180,7 +180,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Text>
-                  <Text fx:id="menu_text6" onMouseEntered="#textEntered" onMouseExited="#textExited" strokeType="OUTSIDE" strokeWidth="0.0" text="%log_out" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                  <Text fx:id="menu_text_log_out" onMouseEntered="#textEntered" onMouseExited="#textExited" strokeType="OUTSIDE" strokeWidth="0.0" text="%log_out" GridPane.columnIndex="1" GridPane.rowIndex="5">
                      <GridPane.margin>
                         <Insets left="15.0" />
                      </GridPane.margin>

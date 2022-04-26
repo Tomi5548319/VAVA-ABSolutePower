@@ -2,7 +2,6 @@ package vava.project.vavaprojekt.controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -28,12 +27,12 @@ public final class MenuController extends Controller {
     @FXML private Circle menu_photo;
     @FXML private TextField menu_search;
     @FXML private ImageView menu_searchbutton;
-    @FXML private Text menu_text1;
-    @FXML private Text menu_text2;
-    @FXML private Text menu_text3;
-    @FXML private Text menu_text4;
-    @FXML private Text menu_text5;
-    @FXML private Text menu_text6;
+    @FXML private Text menu_text_homepage;
+    @FXML private Text menu_text_sportsmen;
+    @FXML private Text menu_text_training_req;
+    @FXML private Text menu_text_stats;
+    @FXML private Text menu_text_settings;
+    @FXML private Text menu_text_log_out;
     @FXML private Text menu_username;
     @FXML private AnchorPane screen_pane;
 
@@ -72,25 +71,25 @@ public final class MenuController extends Controller {
 
 
 
-        prev = menu_text1;
-        menu_text1.setFill(Color.DODGERBLUE);
+        prev = menu_text_homepage;
+        menu_text_homepage.setFill(Color.DODGERBLUE);
 
-        menu_text5.setOnMouseClicked(this::my_profile);
-        menu_text6.setOnMouseClicked(this::logout);
+        menu_text_settings.setOnMouseClicked(this::my_profile);
+        menu_text_log_out.setOnMouseClicked(this::logout);
 
         menu_lang.setOnMouseReleased(this::change_language);
 
         switch (app.getUser().getAccount_type())
         {
             case "sportsman":
-                menu_text1.setOnMouseClicked(this::page_home);
+                menu_text_homepage.setOnMouseClicked(this::page_home);
                 //menu_options.getChildren().set(node -> GridPane.getRowIndex(node) == 2);  ZLE
                 //menu_options.getRowConstraints().get(2).setMaxHeight(0);      ZLE
 
                 this.loadPage("homepage");
                 break;
             case "trainer":
-                menu_text1.setOnMouseClicked(this::page_home);
+                menu_text_homepage.setOnMouseClicked(this::page_home);
                 //menu_text2.setOnMouseClicked(this::textUI);
                 //menu_text3.setOnMouseClicked(this::textUI);
                 //menu_text4.setOnMouseClicked(this::textUI);
@@ -102,7 +101,7 @@ public final class MenuController extends Controller {
                 menu_options.getRowConstraints().get(1).setMaxHeight(0);
                 menu_options.getRowConstraints().get(3).setMaxHeight(0);
 
-                menu_text3.setText("%upgrade_requests");
+                menu_text_training_req.setText("%upgrade_requests");
                 //TODO upgrade requests screen - menutext3
                 //menu text 1
 
@@ -136,7 +135,7 @@ public final class MenuController extends Controller {
 
     private void my_profile(MouseEvent e) {
         prev.setFill(Color.BLACK);
-        prev = menu_text5;
+        prev = menu_text_settings;
         prev.setFill(Color.DODGERBLUE);
 
         this.loadPage("profile_own");
@@ -149,7 +148,7 @@ public final class MenuController extends Controller {
 
     private void page_home(MouseEvent e) {
         prev.setFill(Color.BLACK);
-        prev = menu_text1;
+        prev = menu_text_homepage;
         prev.setFill(Color.DODGERBLUE);
 
         this.loadPage("homepage");
