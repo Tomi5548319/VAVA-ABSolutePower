@@ -69,4 +69,17 @@ Grafické rozhranie je implementovane pomocou Java FX z použitím Scene Builder
 Sportovec je klasicky pouzivatel ktory moze pridavat, odstranovat, vytvarat workouty a posielat ziadosti na zostavu workoutov Trenerom.Ak je sportovec kvalifikovany na Trenera - moze si poziadat o zmenu uctu na Trenera.<br>
 Ulohou Admina/Verifikatora je shcvalovanie ziadosti od Sportovcov <br>
 Trainer ma a starosti sportovcov ktori si poziadali a boli prijati do timu. Dokaze pridelovat workouty pre sportovcov a upravovat ich <br>
-![This is an image](/UML/01 UC Diagram.png)
+##Use cases diagrams<br />
+![This is an image](https://github.com/Tomi5548319/VAVA-ABSolutePower/blob/main/UML/01%20UC%20Diagram.png)
+![This is an image](https://github.com/Tomi5548319/VAVA-ABSolutePower/blob/main/UML/02%20UC%20Diagram.png)
+
+## Process diagrams<br />
+![This is an image](https://github.com/Tomi5548319/VAVA-ABSolutePower/blob/main/UML/Edit%20account_process.png)
+![This is an image](https://github.com/Tomi5548319/VAVA-ABSolutePower/blob/main/UML/Creating%20workout_process.png)
+![This is an image](https://github.com/Tomi5548319/VAVA-ABSolutePower/blob/main/UML/Login_process.png)
+
+
+##Activity diagrams<br />
+![This is an image](https://github.com/Tomi5548319/VAVA-ABSolutePower/blob/main/UML/Logging%20in_seqense.png)
+![This is an image](https://github.com/Tomi5548319/VAVA-ABSolutePower/blob/main/UML/Creating%20workout_sequence.png)
+![This is an image](https://github.com/Tomi5548319/VAVA-ABSolutePower/blob/main/UML/Request%20for%20training_sequence.png)
