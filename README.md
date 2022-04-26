@@ -36,6 +36,8 @@ Preklad a lokalizácia je vytvorená pre ENG a SK jazyky je implementovaná p
 
 ## 9.Pouzivatelia <br /><br />
 
-Nasa aplikacia obsahuje 3ch pouzivatelov: Sportsman(Sportovec), Admin/Verifikator a Trainer(Trener)./n>Sportovec je klasicky pouzivatel ktory moze pridavat, odstranovat, vytvarat workouty a posielat ziadosti na zostavu workoutov Trenerom.Ak je sportovec kvalifikovany na Trenera - moze si poziadat o zmenu uctu na Trenera.
->Ulohou Admina/Verifikatora je shcvalovanie ziadosti od Sportovcov 
->Trainer ma a starosti sportovcov ktori si poziadali a boli prijati do timu. Dokaze pridelovat workouty pre sportovcov a upravovat ich
+### Nasa aplikacia obsahuje 3ch pouzivatelov:<br> Sportsman(Sportovec), Admin/Verifikator a Trainer(Trener).<br><br>
+Sportovec je klasicky pouzivatel ktory moze pridavat, odstranovat, vytvarat workouty a posielat ziadosti na zostavu workoutov Trenerom.Ak je sportovec kvalifikovany na Trenera - moze si poziadat o zmenu uctu na Trenera.<br>
+Ulohou Admina/Verifikatora je shcvalovanie ziadosti od Sportovcov <br>
+Trainer ma a starosti sportovcov ktori si poziadali a boli prijati do timu. Dokaze pridelovat workouty pre sportovcov a upravovat ich <br>
+![This is an image](UML/01 UC Diagram.png)
