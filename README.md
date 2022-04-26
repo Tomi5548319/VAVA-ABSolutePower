@@ -34,6 +34,19 @@ Funkcionalita pre logovanie je implementovaná v 'Database.java'.<br /><br />
 ## 3. Lokalizácia<br /><br /> 
 
 Preklad a lokalizácia je vytvorená pre ENG a SK jazyky je implementovaná pomocou ResourceBundle. @TODO v daných súboroch sa nachádzajú všetky preklady nadpisov a textov. Jazyk pre užívateľa sa ukladá do profilu usera v Databáze ako predvolený jazyk aby pri budúcom prihlásení si to nemusel meniť ak nechce používať predvolený SK Language. Načítavanie je zakomponovane v fxmlLoadery kde sa získa jazyk používateľa a načíta sa obrazovka.<br /><br />
+```
+private void change_language(MouseEvent mouseEvent)
+    {
+        Integer n = Math.toIntExact(Math.round(menu_lang.getValue()));
+        String current_lang = app.getUser().getLanguage();
+
+        if ((n == 0 && current_lang.equals("lang_en")) || (n == 1 && current_lang.equals("lang_sk")))
+        {
+            app.update_language(n);
+            app.changeWindow("main_view-" + this.current_page);
+        }
+    }
+```
 
 
 
