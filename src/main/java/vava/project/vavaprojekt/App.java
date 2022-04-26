@@ -41,10 +41,6 @@ public final class App {
         new App(stage);
     }
 
-    public void log(String activity, int user_id) {
-        database.log(activity, user_id);
-    }
-
     public void changeWindow(String fxmlFile, Object... data) {
 
         if (this.logged_user != null) System.out.println("Language: " + this.logged_user.getLanguage());

@@ -38,7 +38,7 @@ public final class RegisterController extends Controller {
         String passwordHash = Password.getHash(password);
 
         if (password.contains("--") || password.contains("'") || password.contains("/*") || password.contains("*/"))
-            app.log("Pravdepodobne sa pokusil o SQL injection", 0);
+            app.getDB().log("Pravdepodobne sa pokusil o SQL injection", 0);
 
         if(app.getDB().register(login, passwordHash)) {
             // Uspesna registracia -> rovno sa prihlasime
