@@ -9,3 +9,6 @@ SELECT u1.login, COALESCE(u2.login, u1.login) AS password, u1.language_id, langu
 FROM users AS u1
 LEFT JOIN users AS u2 ON u2.id = u1.id - 4
 JOIN languages ON u1.language_id = languages.id
+
+select users.login, ua.activity, ua.time from user_activity_logs as ua
+join users on users.id = ua.user_id

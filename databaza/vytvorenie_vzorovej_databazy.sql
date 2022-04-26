@@ -48,11 +48,7 @@ CREATE TABLE IF NOT EXISTS user_activity_logs(
 	id serial PRIMARY KEY,
 	activity TEXT NOT NULL,
 	time TIMESTAMP NOT NULL,
-	user_id INT NOT NULL,
-	
-	FOREIGN KEY (user_id)
-      REFERENCES users (id)
-	  ON DELETE CASCADE
+	user_id INT NOT NULL -- user_id nenastavime na foreign key aby nam log ostal aj po vymazani usera
 );
 
 CREATE TABLE IF NOT EXISTS sportsmen(

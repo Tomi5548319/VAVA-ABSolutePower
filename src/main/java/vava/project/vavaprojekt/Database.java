@@ -1,11 +1,11 @@
 package vava.project.vavaprojekt;
 
-import vava.project.vavaprojekt.data.Exercise;
 import vava.project.vavaprojekt.data.User;
 import vava.project.vavaprojekt.data.Workout;
 
 import java.sql.*;
 import java.util.*;
+import java.time.LocalDateTime;
 
 public final class Database {
 
@@ -45,6 +45,8 @@ public final class Database {
                     stmt.setString(i, (String)variable);
                 else if(cls.equals("class java.lang.Integer"))
                     stmt.setInt(i, (Integer) variable);
+                else if(cls.equals("class java.sql.Timestamp"))
+                    stmt.setTimestamp(i, (Timestamp) variable);
                 //stmt.setString(i, variable);
                 i++;
             }
@@ -59,7 +61,37 @@ public final class Database {
     }
 
     //QUERIES
+    public void log(String activity, int user_id) {
+        System.out.println("Pridavam log: " + activity + ", user: " + user_id);
+        Timestamp time = Timestamp.valueOf(LocalDateTime.now());
+
+        this.safeExecuteSQL(
+                "INSERT INTO user_activity_logs (activity, time, user_id) VALUES\n" +
+                        "(?, ?, ?)", activity, time, user_id);
+    }
+
+    public void log(String activity, String login) {
+        ResultSet rs = this.safeExecuteSQL(
+                "SELECT id\n" +
+                        "FROM users\n" +
+                        "WHERE login = ?", login);
+        if (rs == null) return;
+
+        try {
+            rs.next();
+
+            int id = rs.getInt("id");
+            log(activity, id);
+
+        } catch (SQLException e) {
+            System.out.println("Chyba: " + e.getMessage());
+        }
+    }
+
     public boolean register(String login, String passwordHash) {
+        if (login.contains("--") || login.contains("'") || login.contains("/*") || login.contains("*/"))
+            log("Pravdepodobne sa pokusil o SQL injection", 0);
+
         ResultSet rs = this.safeExecuteSQL(
             "SELECT login\n" +
                     "FROM users\n" +
@@ -108,6 +140,8 @@ public final class Database {
                             "(1, false, ?);",
                     user_id);
 
+            log("Zaregistroval sa s loginom '" + login + "'", user_id);
+
             return true;
 
         } catch (SQLException e) {
@@ -118,6 +152,9 @@ public final class Database {
     }
 
     public User login(String login, String passwordHash) {
+
+        if (login.contains("--") || login.contains("'") || login.contains("/*") || login.contains("*/"))
+            log("Pravdepodobne sa pokusil o SQL injection", 0);
 
         ResultSet rs = this.safeExecuteSQL(
                 "SELECT users.id, account_types.type AS account_type, languages.lang AS language\n" +
@@ -131,8 +168,11 @@ public final class Database {
         if (rs == null) return null;
 
         try {
-            if (rs.next())
-            {
+
+            if (rs.next()) {
+                log("Prihlasil sa", login);
+
+
                 int id = rs.getInt("id");
                 String account_type = rs.getString("account_type");
                 String language = rs.getString("language");
@@ -198,8 +238,6 @@ public final class Database {
             {
                 Workout temp = new Workout(rs.getInt("workout_id"), rs.getString("workoutname"), rs.getInt("owner_id"), rs.getString("workoutdesc"), rs.getTimestamp("scheduled_for"));
 
-
-
                 //list.
                 //Exercise e = new Exercise(rs.getInt("exercise_id"));
 
@@ -215,6 +253,8 @@ public final class Database {
 
     public boolean update_user(String login, String passwordHash, String columns)
     {
+        log("Zmenil udaje nasledovne: " + columns, login);
+
         try
         {
             ResultSet rs = this.safeExecuteSQL(
