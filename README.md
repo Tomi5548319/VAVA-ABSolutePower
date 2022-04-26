@@ -32,7 +32,9 @@ Preklad a lokalizácia je vytvorená pre ENG a SK jazyky je implementovaná p
 ## 7.<br /><br />
 
 
-## 8.GUI<br /><br />Grafické rozhranie je implementovane pomocou Java FX z použitím Scene Builder. Každá obrazovka ma svoj súbor FXML. Obrazovka hlavného menu je rozdelená na 2 časti. Na ľavej vždy sa nachádza menu pre Usera aby sa vedel rýchlo dostáť z jednej obrazovky na inú.<br /><br />
+## 8.GUI<br /><br />
+
+Grafické rozhranie je implementovane pomocou Java FX z použitím Scene Builder. Každá obrazovka ma svoj súbor FXML. Obrazovka hlavného menu je rozdelená na 2 časti. Na ľavej vždy sa nachádza menu pre Usera aby sa vedel rýchlo dostáť z jednej obrazovky na inú.<br /><br />
 
 ## 9.Pouzivatelia <br /><br />
 
@@ -40,4 +42,4 @@ Preklad a lokalizácia je vytvorená pre ENG a SK jazyky je implementovaná p
 Sportovec je klasicky pouzivatel ktory moze pridavat, odstranovat, vytvarat workouty a posielat ziadosti na zostavu workoutov Trenerom.Ak je sportovec kvalifikovany na Trenera - moze si poziadat o zmenu uctu na Trenera.<br>
 Ulohou Admina/Verifikatora je shcvalovanie ziadosti od Sportovcov <br>
 Trainer ma a starosti sportovcov ktori si poziadali a boli prijati do timu. Dokaze pridelovat workouty pre sportovcov a upravovat ich <br>
-![This is an image](UML/01 UC Diagram.png)
+![This is an image](/UML/01 UC Diagram.png)
