@@ -27,6 +27,9 @@ Preklad a lokalizácia je vytvorená pre ENG a SK jazyky je implementovaná p
 
 
 ## 6.<br /><br />
+V projekte používame JDBC Driver na pripojenie k PostgreSQL databáze, ktorý sme stiahli z linku https://jdbc.postgresql.org/download/postgresql-42.3.4.jar (konektor sa nachádza aj v priečinku "databáza")<br />
+
+Driver je potrebné importovať do projektu následovne (IntelliJ): File > Project Structure... > Modules > + > JARs or Directories... > [treba vybrať .jar súbor JDBC drivera] > [zvoliť pridaný modul v zozname modulov] > OK<br /><br />
 
 
 ## 7.<br /><br />
