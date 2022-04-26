@@ -11,6 +11,8 @@ import vava.project.vavaprojekt.App;
 import vava.project.vavaprojekt.Password;
 import vava.project.vavaprojekt.data.Sportsman;
 
+import java.util.Objects;
+
 public final class OwnProfileController  extends Controller {
     @FXML private Text text_nickname_heading;
     @FXML private TextArea textArea_description;
@@ -33,9 +35,18 @@ public final class OwnProfileController  extends Controller {
 
     @Override
     protected void initialize() {
-        text_nickname_heading.setText(((Sportsman)app.getUser()).getNickname());
-        textArea_description.setText(((Sportsman)app.getUser()).getDescription());
-        textField_nickname.setText(((Sportsman)app.getUser()).getNickname());
+        if (app.getUser() instanceof Sportsman) {
+            text_nickname_heading.setText(((Sportsman)app.getUser()).getNickname());
+            textArea_description.setText(((Sportsman)app.getUser()).getDescription());
+            textField_nickname.setText(((Sportsman)app.getUser()).getNickname());
+        }
+        else {
+            text_nickname_heading.setText(app.getUser().getLogin());
+            textArea_description.setVisible(false);
+            textField_nickname.setVisible(false);
+            text_nickname_change.setVisible(false);
+            btn_upgrade.setVisible(false);
+        }
         textField_login.setText((app.getUser()).getLogin());
 
         btn_save_changes.setOnMouseClicked(this::saveChanges);
@@ -52,23 +63,25 @@ public final class OwnProfileController  extends Controller {
         String new_pass = Password.getHash(passField_new_password.getText());
         String new_pass_check = Password.getHash(passField_confirm_password.getText());
 
-        // TODO popup pre udaje ktore sa nepodari aktualizovat
-        ((Sportsman)app.getUser()).updateDescription(new_desc);
-        ((Sportsman)app.getUser()).updateNickname(new_nick);
+        // TODO popup ktory informuje pouzivatela ci sa podarilo zmenit jeho udaje
+        if (app.getUser() instanceof Sportsman) {
+            ((Sportsman)app.getUser()).updateDescription(new_desc);
+            ((Sportsman)app.getUser()).updateNickname(new_nick);
+        }
+
         if (app.getUser().setLogin(new_login))
             System.out.println("Login bol zmeneny uspesne");
         else {
             textField_login.setText(app.getUser().getLogin());
             System.out.println("Login sa nepodarilo zmenit");
         }
-        if (app.getUser().setPassword(act_pass, new_pass, new_pass_check))
+        if (app.getUser().setPassword(act_pass, new_pass, new_pass_check)) {
+            passField_act_password.setText("");
+            passField_new_password.setText("");
+            passField_confirm_password.setText("");
             System.out.println("Heslo bolo zmenene uspesne");
+        }
         else
             System.out.println("Heslo sa nepodarilo zmenit");
-
-        passField_act_password.setText("");
-        passField_new_password.setText("");
-        passField_confirm_password.setText("");
-
     }
 }
